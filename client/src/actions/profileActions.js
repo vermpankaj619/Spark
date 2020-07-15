@@ -7,7 +7,8 @@ import {
   CLEAR_CURRENT_PROFILE,
   GET_ERRORS,
   SET_CURRENT_USER,
-  GET_SCH
+  GET_SCH,
+  GET_RES
 } from './types';
 
 // Get current profile
@@ -58,10 +59,23 @@ export const createSchedule = (profileData, history) => dispatch => {
   .post('/api/users/AddSchedule', profileData)
     .then(res => history.push('/AddSchedule'))
     .catch(err =>
+     console.log(err)
+    );
+};
+export const getId = (profileData, history) => dispatch => {
+  axios
+  .post('/api/users/data', profileData)
+    .then(
+res =>
       dispatch({
-        type: GET_ERRORS,
-        payload: err.response.data
+        type: GET_RES,
+        payload: res.data
       })
+
+
+    )
+    .catch(err =>
+     console.log(err)
     );
 };
 export const getsch = () => dispatch => {
@@ -79,17 +93,7 @@ export const getsch = () => dispatch => {
     );
 };
 
-export const adddata = (data) => dispatch => {
 
-  axios
-    .get('/api/users/Adddata')
-    .then(res =>
-       console.log('upadted')
-    )
-    .catch(err =>
-      console.log(err)
-    );
-};
 
 // Profile loading
 export const setProfileLoading = () => {

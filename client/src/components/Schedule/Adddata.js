@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import {   getsch , createSchedule  } from '../../actions/profileActions';
-import { Link} from 'react-router-dom';
+
 
  class Adddata extends Component {
     componentDidMount() {

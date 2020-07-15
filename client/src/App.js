@@ -13,10 +13,12 @@ import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
+import User from "./components/dashboard/User";
 import Det from './components/detilal/Det';
 import Create from './components/dashboard/Create'
 import "./App.css";
 import Adddata  from './components/Schedule/Adddata'
+import Home from "./components/layout/Home";
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
   // Set auth token header auth
@@ -61,6 +63,13 @@ class App extends Component {
         <Switch>
         <PrivateRoute exact path="/AddSchedule" component={Adddata} />
       </Switch>
+      <Switch>
+      <PrivateRoute exact path="/Home" component={Home} />
+    </Switch>
+    <Switch>
+    <PrivateRoute exact path="/resturant" component={User}/>
+  </Switch>
+
           </div>
         </Router>
       </Provider>

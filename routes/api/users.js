@@ -185,7 +185,7 @@ res.json(result.detials)
 router.post('/AddSchedule', passport.authenticate('jwt', { session: false })   , (req, res) => {
 
 
-  
+  console.log(req.body)
 
   const user = User.findOne({_id: req.user.id}, function(err,obj)  {
    if(err) {
@@ -231,7 +231,20 @@ let user =  User.findOneAndUpdate({_id: req.user.id },{ $push: {"Scehedule":  pr
 
 
 
+router.post('/data'  , (req, res) => {
 
+
+  const {  id  } = req.body;
+
+ 
+  const user = User.findOne({_id: id}, function(err,obj)  {
+    if(err) {
+      console.log('sdksk')
+    }
+    res.json(obj)
+
+  })
+})
 
 
 

@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import {   getsch , getlist ,createSchedule  } from '../../actions/profileActions';
 class Landing extends Component {
-  componentDidMount() {
+  componentWillMount() {
       
     this.props.getlist();
 }
@@ -58,20 +58,15 @@ class Landing extends Component {
     );
               }
               else {
-                return (
-          <div>
-           {user.name}
-          <Link  to="/dashboard" >DashBoard</Link>
-    
-          {profiles.map(item => (
-            <div key={item.id}>{item.title}</div>
-          ))}
+            return (
 
+              <div>
+  
+         <Link to="/Home">Home</Link>
 
-
-          </div>
-        
+              </div>
             )
+            
         
       
        
