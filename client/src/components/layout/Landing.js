@@ -1,8 +1,17 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-
+import { connect } from "react-redux";
+import { logoutUser } from "../../actions/authActions";
+import {   getsch , getlist ,createSchedule  } from '../../actions/profileActions';
 class Landing extends Component {
+  componentDidMount() {
+      
+    this.props.getlist();
+}
   render() {
+    const {user , isAuthenticated } = this.props.auth;
+    const {  profiles, loading } = this.props.profile;
+       if(isAuthenticated == false) {
     return (
       <div style={{ height: "75vh" }} className="container valign-wrapper">
         <div className="row">
@@ -47,7 +56,57 @@ class Landing extends Component {
         </div>
       </div>
     );
-  }
-}
+              }
+              else {
+                return (
+          <div>
+           {user.name}
+          <Link  to="/dashboard" >DashBoard</Link>
+    
+          {profiles.map(item => (
+            <div key={item.id}>{item.title}</div>
+          ))}
 
-export default Landing;
+
+
+          </div>
+        
+            )
+        
+      
+       
+     
+        
+      }
+      
+      
+      
+      
+      
+    
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+   
+
+const mapStateToProps = state => ({
+  auth: state.auth,
+  profile: state.profile,
+
+});
+
+export default connect(mapStateToProps,{createSchedule, getlist, getsch})(Landing)

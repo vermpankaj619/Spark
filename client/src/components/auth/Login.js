@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { browserHistory } from 'react-router'
 import { loginUser } from "../../actions/authActions";
 import classnames from "classnames";
 
@@ -17,15 +18,26 @@ class Login extends Component {
 
   componentDidMount() {
     // If logged in and user navigates to Login page, should redirect them to dashboard
-    if (this.props.auth.isAuthenticated) {
+    // if (this.props.auth.isAuthenticated  && this.props.auth.user.detials ) {
+    //   this.props.history.push("/dashboard");
+    // }
+    // else {
+    //   this.props.history.push("/det");
+    if(this.props.auth.isAuthenticated  && this.props.auth.user.detials) {
       this.props.history.push("/dashboard");
-    }
+    } 
+
+
+    
+    
+  
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.auth.isAuthenticated) {
+    if (nextProps.auth.isAuthenticated  ) {
       this.props.history.push("/dashboard");
     }
+   
 
     if (nextProps.errors) {
       this.setState({

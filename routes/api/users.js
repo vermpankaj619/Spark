@@ -11,7 +11,7 @@ const validateLoginInput = require("../../validation/login");
 
 // Load User model
 const User = require("../../models/User");
-
+const user = User.find({});
 // @route POST api/users/register
 // @desc Register user
 // @access Public
@@ -80,7 +80,8 @@ router.post("/login", (req, res) => {
         // Create JWT Payload
         const payload = {
           id: user.id,
-          name: user.name
+          name: user.name,
+          detials:user.detials
         };
 
         // Sign token
@@ -105,5 +106,133 @@ router.post("/login", (req, res) => {
     });
   });
 });
+
+
+
+
+
+router.get(
+  '/details',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    
+    res.json(req.user.detials)
+
+  }
+);
+
+router.get(
+  '/sch',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    
+    res.json(req.user.Scehedule)
+
+  }
+);
+
+router.get('/list',  (req, res) => {
+  user.exec(function(err, data){
+    if(err) {
+      console.log(err)
+    }
+    else {
+      res.json(data);
+    }
+   
+  })
+});
+
+
+
+
+
+router.post('/upadted', passport.authenticate('jwt', { session: false }), (req, res) =>{
+
+  const {      name ,  Hotel,  Place ,address,Pincode,city, state  } = req.body
+
+
+
+const profileFields = {
+
+
+  name ,  Hotel,  Place ,address,Pincode,city, state
+
+
+}
+console.log(profileFields)
+
+
+let user =  User.findOneAndUpdate({  _id: req.user.id },{ $set: {"detials":  profileFields  } },  { new: true, upsert: true },function(err, result) {
+  if (err) {
+     console.log(err)
+      
+  } 
+
+  
+console.log(result.detials)
+
+console.log('u[adted')
+res.json(result.detials)
+});
+
+
+
+
+
+})
+
+router.post('/AddSchedule', passport.authenticate('jwt', { session: false })   , (req, res) => {
+
+
+  
+
+  const user = User.findOne({_id: req.user.id}, function(err,obj)  {
+   if(err) {
+     console.log('sdksk')
+   }
+    
+   const { categories , img , Dish , Price , Type } = req.body;
+  
+   console.log(Type)
+   
+ 
+ const profileFields = {
+
+
+  categories,
+  img , Dish , Price , Type
+  
+ };
+ 
+
+
+
+let user =  User.findOneAndUpdate({_id: req.user.id },{ $push: {"Scehedule":  profileFields  } },  { new: true, upsert: true },function(err, result) {
+  if (err) {
+  console.loh(err)
+  } 
+
+  
+
+  console.log(result.Scehedule)
+
+  console.log('u[adted')
+  res.json(result.detials)
+  
+});
+
+ })
+
+
+
+
+})
+
+
+
+
+
+
 
 module.exports = router;

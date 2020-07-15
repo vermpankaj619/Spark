@@ -2,56 +2,81 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
-
+import { getCurrentProfile , getlist  } from '../../actions/profileActions';
+import { Link} from 'react-router-dom';
+import axios from "axios";
 class Dashboard extends Component {
-  onLogoutClick = e => {
+
+  componentDidMount() {
+    this.props.getCurrentProfile();
+    this.props.getlist();
+}
+
+  onLogout = e => {
     e.preventDefault();
     this.props.logoutUser();
   };
+ 
+ 
+   
 
-  render() {
-    const { user } = this.props.auth;
+render() {
+    
 
-    return (
-      <div style={{ height: "75vh" }} className="container valign-wrapper">
-        <div className="row">
-          <div className="landing-copy col s12 center-align">
-            <h4>
-              <b>Hey there,</b> {user.name.split(" ")[0]}
-              <p className="flow-text grey-text text-darken-1">
-                You are logged into a full-stack{" "}
-                <span style={{ fontFamily: "monospace" }}>MERN</span> app 👏
-              </p>
-            </h4>
-            <button
-              style={{
-                width: "150px",
-                borderRadius: "3px",
-                letterSpacing: "1.5px",
-                marginTop: "1rem"
-              }}
-              onClick={this.onLogoutClick}
-              className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-            >
-              Logout
-            </button>
-          </div>
+  const {user} = this.props.auth;
+  const {  profile, loading } = this.props.profile;
+
+  let dashboardContent;
+
+  if( profile===null || loading) {
+      dashboardContent =  (
+        <div>
+        sddjsdkjd</div>
+      )
+  }else {
+     if(Object.keys(profile).length > 0) {
+      dashboardContent = (
+          <div>
+            <p className="lead text-muted">
+              Welcome <Link to={`/profile/${profile.handle}`}>{user.name}</Link>
+            </p>
+            <Link to='/AddSchedule' className=' btn btn-lg btn-info'>Profile</Link>
+           <button onClick={this.onLogout} > Logout</button>
         </div>
-      </div>
-    );
+      )
+     }
+     else {
+         dashboardContent = (
+             <div>
+                 <p className='lead text-muted'>Welcome{user.name}</p>
+                 <p> You have not yet a profile, please add some info</p>
+                 <Link to='/create-profile' className=' btn btn-lg btn-info'>Create Profile</Link>
+             </div>
+         )
+     }
   }
+
+  return (
+      <div className="dashboard">
+      {dashboardContent}
+    </div>
+  )
 }
+}
+
+
 
 Dashboard.propTypes = {
   logoutUser: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
+  getCurrentProfile: PropTypes.func.isRequired,
+  profile: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-  auth: state.auth
+  auth: state.auth,
+  profile: state.profile,
+
 });
 
-export default connect(
-  mapStateToProps,
-  { logoutUser }
-)(Dashboard);
+export default connect(mapStateToProps,{getCurrentProfile,logoutUser, getlist})(Dashboard);
