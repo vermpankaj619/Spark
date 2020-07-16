@@ -81,7 +81,7 @@ router.post("/login", (req, res) => {
         const payload = {
           id: user.id,
           name: user.name,
-          detials:user.detials
+          email:user.email
         };
 
         // Sign token
@@ -250,18 +250,18 @@ router.post('/data'  , (req, res) => {
 router.post('/booked', passport.authenticate('jwt', { session: false })     ,(req, res) =>{
  
 
-         const {scid,time,  id, requestId, email, phone, name, Price, Type, } = req.body;
+         const {CosName , CosEmail, id , name, email, phone, Dish, Price,  Type, scid, requestId} = req.body;
 
    console.log(req.body)
     const profileFields = {
-        name,
-        email,
+      CosName,
+      CosEmail,
          phone,
          Dish,
          _id:id,
          Price,
          Type,
-         docid: requestId
+        
          
     };
 
@@ -274,12 +274,10 @@ router.post('/booked', passport.authenticate('jwt', { session: false })     ,(re
               console.log(result)
 
               const applo = {
-   
-              
-                 _id:id,
-                 Res : result.name,
-                 Resemail: result.email,
-                 Resphone: result.phone,
+                 _id:scid,
+                 name : name,
+                 mail: email,
+                 phone: phone,
                  Dish,
                  Price,
                  Type
@@ -288,48 +286,15 @@ router.post('/booked', passport.authenticate('jwt', { session: false })     ,(re
             
               const user = User.findOneAndUpdate({_id: req.user.id} ,{   $push: {"applo":  applo  }   } ,{ new: true, upsert: true }, function(err,obj)  {
                 if(err) {
-                  console.log('sdksk')
+                  console.log(err)
                 }
                   
                 else {
                   
-                  var smtpTransport = nodemailer.createTransport({
-                    service: 'Gmail', 
-                    auth: {
-                      user: 'vermapankaj3313@gmail.com',
-                      pass:  'Pankaj619'
-                            }
-                  });
-                  var mailOptions = {
-                    to: email,
-                    from: 'learntocodeinfo@gmail.com',
-                    subject: 'booked',
-                    text: 'CONFIRMED Appointment ID:10099885 for May 17 at '+ time + ' with .'+ result.name + ' 32 Smiles Multispeciality Dental Clinic, 130, Green Garden Layout, Kundalahalli Gate, Sai Baba Temple Road, Silver Springs Layout,. ' + result.phone +  'To cancel give a missed call at: +918061914687. '
-                      
-                  };
-                  smtpTransport.sendMail(mailOptions, function(err) {
-                    console.log('mail sent');
-                  
-                    done(err, 'done');
-                  });
+               
                 
                
-                  res.render('confirm', {
-                   
-                    user:req.user,
-                    time,
-                    id,
-                    requestId,
-                    scid,
-                    day,
-                    name,
-                    email,
-                     phone,
-                     time,
-
-                
-                   
-                  })
+               console.log(obj)
                   
                
 

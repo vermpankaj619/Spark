@@ -93,10 +93,10 @@ const UserSchema = new Schema({
         booked: [
 
           {
-          name: {
+            CosName: {
             type:String
           },
-          email: {
+          CosEmail: {
             type:String
           },
           phone: {
@@ -117,41 +117,43 @@ const UserSchema = new Schema({
         }
 
         ],
-        booked: [
-
-          {
-          Res: {
-            type:String
-          },
-          Resemail: {
-            type:String
-          },
-          Resphone: {
-            type:String
-          },
-          Dish: {
-            type:String
-          },
-          Price: {
-            type:String
-          },
-          Type:{
-            type:String
-          },
-          time:{
-            type: Date,
-    default: Date.now
-          }
-         
-          
-
-        }
-
-        ],
-        
+      }
+       
+  ]
     
    
+  ,
+  applo: [
+
+    {
+    name: {
+      type:String
+    },
+    email: {
+      type:String
+    },
+    phone: {
+      type:String
+    },
+    Dish: {
+      type:String
+    },
+    Price: {
+      type:String
+    },
+    Type:{
+      type:String
+    },
+    time:{
+      type: Date,
+default: Date.now
+    }
+   
+    
+
   }
+
+  
 ]
   
   
