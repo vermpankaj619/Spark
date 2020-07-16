@@ -12,7 +12,8 @@ import {
     profiles: null,
     Schedule:null,
     loading: false,
-    res:null
+    res:null,
+    book:null,
   };
   
   export default function(state = initialState, action) {

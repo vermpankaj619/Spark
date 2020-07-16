@@ -89,7 +89,65 @@ const UserSchema = new Schema({
           type: String,
           required: true
         }
-        ,  
+        , 
+        booked: [
+
+          {
+          name: {
+            type:String
+          },
+          email: {
+            type:String
+          },
+          phone: {
+            type:String
+          },
+          Dish: {
+            type:String
+          },
+          Price: {
+            type:String
+          },
+          Type:{
+            type:String
+          },
+         
+          
+
+        }
+
+        ],
+        booked: [
+
+          {
+          Res: {
+            type:String
+          },
+          Resemail: {
+            type:String
+          },
+          Resphone: {
+            type:String
+          },
+          Dish: {
+            type:String
+          },
+          Price: {
+            type:String
+          },
+          Type:{
+            type:String
+          },
+          time:{
+            type: Date,
+    default: Date.now
+          }
+         
+          
+
+        }
+
+        ],
         
     
    

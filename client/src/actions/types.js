@@ -15,6 +15,6 @@ export const DELETE_POST = 'DELETE_POST';
 export const TEST_DISPATCH = 'TEXT_DISPATCH'
 export const GET_SCH = 'GET_SCH'
 export const GET_RES = 'GET_RES'
-
+export const BOOK = 'BOOK'
 
 

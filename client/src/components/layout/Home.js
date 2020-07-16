@@ -5,29 +5,12 @@ import {   getsch , getlist , getId  } from '../../actions/profileActions';
 import { Link} from 'react-router-dom';
  class Home extends Component {
 
-    state ={
-        id:''
-    }
+ 
     componentDidMount() {
         this.props.getlist();
       
     }
-  shoot = async (id) => {
-   
-   await this.setState({id:id })
-     
-   const profileData = {
-    id:this.state.id
-};
 
-  
-   
- await  this.props.getId(profileData, this.props.history);
-
- await this.props.history.push(`/resturant'`)
-
-  }
-  
     
     render() {
      
@@ -58,13 +41,14 @@ import { Link} from 'react-router-dom';
                       
                       
                  
-                      <button  onClick={ () => this.shoot(repo._id)} >
-         
+                      <Link to={`/resturant/${repo.name}`}>
+                   
+                     
                     
                 {repo.name}
-                </button>
+              
              
-            
+                </Link>
               
 
 

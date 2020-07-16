@@ -8,7 +8,8 @@ import {
   GET_ERRORS,
   SET_CURRENT_USER,
   GET_SCH,
-  GET_RES
+  GET_RES,
+  BOOK
 } from './types';
 
 // Get current profile
@@ -71,6 +72,19 @@ res =>
         type: GET_RES,
         payload: res.data
       })
+
+
+    )
+    .catch(err =>
+     console.log(err)
+    );
+};
+
+export const booking = (profileData, history) => dispatch => {
+  axios
+  .post('/api/users/Booked', profileData)
+    .then(
+   console.log(profileData)
 
 
     )
