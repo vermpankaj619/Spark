@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import { getCurrentProfile , getlist  } from '../../actions/profileActions';
-import { Link} from 'react-router-dom';
+import { Link , Redirect} from 'react-router-dom';
 import axios from "axios";
 class Dashboard extends Component {
 
@@ -26,16 +26,26 @@ render() {
   const {user} = this.props.auth;
   const {  profile, loading } = this.props.profile;
 
-  let dashboardContent;
+
+   if(user.role = "cos") {
+    return <Redirect to='/' />
+ 
+
+   }
+   else {
+
+
+
+  
 
   if( profile===null || loading) {
-      dashboardContent =  (
+    return  (
         <div>
         sddjsdkjd</div>
       )
   }else {
      if(Object.keys(profile).length > 0) {
-      dashboardContent = (
+      return (
           <div>
             <p className="lead text-muted">
               Welcome <Link to={`/profile/${profile.handle}`}>{user.name}</Link>
@@ -46,7 +56,7 @@ render() {
       )
      }
      else {
-         dashboardContent = (
+        return (
              <div>
                  <p className='lead text-muted'>Welcome{user.name}</p>
                  <p> You have not yet a profile, please add some info</p>
@@ -56,11 +66,8 @@ render() {
      }
   }
 
-  return (
-      <div className="dashboard">
-      {dashboardContent}
-    </div>
-  )
+
+}
 }
 }
 

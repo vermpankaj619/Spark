@@ -70,12 +70,12 @@ background-color:white;
         span {
             padding-left:0.8rem;
             font-size:1.1rem;
-            color:grey;
+           
             font-family: Nexa-Light;
 
         }
         i {
-            color:grey;
+            
             font-size:1.2rem;
          
         }

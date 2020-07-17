@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-
+import { Link , Redirect} from 'react-router-dom';
 import { createProfile} from '../../actions/profileActions'
 
 
@@ -57,6 +57,16 @@ state = {
 
 
   render() {
+    const { user} = this.props.auth;
+
+
+   if(user.role = "cos"){
+    return <Redirect to='/' />
+
+
+   }
+
+else {
       return (
     <form noValidate onSubmit={this.onSubmit}>
     <div className="input-field col s12">
@@ -175,6 +185,7 @@ state = {
       )
   }
 }
+}
 
 CreateProfile.propTypes = {
   profile: PropTypes.object.isRequired,
@@ -183,7 +194,8 @@ CreateProfile.propTypes = {
 
 const mapStateToProps = state => ({
   profile: state.profile,
-  errors: state.errors
+  errors: state.errors,
+  auth:state.auth,
 });
 
 export default  connect(mapStateToProps, { createProfile})(withRouter(CreateProfile));

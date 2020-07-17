@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
 import classnames from "classnames";
 
-class Register extends Component {
+class MercentLogin extends Component {
   constructor() {
     super();
     this.state = {
@@ -13,9 +13,8 @@ class Register extends Component {
       email: "",
       password: "",
       password2: "",
-      role:'cos',
-      errors: {},
-      phone:""
+      role:'',
+      errors: {}
     };
   }
 
@@ -47,7 +46,6 @@ class Register extends Component {
       password: this.state.password,
       password2: this.state.password2,
       role:this.state.role,
-      phone:this.state.phone,
     };
 
     this.props.registerUser(newUser, this.props.history);
@@ -132,16 +130,17 @@ class Register extends Component {
               <div className="input-field col s12">
               <input
                 onChange={this.onChange}
-                value={this.state.phone}
-               
-                id="phone"
-                type="number"
-               
+                value={this.state.password2}
+                error={errors.password2}
+                id="password2"
+                type="password"
+                className={classnames("", {
+                  invalid: errors.password2
+                })}
               />
-              <label htmlFor="phone">Phone</label>
-              
+              <label htmlFor="password2">Confirm Password</label>
+              <span className="red-text">{errors.password2}</span>
             </div>
-           
             
               <div className="col s12" style={{ paddingLeft: "11.250px" }}>
                 <button
@@ -179,4 +178,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { registerUser }
-)(withRouter(Register));
+)(withRouter(MercentLogin));

@@ -6,10 +6,13 @@ import { logoutUser } from "../../actions/authActions";
 import { connect } from "react-redux";
 import GlobalFonts from '../style/Navbar';
 class Navbar extends Component {
+  logout = () => {
+    this.props.logoutUser()
+  }
   render() {
     const { user , isAuthenticated} = this.props.auth;
     
-    
+  
     return (
       
      <Nav>
@@ -27,8 +30,10 @@ class Navbar extends Component {
          <li> <i class="fa fa-search" aria-hidden="true"></i><span>Search</span></li>
          <li><i class="fa fa-gift" aria-hidden="true"></i><span>Offers</span></li>
          <li><i class="fa fa-question-circle" aria-hidden="true"><span>Help</span></i></li>
-         <li><i class="fa fa-user" aria-hidden="true"><span>{user.name}</span></i></li>
+        <Link to="/profile"><li><i class="fa fa-user" aria-hidden="true"><span>{user.name}</span></i></li></Link> 
+        
          <li><i class="fa fa-shopping-cart" aria-hidden="true"></i><span>Cart</span></li>
+         <li onClick={this.logout} ><i class="fa fa-sign-out" aria-hidden="true"><span>Logout</span></i></li>
          </ul>
         
          </div>
