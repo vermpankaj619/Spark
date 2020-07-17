@@ -27,7 +27,7 @@ class Navbar extends Component {
 
          <div  class='head2'>
          <ul>
-         <li> <i class="fa fa-search" aria-hidden="true"></i><span>Search</span></li>
+         <Link to="/search" > <li> <i class="fa fa-search" aria-hidden="true"></i><span>Search</span></li></Link> 
          <li><i class="fa fa-gift" aria-hidden="true"></i><span>Offers</span></li>
          <li><i class="fa fa-question-circle" aria-hidden="true"><span>Help</span></i></li>
         <Link to="/profile"><li><i class="fa fa-user" aria-hidden="true"><span>{user.name}</span></i></li></Link> 

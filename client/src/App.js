@@ -21,7 +21,8 @@ import Adddata  from './components/Schedule/Adddata'
 import Home from "./components/layout/Home";
 import { Wrapper} from './components/style/Navbar'
 import GlobalFonts from './components/style/Navbar';
-import Profile from './components/profile/profile'
+import Profile from './components/profile/profile';
+import Search from './components/profile/Search'
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
   // Set auth token header auth
@@ -77,6 +78,9 @@ class App extends Component {
   <Switch>
     <PrivateRoute exact path="/profile" component={Profile}/>
   </Switch>
+  <Switch>
+  <PrivateRoute exact path="/search" component={Search}/>
+</Switch>
           </div>
         </Router>
         </Wrapper>
