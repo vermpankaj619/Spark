@@ -92,6 +92,18 @@ export const booking = (profileData, history) => dispatch => {
      console.log(err)
     );
 };
+export const search = (profileData, history) => dispatch => {
+  axios
+  .post('/api/users/search', profileData)
+    .then(
+   console.log(profileData)
+
+
+    )
+    .catch(err =>
+     console.log(err)
+    );
+};
 export const getsch = () => dispatch => {
 
   axios
@@ -106,6 +118,8 @@ export const getsch = () => dispatch => {
       console.log(err)
     );
 };
+
+
 
 
 

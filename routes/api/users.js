@@ -308,4 +308,23 @@ router.post('/booked', passport.authenticate('jwt', { session: false })     ,(re
 
  })
 
+
+ function escapeRegex(text) {
+  return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+};
+
+router.post('/search', function(req, res) {
+ console.log(req.body.search)
+  if (req.body.search) {
+     const regex = new RegExp(escapeRegex(req.body.search), 'gi');
+     User.find({ name: regex }, function(err, foundjobs) {
+         if(err) {
+             console.log(err);
+         } else {
+           console.log(foundjobs)
+         }
+     }); 
+  }
+});
+
 module.exports = router;

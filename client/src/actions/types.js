@@ -17,4 +17,4 @@ export const GET_SCH = 'GET_SCH'
 export const GET_RES = 'GET_RES'
 export const BOOK = 'BOOK'
 
-
+export const SEARCH = 'SEARCH'

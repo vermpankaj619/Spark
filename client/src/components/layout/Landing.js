@@ -2,11 +2,34 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
-import {   getsch , getlist ,createSchedule  } from '../../actions/profileActions';
+import {   getsch , getlist,  search  ,createSchedule  } from '../../actions/profileActions';
 class Landing extends Component {
   componentWillMount() {
       
     this.props.getlist();
+}
+
+ state=
+ {
+  search:''
+
+ }
+
+onChange = e => {
+  this.setState({ [e.target.id]: e.target.value });
+};
+
+onSubmit = (e) => {
+  e.preventDefault();
+
+  const profileData = {
+    search: this.state.search,
+  
+       
+
+  };
+
+  this.props.search(profileData, this.props.history);
 }
   render() {
     const {user , isAuthenticated } = this.props.auth;
@@ -64,7 +87,40 @@ class Landing extends Component {
   
          <Link to="/Home">Home</Link>
 
+         <form onSubmit={this.onSubmit}>
+              
+         <input
+         onChange={this.onChange}
+         value={this.state.search}
+       
+         id="search"
+         type="search"
+       
+       />
+       <button
+       style={{
+         width: "150px",
+         borderRadius: "3px",
+         letterSpacing: "1.5px",
+         marginTop: "1rem"
+       }}
+       type="submit"
+       className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+     >
+       Enter
+     </button>
+              
+              
+         </form>
+
               </div>
+           
+             
+
+
+
+
+
             )
             
         
@@ -104,4 +160,4 @@ const mapStateToProps = state => ({
 
 });
 
-export default connect(mapStateToProps,{createSchedule, getlist, getsch})(Landing)
+export default connect(mapStateToProps,{createSchedule, search, getlist, getsch})(Landing)

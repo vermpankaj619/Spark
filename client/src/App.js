@@ -19,6 +19,8 @@ import Create from './components/dashboard/Create'
 import "./App.css";
 import Adddata  from './components/Schedule/Adddata'
 import Home from "./components/layout/Home";
+import { Wrapper} from './components/style/Navbar'
+import GlobalFonts from './components/style/Navbar'
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
   // Set auth token header auth
@@ -42,6 +44,8 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
+     <Wrapper>
+     <GlobalFonts />
         <Router>
           <div className="App">
             <Navbar />
@@ -72,6 +76,7 @@ class App extends Component {
 
           </div>
         </Router>
+        </Wrapper>
       </Provider>
     );
   }
