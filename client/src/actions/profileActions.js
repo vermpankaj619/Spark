@@ -47,7 +47,7 @@ export const getlist = () => dispatch => {
 export const createProfile = (profileData, history) => dispatch => {
   axios
   .post('/api/users/upadted', profileData)
-    .then(res => history.push('/dashboard'))
+    .then(res => history.push('/det'))
     .catch(err =>
       dispatch({
         type: GET_ERRORS,

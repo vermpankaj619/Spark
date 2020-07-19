@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import {   getsch , createSchedule  } from '../../actions/profileActions';
-
-
+import Tags from "@yaireo/tagify/dist/react.tagify" // React-wrapper file
+import "@yaireo/tagify/dist/tagify.css" // Tagify CSS
  class Adddata extends Component {
     componentDidMount() {
       
@@ -15,17 +15,44 @@ import {   getsch , createSchedule  } from '../../actions/profileActions';
         categories:'',
         Dish:'' ,
          Price:'' , 
-         Type:'',
-      
-
+         Type:'Veg',
+         image:'',
+       
+        
         
       };
+
+  
    
-      onChange = e => {
-        this.setState({ [e.target.id]: e.target.value });
+      onChange = async e => {
+  
+       
+         await  this.setState({ [e.target.id]: e.target.value });
+        
       };
-      onSubmit = (e) => {
+      handleChange = (e) => {
+        this.setState({Type: e.target.value});
+      }
+
+      onUpload = async (e) => {
+        const files = e.target.files;
+        const data = new FormData()
+        data.append('file', files[0])
+        data.append('upload_preset', 'arlnf3ja')
+        
+        const res = await fetch('https://api.cloudinary.com/v1_1/spark3313/image/upload', {
+          method: 'POST',
+          body:data
+        })
+        const file = await res.json()
+        let link = file.secure_url
+         console.log(link)
+      await   this.setState({ image:link });
+      }
+      onSubmit = async (e) => {
+     
         e.preventDefault();
+
     
         const profileData = {
             categories: this.state.categories,
@@ -33,10 +60,12 @@ import {   getsch , createSchedule  } from '../../actions/profileActions';
                Dish: this.state.Dish,
             Price:this.state.Price , 
             Type:this.state.Type,
+            image:this.state.image,
+            data:this.state.data
      
         };
     
-        this.props.createSchedule(profileData, this.props.history);
+       await this.props.createSchedule(profileData, this.props.history);
       }
     
      
@@ -75,15 +104,13 @@ import {   getsch , createSchedule  } from '../../actions/profileActions';
               <div>
                 <form  onSubmit={this.onSubmit}>
                 <div className="input-field col s12">
-                <input
-                  onChange={this.onChange}
-                  value={this.state.categories}
+             
+                <Tags
+   
                 
-                  id="categories"
-                  type="name"
-                
-                />
-                
+                 // dynamic props such as "loading", "showDropdown:'abc'", "value"
+                onChange={e => (e.persist(), this.setState({categories:e.target.value}))}
+              />
                 <label htmlFor="name">categories</label>
                 <span className="red-text">
                 
@@ -118,21 +145,19 @@ import {   getsch , createSchedule  } from '../../actions/profileActions';
             
             </span>
           </div>
+     
           <div className="input-field col s12">
-          <input
-            onChange={this.onChange}
-            value={this.state.Type}
-          
-            id="Type"
-            type="name"
-          
-          />
-          <label htmlFor="name">Type</label>
-          <span className="red-text">
-          
-          </span>
-        </div>
 
+          <select value={this.state.Type} onChange={this.handleChange}>
+          <option value="Veg">Veg</option>
+          <option value="Non-Veg">Non-Veg</option>
+      
+        </select>
+        
+
+        </div>
+       
+        <input type="file" onChange={this.onUpload}/>
               <div className="col s12" style={{ paddingLeft: "11.250px" }}>
               <button
                 style={{
@@ -171,6 +196,7 @@ import {   getsch , createSchedule  } from '../../actions/profileActions';
                         {repo.Dish}
                         {repo.categories}
                         
+                        <img  src={repo.image} ></img>
                         </li>
                     )
                 }

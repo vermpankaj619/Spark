@@ -196,7 +196,7 @@ router.post('/AddSchedule', passport.authenticate('jwt', { session: false })   ,
      console.log('sdksk')
    }
     
-   const { categories , img , Dish , Price , Type } = req.body;
+   const { categories , Dish , Price , Type , image} = req.body;
   
    console.log(Type)
    
@@ -204,8 +204,8 @@ router.post('/AddSchedule', passport.authenticate('jwt', { session: false })   ,
  const profileFields = {
 
 
-  categories,
-  img , Dish , Price , Type
+  categories:JSON.parse(categories),
+  image , Dish , Price , Type 
   
  };
  

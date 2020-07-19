@@ -61,38 +61,46 @@ state = {
 
 
    if(user.role = "cos"){
-    return <Redirect to='/' />
-
-
-   }
-
-else {
-      return (
-    <form noValidate onSubmit={this.onSubmit}>
-    <div className="input-field col s12">
+     return (
+      <form noValidate onSubmit={this.onSubmit}>
+      <div className="input-field col s12">
+        <input
+          onChange={this.onChange}
+          value={this.state.name}
+        
+          id="name"
+          type="name"
+        
+        />
+        <label htmlFor="name">Name</label>
+        <span className="red-text">
+        
+        </span>
+      </div>
+      <div className="input-field col s12">
+        <input
+          onChange={this.onChange}
+          value={this.state.Hotel}
+      
+          id="Hotel"
+          type=" Hotel"
+          
+        />
+        <label htmlFor=" Hotel"> Hotel</label>
+        <span className="red-text">
+          
+        </span>
+      </div>
+      <div className="input-field col s12">
       <input
         onChange={this.onChange}
-        value={this.state.name}
-      
-        id="name"
-        type="name"
-      
-      />
-      <label htmlFor="name">Name</label>
-      <span className="red-text">
-      
-      </span>
-    </div>
-    <div className="input-field col s12">
-      <input
-        onChange={this.onChange}
-        value={this.state.Hotel}
-    
-        id="Hotel"
-        type=" Hotel"
+        value={this.state.Place}
+     
+        id="Place"
+        type="Place"
         
       />
-      <label htmlFor=" Hotel"> Hotel</label>
+      <label htmlFor="Place">Place</label>
       <span className="red-text">
         
       </span>
@@ -100,13 +108,13 @@ else {
     <div className="input-field col s12">
     <input
       onChange={this.onChange}
-      value={this.state.Place}
-   
-      id="Place"
-      type="Place"
+      value={this.state.address}
+  
+      id="address"
+      type="address"
       
     />
-    <label htmlFor="Place">Place</label>
+    <label htmlFor="address">address</label>
     <span className="red-text">
       
     </span>
@@ -114,75 +122,66 @@ else {
   <div className="input-field col s12">
   <input
     onChange={this.onChange}
-    value={this.state.address}
-
-    id="address"
-    type="address"
+    value={this.state.Pincode}
+  
+    id="Pincode"
+    type="Pincode"
     
   />
-  <label htmlFor="address">address</label>
+  <label htmlFor="Pincode">Pincode</label>
   <span className="red-text">
     
   </span>
-</div>
-<div className="input-field col s12">
-<input
-  onChange={this.onChange}
-  value={this.state.Pincode}
+  </div>
+  <div className="input-field col s12">
+  <input
+    onChange={this.onChange}
+    value={this.state.city}
+  
+    id="city"
+    type="city"
+    
+  />
+  <label htmlFor="city">city</label>
+  <span className="red-text">
+    
+  </span>
+  <div className="input-field col s12">
+  <input
+    onChange={this.onChange}
+    value={this.state.state}
+   
+    id="state"
+    type="state"
+    
+  />
+  <label htmlFor="state">state</label>
+  <span className="red-text">
+    
+  </span>
+  </div>
+  </div>
+      <div className="col s12" style={{ paddingLeft: "11.250px" }}>
+        <button
+          style={{
+            width: "150px",
+            borderRadius: "3px",
+            letterSpacing: "1.5px",
+            marginTop: "1rem"
+          }}
+          type="submit"
+          className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+        >
+          Enter
+        </button>
+      </div>
+    </form>
+        )
 
-  id="Pincode"
-  type="Pincode"
-  
-/>
-<label htmlFor="Pincode">Pincode</label>
-<span className="red-text">
-  
-</span>
-</div>
-<div className="input-field col s12">
-<input
-  onChange={this.onChange}
-  value={this.state.city}
+   }
 
-  id="city"
-  type="city"
-  
-/>
-<label htmlFor="city">city</label>
-<span className="red-text">
-  
-</span>
-<div className="input-field col s12">
-<input
-  onChange={this.onChange}
-  value={this.state.state}
- 
-  id="state"
-  type="state"
-  
-/>
-<label htmlFor="state">state</label>
-<span className="red-text">
-  
-</span>
-</div>
-</div>
-    <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-      <button
-        style={{
-          width: "150px",
-          borderRadius: "3px",
-          letterSpacing: "1.5px",
-          marginTop: "1rem"
-        }}
-        type="submit"
-        className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-      >
-        Enter
-      </button>
-    </div>
-  </form>
-      )
+else {
+  return <Redirect to='/' />
   }
 }
 }

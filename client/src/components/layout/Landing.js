@@ -26,25 +26,6 @@ class Landing extends Component {
   selectedFile: null
  }
 
-onChange = async (e) => {
-
-  const files = e.target.files;
-  const data = new FormData()
-  data.append('file', files[0])
-  data.append('upload_preset', 'arlnf3ja')
-  
-  const res = await fetch('https://api.cloudinary.com/v1_1/spark3313/image/upload', {
-    method: 'POST',
-    body:data
-  })
-  const file = await res.json()
-  let link = file.secure_url
-   console.log(link)
-
-   this.setState({ selectedFile:link });
-
-  
-};
 
 
   render() {
@@ -103,8 +84,7 @@ onChange = async (e) => {
   
          <Link to="/Home">Home</Link>
 
-         <input type="file" onChange={this.onChange}/>
-         <button onClick={this.onSubmit}>Upload!</button>
+     
 
               </div>
            

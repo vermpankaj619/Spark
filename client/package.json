@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@yaireo/tagify": "^3.15.4",
     "axios": "^0.18.0",
     "classnames": "^2.2.6",
     "cloudinary-react": "^1.6.2",

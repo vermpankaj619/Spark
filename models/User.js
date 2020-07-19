@@ -71,13 +71,13 @@ const UserSchema = new Schema({
       
     {
       categories: {
-        type: String,
+        type: Array,
         required: true
       },
     
-    img:{
+    image:{
       type:String,
-      
+      required: true
     },
         Dish: {
           type: String,
