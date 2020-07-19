@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
+import { Loader } from '../style/profile'
+import Loading from '../style/comman/loading.gif'
 import {   getsch , createSchedule  } from '../../actions/profileActions';
 import Tags from "@yaireo/tagify/dist/react.tagify" // React-wrapper file
 import "@yaireo/tagify/dist/tagify.css" // Tagify CSS
@@ -70,22 +72,7 @@ import "@yaireo/tagify/dist/tagify.css" // Tagify CSS
     
      
 
-      onSubmitt = (e) => {
-        e.preventDefault();
-
-        console.log(this.state)
-    
-        // const Data = {
-        //     Dish: this.state.Dish,
-        //     Price:this.state.Price , 
-        //     Type:this.state.Type,
-        //     requestId:this.state.requestId,
-        
-          
-        // };
-    
-        // this.props.adddata(Data);
-      }
+  
     
      
     render() {
@@ -94,9 +81,9 @@ import "@yaireo/tagify/dist/tagify.css" // Tagify CSS
         if( Schedule===null ) {
            
             return (
-                <div>
-                dfhdfjfdjdfhjf
-                </div>
+                <Loader>
+                <img src={Loading} ></img>
+                </Loader>
             )
         } else {  
            

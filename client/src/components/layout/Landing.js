@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import {   upload , getlist  } from '../../actions/profileActions';
 import axios from 'axios';
+import { Loader } from '../style/profile'
+import Loading from '../style/comman/loading.gif'
 import { uploadFile } from 'react-s3';
 import ReactS3 from 'react-s3';
 const config = {
@@ -78,7 +80,24 @@ class Landing extends Component {
     );
               }
               else {
-            return (
+                if(profiles == null ) {
+                 return (
+                  
+                  <Loader>
+                  <img src={Loading} ></img>
+                  </Loader>
+
+
+                 )
+
+                }
+         else {   return (
+
+      
+
+
+
+
 
               <div>
   
@@ -97,7 +116,7 @@ class Landing extends Component {
             )
             
         
-      
+         }
        
      
         

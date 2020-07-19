@@ -49,4 +49,13 @@ export const Section1 = styled.nav`
 
 }`
 
+export const Loader = styled.div`
+ 
+margin-left:45rem;
+margin-top:5rem;
+
+
+}`
+
+
 

@@ -4,6 +4,8 @@ import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Link , Redirect} from 'react-router-dom';
 import { createProfile} from '../../actions/profileActions'
+import { Loader } from '../style/profile'
+import Loading from '../style/comman/loading.gif'
 
 
 class CreateProfile extends Component {
