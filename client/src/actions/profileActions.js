@@ -9,7 +9,8 @@ import {
   SET_CURRENT_USER,
   GET_SCH,
   GET_RES,
-  BOOK
+  BOOK,
+  
 } from './types';
 
 // Get current profile
@@ -104,11 +105,12 @@ export const search = (profileData, history) => dispatch => {
      console.log(err)
     );
 };
-export const upload = (profileData, history) => dispatch => {
+
+export const upload = (formData, history) => dispatch => {
   axios
-  .post('/api/users/upload', profileData)
+  .post('/api/users/upload', formData)
     .then(
-   console.log(profileData)
+   console.log(formData)
 
 
     )

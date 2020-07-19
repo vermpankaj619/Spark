@@ -2,7 +2,19 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
-import {   getsch , getlist,  search  ,createSchedule  } from '../../actions/profileActions';
+import {   upload , getlist  } from '../../actions/profileActions';
+import axios from 'axios';
+import { uploadFile } from 'react-s3';
+import ReactS3 from 'react-s3';
+const config = {
+  bucketName: 'spark3313',
+  dirName: 'photos', /* optional */
+  region: 'ap-south-1',
+  accessKeyId: 'AKIAJ3VL4RYNEENSEI5Q',
+  secretAccessKey: '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',
+}
+
+
 class Landing extends Component {
   componentWillMount() {
       
@@ -11,26 +23,30 @@ class Landing extends Component {
 
  state=
  {
-  search:''
-
+  selectedFile: null
  }
 
-onChange = e => {
-  this.setState({ [e.target.id]: e.target.value });
+onChange = async (e) => {
+
+  const files = e.target.files;
+  const data = new FormData()
+  data.append('file', files[0])
+  data.append('upload_preset', 'arlnf3ja')
+  
+  const res = await fetch('https://api.cloudinary.com/v1_1/spark3313/image/upload', {
+    method: 'POST',
+    body:data
+  })
+  const file = await res.json()
+  let link = file.secure_url
+   console.log(link)
+
+   this.setState({ selectedFile:link });
+
+  
 };
 
-onSubmit = (e) => {
-  e.preventDefault();
 
-  const profileData = {
-    search: this.state.search,
-  
-       
-
-  };
-
-  this.props.search(profileData, this.props.history);
-}
   render() {
     const {user , isAuthenticated } = this.props.auth;
     const {  profiles, loading } = this.props.profile;
@@ -87,31 +103,8 @@ onSubmit = (e) => {
   
          <Link to="/Home">Home</Link>
 
-         <form onSubmit={this.onSubmit}>
-              
-         <input
-         onChange={this.onChange}
-         value={this.state.search}
-       
-         id="search"
-         type="search"
-       
-       />
-       <button
-       style={{
-         width: "150px",
-         borderRadius: "3px",
-         letterSpacing: "1.5px",
-         marginTop: "1rem"
-       }}
-       type="submit"
-       className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-     >
-       Enter
-     </button>
-              
-              
-         </form>
+         <input type="file" onChange={this.onChange}/>
+         <button onClick={this.onSubmit}>Upload!</button>
 
               </div>
            
@@ -160,4 +153,4 @@ const mapStateToProps = state => ({
 
 });
 
-export default connect(mapStateToProps,{createSchedule, search, getlist, getsch})(Landing)
+export default connect(mapStateToProps,{upload , getlist})(Landing)

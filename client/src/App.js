@@ -23,6 +23,11 @@ import { Wrapper} from './components/style/Navbar'
 import GlobalFonts from './components/style/Navbar';
 import Profile from './components/profile/profile';
 import Search from './components/profile/Search'
+import profile from "./components/profile/profile";
+import About from "./components/profile/About";
+import NoMatch from "./components/profile/NoMatch";
+import Sidebar from './components/profile/Sidebar'
+import Merchenat from './components/auth/MercentLogin'
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
   // Set auth token header auth
@@ -54,6 +59,7 @@ class App extends Component {
             <Route exact path="/" component={Landing} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
+            <Route exact path="/Merchenat-login" component={Merchenat} />
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
             </Switch>
@@ -75,12 +81,16 @@ class App extends Component {
     <Switch>
     <PrivateRoute exact path="/resturant/:id" component={User}/>
   </Switch>
-  <Switch>
-    <PrivateRoute exact path="/profile" component={Profile}/>
-  </Switch>
+  
   <Switch>
   <PrivateRoute exact path="/search" component={Search}/>
 </Switch>
+
+<Switch>
+          <Route exact path="/profile" component={profile} />
+          <Route path="/about" component={About} />
+          <Route component={NoMatch} />
+        </Switch>
           </div>
         </Router>
         </Wrapper>

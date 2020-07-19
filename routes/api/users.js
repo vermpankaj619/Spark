@@ -321,7 +321,7 @@ router.post('/search', function(req, res) {
  console.log(req.body.search)
   if (req.body.search) {
      const regex = new RegExp(escapeRegex(req.body.search), 'gi');
-     User.find({ name: regex }, function(err, foundjobs) {
+     User.find({ $or: [{name: regex},{email: regex}] }, function(err, foundjobs) {
          if(err) {
              console.log(err);
          } else {
@@ -364,7 +364,9 @@ function uploadToS3(file) {
 router.post('/upload', function (req, res, next) {
   // This grabs the additional parameters so in this case passing in
   // "element1" with a value.
- 
+    
+  
+    console.log(req.body)
 
   var busboy = new Busboy({ headers: req.headers });
 
@@ -387,7 +389,7 @@ router.post('/upload', function (req, res, next) {
     // }
     
     // Grabs your file object from the request.
-    const file = req.files.element2;
+    const file = req.files.File;
     console.log(file);
     
     // Begins the upload to the AWS S3

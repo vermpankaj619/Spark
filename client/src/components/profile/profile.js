@@ -4,14 +4,38 @@ import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Link , Redirect} from 'react-router-dom';
 import { createProfile} from '../../actions/profileActions'
+import { Section1} from '../style/profile'
+import Sidebar from './Sidebar'
  class profile extends Component {
    
     render() {
         const { user} = this.props.auth;
         return (
-            <div>
+           
+             <Section1>
+             <div class="one">
+             <div>
+           <h1>{user.name.toUpperCase()}<br/></h1>  
+             <h3>{user.email}  <span> {user.phone}</span> </h3>
+            
+             </div>
              
-            </div>
+             <div>
+             <button>
+             Edit Profile
+             </button>
+             
+             </div>
+             </div>
+             <Sidebar/>
+             </Section1>
+
+
+
+
+
+             
+          
         )
     }
 }

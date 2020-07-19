@@ -13,7 +13,7 @@ class MercentLogin extends Component {
       email: "",
       password: "",
       password2: "",
-      role:'',
+      role:'mer',
       errors: {}
     };
   }
@@ -127,20 +127,7 @@ class MercentLogin extends Component {
                 <label htmlFor="password2">Confirm Password</label>
                 <span className="red-text">{errors.password2}</span>
               </div>
-              <div className="input-field col s12">
-              <input
-                onChange={this.onChange}
-                value={this.state.password2}
-                error={errors.password2}
-                id="password2"
-                type="password"
-                className={classnames("", {
-                  invalid: errors.password2
-                })}
-              />
-              <label htmlFor="password2">Confirm Password</label>
-              <span className="red-text">{errors.password2}</span>
-            </div>
+            
             
               <div className="col s12" style={{ paddingLeft: "11.250px" }}>
                 <button
@@ -164,7 +151,7 @@ class MercentLogin extends Component {
   }
 }
 
-Register.propTypes = {
+MercentLogin.propTypes = {
   registerUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired
