@@ -39,9 +39,11 @@ export const Nav = styled.nav`
 background-color:white;
   display:flex;
   justify-content:center;
+
+ 
   
   .head {
-     padding-right:30rem;
+     padding-right:20rem;
       ul  {
       
       
@@ -49,7 +51,7 @@ background-color:white;
        li {
         display:inline;
         img{
-            width:25%
+            width:70%
         }
        }
       
@@ -61,7 +63,7 @@ background-color:white;
       
           
     list-style: none;
-    padding-top:0.7rem;
+    padding-top:1.4rem;
     li {
         display:inline;
         padding-right:2rem;
@@ -69,13 +71,13 @@ background-color:white;
        
         span {
             padding-left:0.8rem;
-            font-size:1.1rem;
-           
+            font-size:1.3rem;
+            color:black;
             font-family: Nexa-Light;
 
         }
         i {
-            
+          color:black;
             font-size:1.2rem;
          
         }

@@ -8,7 +8,8 @@ import { createGlobalStyle } from 'styled-components';
 import { green1 } from './color'
 
 
-
+import logo from '../style/comman/download.png'
+import logo2 from '../style/comman/gps.png'
 
 
 
@@ -59,3 +60,75 @@ margin-top:5rem;
 
 
 
+export const Section = styled.div`
+ 
+background-image: url("https://res.cloudinary.com/spark3313/image/upload/v1595224102/azd0eizirztsh7eeghuq.jpg");
+background-color: #cccccc;
+
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+
+
+.head {
+    text-align:center;
+    padding-top:6rem;
+    padding-bottom:6rem;
+    color:white;
+    font-family: Nexa-Bold;
+}
+h1 {
+    font-size:3rem;
+}
+h2 {
+    font-size:2rem; 
+}
+#inpp1 {
+   
+ width:40rem;
+      padding:1rem;  
+     font-size:1rem;
+     font-family: Nexa-Bold;
+     border-radius: 10px;
+     border: 1px solid white;   
+
+      }
+      button {
+          margin-left:1rem;
+          color:white;
+          border: 1px solid #55c18c;;
+          background-color:#55c18c;
+          border-radius: 10px;
+          padding:0.7rem 2rem;; 
+          font-size:1.5rem; 
+          font-family: Nexa-Bold;
+      }
+}`
+
+export const Section2 = styled.div`
+
+margin-left:23rem;
+margin-top:3rem;
+margin-right:16rem;
+display:grid;
+grid-template-columns: auto auto auto;
+.inner {
+    width:22rem;
+    border: 1px solid white;
+    padding: 1.5rem;;
+    border-radius: 5px;
+    background-color:white;
+    display:flex;
+    justify-content:flex-start;
+    margin-bottom:2rem;
+    img{
+        width:18%;
+        padding-left:1rem;
+    }
+    h3 {
+        padding-left:1rem;
+        font-family: Nexa-Bold;
+    }
+}
+
+}`

@@ -19,7 +19,7 @@ class Navbar extends Component {
     
          <div class='head'>
          <ul>
-         <li>  <img src={logo} /> </li>
+         <li>  <img src={"https://res.cloudinary.com/spark3313/image/upload/v1595223613/egci82gyuaddnzbaciiv.png"} /> </li>
         
          </ul>
          
@@ -33,7 +33,7 @@ class Navbar extends Component {
         <Link to="/profile"><li><i class="fa fa-user" aria-hidden="true"><span>{user.name}</span></i></li></Link> 
         
          <li><i class="fa fa-shopping-cart" aria-hidden="true"></i><span>Cart</span></li>
-         <li onClick={this.logout} ><i class="fa fa-sign-out" aria-hidden="true"><span>Logout</span></i></li>
+     
          </ul>
         
          </div>

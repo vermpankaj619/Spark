@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import {   upload , getlist  } from '../../actions/profileActions';
 import axios from 'axios';
-import { Loader } from '../style/profile'
+import { Loader , Section , Section2 } from '../style/profile'
 import Loading from '../style/comman/loading.gif'
 import { uploadFile } from 'react-s3';
 import ReactS3 from 'react-s3';
@@ -98,20 +98,90 @@ class Landing extends Component {
 
 
 
+           <React.Fragment>
+              <Section>
+                
+              <div className="head">
 
-              <div>
+              <h1>Many needs, one app</h1>
+              <h2>Need groceries, food or pet supplies delivered? Get it Dun!</h2>
+              <form>
+              <input  id="inpp1" placeholder="Enter the Loction"  ></input>
+             <button>Proceed</button>
+               </form>
+             
+             
+              </div>
+              
+
+            
+             
+              
+              </Section>
   
-         <Link to="/Home">Home</Link>
 
+             
+              
+              <h1 style={{marginLeft:"23rem", marginTop:"3rem" , fontFamily:"Nexa-Bold"}} >What do you want to get done?  </h1>
      
 
-              </div>
+        <Section2>
+          
+        
+        <div className="inner" >
+         <img src={'https://res.cloudinary.com/spark3313/image/upload/v1595231097/cl8jnecqotstb2gd9bsl.png'} ></img>
+        <h3>Groceries & Essentials</h3>
+        
+        </div>
+        <div className="inner" >
+        <img src={'https://res.cloudinary.com/spark3313/image/upload/v1595231089/lmu4q61wm0bqwphmknat.png'} ></img>
+       <h3>Fruits & Vegetables
+
+       </h3>
+       
+       </div>
+       <div className="inner" >
+       <img src={'https://res.cloudinary.com/spark3313/image/upload/v1595231101/yec4xxqti0kdw92cum0e.png'} ></img>
+      <h3>Meet & Fish</h3>
+      
+      </div>
+      <div className="inner" >
+      <img src={'https://res.cloudinary.com/spark3313/image/upload/v1595231147/vbfh3iwugtczpvk8r2wm.png'} ></img>
+     <h3>Food Delivery</h3>
+     
+     </div>
+     <div className="inner" >
+     <img src={'https://res.cloudinary.com/spark3313/image/upload/v1595231238/luogk08nyw2efyt8usbs.svg'} ></img>
+    <h3>Medicines</h3>
+    
+    </div>
+    <div className="inner" >
+    <img src={'https://res.cloudinary.com/spark3313/image/upload/v1595231281/m3ixjlibakzmjywidskd.png'} ></img>
+   <h3>Gifts & Lifestyle</h3>
+   
+   </div>
+   <div className="inner" >
+   <img src={'https://res.cloudinary.com/spark3313/image/upload/v1595231117/pnaqabm8ks9gyi7dkdfx.png'} ></img>
+  <h3>Pet Supplies</h3>
+  
+  </div>
+  <div className="inner" >
+  <img src={'https://res.cloudinary.com/spark3313/image/upload/v1595231376/auboimtmovzmz7fzqrje.png'} ></img>
+ <h3>Natural Drink</h3>
+ 
+ </div>
+ <div className="inner" >
+ <img src={'https://res.cloudinary.com/spark3313/image/upload/v1595231109/q1odayyhtf8xva5ll31a.png'} ></img>
+<h3>Whey Protien and Supplments</h3>
+
+</div>
+        </Section2>
            
              
 
 
 
-
+              </React.Fragment>
 
             )
             
