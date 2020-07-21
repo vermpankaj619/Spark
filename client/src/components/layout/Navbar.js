@@ -12,12 +12,12 @@ class Navbar extends Component {
   render() {
     const { user , isAuthenticated} = this.props.auth;
     
-  
+    
     return (
       
      <Nav>
     
-         <div class='head'>
+         <div className='head'>
          <ul>
          <li>  <img src={"https://res.cloudinary.com/spark3313/image/upload/v1595223613/egci82gyuaddnzbaciiv.png"} /> </li>
         
@@ -25,14 +25,17 @@ class Navbar extends Component {
          
          </div>
 
-         <div  class='head2'>
+         <div  className='head2'>
          <ul>
-         <Link to="/search" > <li> <i class="fa fa-search" aria-hidden="true"></i><span>Search</span></li></Link> 
-         <li><i class="fa fa-gift" aria-hidden="true"></i><span>Offers</span></li>
-         <li><i class="fa fa-question-circle" aria-hidden="true"><span>Help</span></i></li>
-        <Link to="/profile"><li><i class="fa fa-user" aria-hidden="true"><span>{user.name}</span></i></li></Link> 
+         <Link to="/search" > <li> <i className="fa fa-search" aria-hidden="true"></i><span>Search</span></li></Link> 
+         <li><i className="fa fa-gift" aria-hidden="true"></i><span>Offers</span></li>
+         <li><i className="fa fa-question-circle" aria-hidden="true"><span>Help</span></i></li>
+
+
+
+        <Link to="/profile"><li><i className="fa fa-user" aria-hidden="true"><span>   {user.name}</span></i></li></Link> 
         
-         <li><i class="fa fa-shopping-cart" aria-hidden="true"></i><span>Cart</span></li>
+       <Link to="/create-profile" ><li><i className="fa fa-shopping-cart" aria-hidden="true"></i><span>Cart</span></li></Link>  
      
          </ul>
         

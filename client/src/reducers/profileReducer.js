@@ -5,7 +5,8 @@ import {
     CLEAR_CURRENT_PROFILE,
     GET_SCH,
     GET_RES,
-    SEARCH
+    SEARCH,
+    STORE
   } from '../actions/types';
   
   const initialState = {
@@ -15,7 +16,8 @@ import {
     loading: false,
     res:null,
     book:null,
-    search: null
+    search: null,
+    store:null
   };
   
   export default function(state = initialState, action) {
@@ -49,6 +51,12 @@ import {
           res: action.payload,
           loading: true
         };
+        case STORE:
+          return {
+            ...state,
+            store: action.payload,
+            loading: true
+          };
         case SEARCH:
         return {
           ...state,

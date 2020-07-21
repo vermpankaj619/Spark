@@ -132,3 +132,47 @@ grid-template-columns: auto auto auto;
 }
 
 }`
+
+
+export const Searchh = styled.div`
+
+text-align:center;
+margin-top:3rem;
+margin-left:30rem;
+margin-right:30rem;
+  display: flex;
+    border: none;
+
+  margin-bottom: 15px;
+
+    i{
+        height:3rem;
+     padding-top:1.2rem;
+     padding-left:1rem;
+        background: white;
+         border: none;
+        font-size:1.5rem;
+        min-width: 50px;
+        text-align: center;
+      }
+      
+      input {
+        width: 100%;
+        padding: 10px;
+        outline: none;
+        font-size:1.3rem;
+           border: none;
+           font-family: Nexa-Bold;
+      }
+       #cut {
+      
+         background-color:#e9e9eb;
+         font-size:3rem;
+         position: absolute;
+         left: 91rem;;
+         top: 144px;
+       }
+
+
+
+}`

@@ -27,6 +27,8 @@ import profile from "./components/profile/profile";
 import About from "./components/profile/About";
 import NoMatch from "./components/profile/NoMatch";
 import Sidebar from './components/profile/Sidebar'
+import Storee from './components/profile/storee'
+import grocery from './components/profile/grocery-stores'
 import Merchenat from './components/auth/MercentLogin'
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -73,6 +75,9 @@ class App extends Component {
           <PrivateRoute exact path="/create-profile" component={Create} />
         </Switch>
         <Switch>
+        <PrivateRoute exact path="/Chamba/:id" component={Storee} />
+      </Switch>
+        <Switch>
         <PrivateRoute exact path="/AddSchedule" component={Adddata} />
       </Switch>
       <Switch>
@@ -82,12 +87,15 @@ class App extends Component {
     <PrivateRoute exact path="/resturant/:id" component={User}/>
   </Switch>
   
+ 
   <Switch>
   <PrivateRoute exact path="/search" component={Search}/>
 </Switch>
-
 <Switch>
-          <Route exact path="/profile" component={profile} />
+<PrivateRoute exact path="/profile" component={Profile}/>
+</Switch>
+<Switch>
+          <PrivateRoute exact path="/grocery-stores" component={grocery} />
      
         </Switch>
           </div>

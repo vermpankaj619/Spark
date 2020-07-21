@@ -3,11 +3,17 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Link , Redirect} from 'react-router-dom';
-import { createProfile} from '../../actions/profileActions'
+import { createProfile } from '../../actions/profileActions'
+import {  logoutUser} from '../../actions/authActions'
 import { Section1} from '../style/profile'
 import Sidebar from './Sidebar'
- class profile extends Component {
+
    
+
+ class profile extends Component {
+  logout = () => {
+    this.props.logoutUser()
+      }
     render() {
         const { user} = this.props.auth;
         return (
@@ -21,7 +27,7 @@ import Sidebar from './Sidebar'
              </div>
              
              <div>
-             <button>
+             <button onClick={this.logout}>
              Edit Profile
              </button>
              
@@ -50,4 +56,4 @@ profile.propTypes = {
     auth:state.auth,
   });
   
-  export default  connect(mapStateToProps, { createProfile})(withRouter(profile));
+  export default  connect(mapStateToProps, { logoutUser,createProfile})(withRouter(profile));

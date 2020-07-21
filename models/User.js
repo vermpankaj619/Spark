@@ -27,13 +27,11 @@ const UserSchema = new Schema({
     type: String,
   }
   ,
-  detials: [
-        
-    {
+ 
     
-      name: {
+      category: {
         type: String,
-        required: true
+       
       },
       Hotel: {
         type:String
@@ -45,25 +43,11 @@ const UserSchema = new Schema({
         type:String
       }
   ,
-       Pincode: {
-          type: String,
-          required: true
-        }
-        , 
-        city: {
-          type: String,
-          required: true
-        },
-        state: {
-          type: String,
-          required: true
-        },
-        Operational: {
-          type: String,
-          required: true
-        }
-      }
-  ]
+  image: {
+    type:String
+  }
+    
+ 
   ,
 
 

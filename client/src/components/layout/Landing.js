@@ -127,12 +127,14 @@ class Landing extends Component {
 
         <Section2>
           
-        
+        <Link to={"Chamba/grocery-stores"}>
         <div className="inner" >
          <img src={'https://res.cloudinary.com/spark3313/image/upload/v1595231097/cl8jnecqotstb2gd9bsl.png'} ></img>
         <h3>Groceries & Essentials</h3>
         
         </div>
+        </Link>
+        <Link to={"Chamba/fruit-and-vegetable-stores"}>
         <div className="inner" >
         <img src={'https://res.cloudinary.com/spark3313/image/upload/v1595231089/lmu4q61wm0bqwphmknat.png'} ></img>
        <h3>Fruits & Vegetables
@@ -140,41 +142,57 @@ class Landing extends Component {
        </h3>
        
        </div>
+       </Link>
+       <Link to={"Chamba/meat-and-fish-stores"}>
        <div className="inner" >
        <img src={'https://res.cloudinary.com/spark3313/image/upload/v1595231101/yec4xxqti0kdw92cum0e.png'} ></img>
       <h3>Meet & Fish</h3>
       
       </div>
+      </Link>
+      <Link to={"Chamba/restaurants"}>
       <div className="inner" >
       <img src={'https://res.cloudinary.com/spark3313/image/upload/v1595231147/vbfh3iwugtczpvk8r2wm.png'} ></img>
      <h3>Food Delivery</h3>
      
      </div>
+     </Link>
+     <Link to={"Chamba/medical-stores"}>
      <div className="inner" >
      <img src={'https://res.cloudinary.com/spark3313/image/upload/v1595231238/luogk08nyw2efyt8usbs.svg'} ></img>
     <h3>Medicines</h3>
     
     </div>
+    </Link>
+    <Link to={"Chamba/gifts"}>
     <div className="inner" >
     <img src={'https://res.cloudinary.com/spark3313/image/upload/v1595231281/m3ixjlibakzmjywidskd.png'} ></img>
    <h3>Gifts & Lifestyle</h3>
    
    </div>
+   </Link>
+   <Link to={"Chamba/pet-supply-store"}>
    <div className="inner" >
    <img src={'https://res.cloudinary.com/spark3313/image/upload/v1595231117/pnaqabm8ks9gyi7dkdfx.png'} ></img>
   <h3>Pet Supplies</h3>
   
   </div>
+  </Link>
+  <Link to={"Chamba/natural-drink"}>
   <div className="inner" >
   <img src={'https://res.cloudinary.com/spark3313/image/upload/v1595231376/auboimtmovzmz7fzqrje.png'} ></img>
  <h3>Natural Drink</h3>
  
  </div>
+ </Link>
+ <Link to={"Chamba/whey-protein"}>
  <div className="inner" >
  <img src={'https://res.cloudinary.com/spark3313/image/upload/v1595231109/q1odayyhtf8xva5ll31a.png'} ></img>
 <h3>Whey Protien and Supplments</h3>
 
 </div>
+</Link>
+
         </Section2>
            
              

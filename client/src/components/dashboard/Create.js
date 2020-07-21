@@ -10,19 +10,16 @@ import Loading from '../style/comman/loading.gif'
 
 class CreateProfile extends Component {
 
+
  
 state = {
-      displaySocialInputs: false,
-      name : '',
+      category:'',
       Hotel: '',
       Place: '',
       address: '',
-      Pincode: '',
-      skills: '',
-      city: '',
-      bio: '',
-      state : '',
-      errors: {}
+      image:'',
+     
+     
       
     };
 
@@ -36,58 +33,83 @@ state = {
       onChange = e => {
         this.setState({ [e.target.id]: e.target.value });
       };
+      onUpload = async (e) => {
+        const files = e.target.files;
+        const data = new FormData()
+        data.append('file', files[0])
+        data.append('upload_preset', 'arlnf3ja')
+        
+        const res = await fetch('https://api.cloudinary.com/v1_1/spark3313/image/upload', {
+          method: 'POST',
+          body:data
+        })
+        const file = await res.json()
+        let link = file.secure_url
+         console.log(link)
+      await   this.setState({ image:link });
+      }
 
   onSubmit = (e) => {
     e.preventDefault();
 
     const profileData = {
-        name: this.state.name,
+      category: this.state.category,
       Hotel: this.state.Hotel,
       Place: this.state.Place,
       address: this.state.address,
-      Pincode: this.state.Pincode,
-      city: this.state.city,
-      state: this.state.state,
+      image: this.state.image,
       
     };
 
     this.props.createProfile(profileData, this.props.history);
   }
  
-  
+  handleChange = (e) => {
+    this.setState({category: e.target.value});
+  }
 
+  onType = (e) => {
+    this.setState({Hotel: e.target.value});
+  }
 
 
   render() {
     const { user} = this.props.auth;
 
 
-   if(user.role = "cos"){
+   if(user.role === "mer"){
      return (
       <form noValidate onSubmit={this.onSubmit}>
       <div className="input-field col s12">
-        <input
-          onChange={this.onChange}
-          value={this.state.name}
-        
-          id="name"
-          type="name"
-        
-        />
-        <label htmlFor="name">Name</label>
-        <span className="red-text">
-        
-        </span>
-      </div>
+
+      <select value={this.state.category} onChange={this.handleChange}>
+      <option>-------Choose One------</option>
+      <option value="grocery-stores">Groceries & Essentials</option>
+      <option value="fruit-and-vegetable-stores">Fruits & Vegetables</option>
+      <option value="meat-and-fish-stores">Meet & Fish</option>
+      <option value="restaurants">Food Delivery</option>
+      <option value="medical-stores">Medicines</option>
+      <option value="gifts">Gifts & Lifestyle</option>
+      <option value="pet-supply-store">Pet Supplies</option>
+      <option value="natural-drink">Natural Drink</option>
+      <option value="whey-protein">Whey Protien and Supplments</option>
+    
+      </select>
+    
+
+    </div>
       <div className="input-field col s12">
-        <input
-          onChange={this.onChange}
-          value={this.state.Hotel}
-      
-          id="Hotel"
-          type=" Hotel"
-          
-        />
+      <div className="input-field col s12">
+
+      <select value={this.state.Hotel} onChange={this.onType}>
+      <option value="Shop">Shop</option>
+      <option value="Resturant">Resturant</option>
+    
+    
+      </select>
+    
+
+    </div>
         <label htmlFor=" Hotel"> Hotel</label>
         <span className="red-text">
           
@@ -121,48 +143,8 @@ state = {
       
     </span>
   </div>
-  <div className="input-field col s12">
-  <input
-    onChange={this.onChange}
-    value={this.state.Pincode}
-  
-    id="Pincode"
-    type="Pincode"
-    
-  />
-  <label htmlFor="Pincode">Pincode</label>
-  <span className="red-text">
-    
-  </span>
-  </div>
-  <div className="input-field col s12">
-  <input
-    onChange={this.onChange}
-    value={this.state.city}
-  
-    id="city"
-    type="city"
-    
-  />
-  <label htmlFor="city">city</label>
-  <span className="red-text">
-    
-  </span>
-  <div className="input-field col s12">
-  <input
-    onChange={this.onChange}
-    value={this.state.state}
-   
-    id="state"
-    type="state"
-    
-  />
-  <label htmlFor="state">state</label>
-  <span className="red-text">
-    
-  </span>
-  </div>
-  </div>
+  <input type="file" onChange={this.onUpload}/>
+ 
       <div className="col s12" style={{ paddingLeft: "11.250px" }}>
         <button
           style={{
@@ -182,10 +164,14 @@ state = {
 
    }
 
-else {
+else if( user.role==="cos") {
   return <Redirect to='/' />
   }
+  else {
+    return <Redirect to='/' />
+  }
 }
+
 }
 
 CreateProfile.propTypes = {

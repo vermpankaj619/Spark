@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
+import { Searchh } from '../style/profile'
 import {   getsch , getlist,  search  ,createSchedule  } from '../../actions/profileActions';
 class Search extends Component {
    
@@ -12,11 +13,11 @@ class Search extends Component {
     
      }
     
-    onChange = e => {
-      this.setState({ [e.target.id]: e.target.value });
-    };
     
-    onSubmit = (e) => {
+    
+    
+    onChange = async e => {
+     await this.setState({ [e.target.id]: e.target.value });
       e.preventDefault();
     
       const profileData = {
@@ -26,8 +27,14 @@ class Search extends Component {
     
       };
     
-      this.props.search(profileData, this.props.history);
+   await   this.props.search(profileData, this.props.history);
+    };
+    goBack = () => {
+
+      this.props.history.goBack();
     }
+    
+  
     render() {
         const {user , isAuthenticated } = this.props.auth;
         const {  profiles, loading } = this.props.profile;
@@ -80,37 +87,26 @@ class Search extends Component {
                   else {
                 return (
     
-                  <div>
+                  <Searchh>
       
-             <Link to="/Home">Home</Link>
+        
     
-             <form onSubmit={this.onSubmit}>
-                  
+            
+                  <i class="fa fa-search" aria-hidden="true"></i> 
              <input
              onChange={this.onChange}
              value={this.state.search}
-           
+             placeholder="Search for Shops Or Resturants"
              id="search"
              type="search"
            
            />
-           <button
-           style={{
-             width: "150px",
-             borderRadius: "3px",
-             letterSpacing: "1.5px",
-             marginTop: "1rem"
-           }}
-           type="submit"
-           className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-         >
-           Enter
-         </button>
+          
+           <i onClick={this.goBack} id='cut' class="fa fa-times" aria-hidden="true"></i>
                   
-                  
-             </form>
+           
     
-                  </div>
+                  </Searchh>
                
                  
     

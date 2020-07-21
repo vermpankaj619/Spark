@@ -10,6 +10,7 @@ import {
   GET_SCH,
   GET_RES,
   BOOK,
+  STORE,
   
 } from './types';
 
@@ -47,7 +48,7 @@ export const getlist = () => dispatch => {
 export const createProfile = (profileData, history) => dispatch => {
   axios
   .post('/api/users/upadted', profileData)
-    .then(res => history.push('/det'))
+    .then(res => history.push('/dashboard'))
     .catch(err =>
       dispatch({
         type: GET_ERRORS,
@@ -112,6 +113,22 @@ export const upload = (formData, history) => dispatch => {
     .then(
    console.log(formData)
 
+
+    )
+    .catch(err =>
+     console.log(err)
+    );
+};
+export const store = (profileData, history) => dispatch => {
+  axios
+  .post('/api/users/store', profileData)
+   .then(
+    res =>
+          dispatch({
+            type: STORE,
+            payload: res.data
+          })
+    
 
     )
     .catch(err =>

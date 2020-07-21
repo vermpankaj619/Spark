@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import { getCurrentProfile , getlist  } from '../../actions/profileActions';
 import { Link , Redirect} from 'react-router-dom';
+import { Loader , Section , Section2 } from '../style/profile'
+import Loading from '../style/comman/loading.gif'
 import axios from "axios";
 class Dashboard extends Component {
 
@@ -27,7 +29,7 @@ render() {
   const {  profile, loading } = this.props.profile;
 
 
-   if(user.role = "cos") {
+   if(user.role === "cos") {
     return <Redirect to='/' />
  
 
@@ -40,11 +42,12 @@ render() {
 
   if( profile===null || loading) {
     return  (
-        <div>
-        sddjsdkjd</div>
+      <Loader>
+      <img src={Loading} ></img>
+      </Loader>
       )
   }else {
-     if(Object.keys(profile).length > 0) {
+     if(profile.category) {
       return (
           <div>
             <p className="lead text-muted">
@@ -61,6 +64,7 @@ render() {
                  <p className='lead text-muted'>Welcome{user.name}</p>
                  <p> You have not yet a profile, please add some info</p>
                  <Link to='/create-profile' className=' btn btn-lg btn-info'>Create Profile</Link>
+                 <button onClick={this.onLogout} > Logout</button>
              </div>
          )
      }
