@@ -6,8 +6,7 @@ import {   upload , getlist  } from '../../actions/profileActions';
 import axios from 'axios';
 import { Loader , Section , Section2 } from '../style/profile'
 import Loading from '../style/comman/loading.gif'
-import { uploadFile } from 'react-s3';
-import ReactS3 from 'react-s3';
+
 const config = {
   bucketName: 'spark3313',
   dirName: 'photos', /* optional */
@@ -126,6 +125,8 @@ class Landing extends Component {
      
 
         <Section2>
+
+     
           
         <Link to={"Chamba/grocery-stores"}>
         <div className="inner" >

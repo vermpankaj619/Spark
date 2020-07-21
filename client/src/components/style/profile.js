@@ -112,6 +112,7 @@ margin-top:3rem;
 margin-right:16rem;
 display:grid;
 grid-template-columns: auto auto auto;
+
 .inner {
     width:22rem;
     border: 1px solid white;
@@ -128,6 +129,7 @@ grid-template-columns: auto auto auto;
     h3 {
         padding-left:1rem;
         font-family: Nexa-Bold;
+        color:black;
     }
 }
 
@@ -176,3 +178,89 @@ margin-right:30rem;
 
 
 }`
+
+
+
+export const Store = styled.div`
+margin-left:23rem;
+margin-right:23rem;
+margin-top:3rem;
+background-color:white;
+
+
+border-bottom: 5px solid black;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+padding:2rem;
+h2 {
+    color:#4cb7a4;
+    padding-left:3rem;
+    font-family: Nexa-Bold;
+}
+.sec {
+display:grid;
+grid-template-columns: 60% 40%;
+ .sec1 {
+     ul {
+         li {
+            font-family: Nexa-Bold;
+            margin-top:3rem;
+             display:flex;
+             img {
+                width:8%;
+                padding-right:1rem;
+             }
+         }
+     }
+ }
+ .sec2 {
+     img{
+         width:70%
+     }
+ }
+}
+}`
+
+export const Head = styled.div`
+padding-left:25rem; 
+padding-top:3rem;
+display:flex;
+padding-bottom:1rem;
+border-bottom: 1px solid #DCDCDC	;
+img {
+    width: 5%;
+}
+h1 {
+    fontFamily:"Nexa-Bold";
+    padding-left:1.5rem;
+    span {
+        color: #696969;
+    }
+}
+`
+
+export const Data = styled.div`
+display:grid;
+grid-template-columns: auto auto;
+padding-left:25rem; 
+padding-top:3rem;
+margin-right:23rem;
+ li {
+     display:flex;
+     list-type:none;
+     img {
+         width:30%
+     }
+ }
+ .data1 {
+     padding-left:1rem;
+     fontFamily:"Nexa-Bold";
+     h3 {
+        color: #696969;
+     }
+     h1 {
+        color:#e9e9eb
+     }
+ }
+`
