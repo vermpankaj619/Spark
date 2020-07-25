@@ -11,6 +11,8 @@ import {
   GET_RES,
   BOOK,
   STORE,
+  LOCOTION
+
   
 } from './types';
 
@@ -44,6 +46,37 @@ export const getlist = () => dispatch => {
       console.log(err)
     );
 };
+
+export const setLoction = (profileData, history) => dispatch => {
+  axios
+  .post('/api/users/setloction', profileData)
+    .then(res => history.push('/'))
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
+export const getLoction = (profileData, history) => dispatch => {
+  axios
+  .get('/api/users/locotion', profileData)
+    .then(res => 
+      dispatch({
+        type:LOCOTION,
+        payload:res.data
+      })
+      )
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
+
+
+
 
 export const createProfile = (profileData, history) => dispatch => {
   axios
@@ -126,6 +159,23 @@ export const store = (profileData, history) => dispatch => {
     res =>
           dispatch({
             type: STORE,
+            payload: res.data
+          })
+    
+
+    )
+    .catch(err =>
+     console.log(err)
+    );
+};
+
+export const res = (profileData, history) => dispatch => {
+  axios
+  .post('/api/users/res', profileData)
+   .then(
+    res =>
+          dispatch({
+            type: GET_SCH,
             payload: res.data
           })
     

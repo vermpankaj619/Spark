@@ -6,10 +6,12 @@ import {
     GET_SCH,
     GET_RES,
     SEARCH,
-    STORE
+    STORE,
+    LOCOTION
   } from '../actions/types';
   
   const initialState = {
+    locotion:null,
     profile: null,
     profiles: null,
     Schedule:null,
@@ -22,6 +24,12 @@ import {
   
   export default function(state = initialState, action) {
     switch (action.type) {
+      case LOCOTION:
+        return {
+          ...state,
+          locotion: action.payload,
+          loading: true
+        };
       case PROFILE_LOADING:
         return {
           ...state,

@@ -71,17 +71,23 @@ background-size: cover;
 
 
 .head {
-    text-align:center;
+   
     padding-top:6rem;
     padding-bottom:6rem;
     color:white;
     font-family: Nexa-Bold;
+    margin-left:23rem;
+    margin-right:20rem;
 }
 h1 {
     font-size:3rem;
+    span {
+        color: #75daab
+    }
 }
 h2 {
-    font-size:2rem; 
+    font-size:1.4rem; 
+    line-height: 150%;
 }
 #inpp1 {
    
@@ -262,5 +268,31 @@ margin-right:23rem;
      h1 {
         color:#e9e9eb
      }
+ }
+`
+
+export const SrchList = styled.div`
+position: absolute;
+
+ul {
+    background-color:white;
+    li {
+        list-style:none;
+        color:black;
+        padding:1rem;  
+        padding-left:0px;
+        &:hover  {
+            background-color: #f2f6fc;
+           
+        }
+    };
+  
+}
+left:33rem;
+width:42rem;
+     
+     font-size:1rem;
+     font-family: Nexa-Bold;
+    
  }
 `

@@ -18,7 +18,7 @@ state = {
       Place: '',
       address: '',
       image:'',
-     
+      HotelName:'',
      
       
     };
@@ -58,6 +58,7 @@ state = {
       Place: this.state.Place,
       address: this.state.address,
       image: this.state.image,
+      HotelName: this.state.HotelName
       
     };
 
@@ -98,10 +99,25 @@ state = {
     
 
     </div>
+    <div className="input-field col s12">
+    <input
+      onChange={this.onChange}
+      value={this.state.HotelName}
+   
+      id="HotelName"
+      type="HotelName"
+      
+    />
+    <label htmlFor="Place">HotelName</label>
+    <span className="red-text">
+      </span>
+      </div>
+
       <div className="input-field col s12">
       <div className="input-field col s12">
 
       <select value={this.state.Hotel} onChange={this.onType}>
+      <option>-------Choose One------</option>
       <option value="Shop">Shop</option>
       <option value="Resturant">Resturant</option>
     

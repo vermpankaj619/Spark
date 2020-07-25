@@ -24,12 +24,15 @@ import GlobalFonts from './components/style/Navbar';
 import Profile from './components/profile/profile';
 import Search from './components/profile/Search'
 import profile from "./components/profile/profile";
+import Loction from "./components/profile/Loction";
 import About from "./components/profile/About";
 import NoMatch from "./components/profile/NoMatch";
 import Sidebar from './components/profile/Sidebar'
 import Storee from './components/profile/storee'
+import Rest from './components/profile/Rest.js'
 import grocery from './components/profile/grocery-stores'
-import Merchenat from './components/auth/MercentLogin'
+import Merchenat from './components/auth/MercentLogin';
+
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
   // Set auth token header auth
@@ -66,6 +69,9 @@ class App extends Component {
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
             </Switch>
             <Switch>
+            <PrivateRoute exact path="/loction" component={Loction} />
+          </Switch>
+            <Switch>
             <PrivateRoute exact path="/dashboard" component={Dashboard} />
           </Switch>
           <Switch>
@@ -75,8 +81,11 @@ class App extends Component {
           <PrivateRoute exact path="/create-profile" component={Create} />
         </Switch>
         <Switch>
-        <PrivateRoute exact path="/Chamba/:id" component={Storee} />
+        <PrivateRoute exact path="/:id/:id" component={Storee} />
       </Switch>
+      <Switch>
+      <PrivateRoute exact path="/:id/:id/:id" component={Rest} />
+    </Switch>
         <Switch>
         <PrivateRoute exact path="/AddSchedule" component={Adddata} />
       </Switch>

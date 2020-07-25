@@ -19,7 +19,7 @@ class Navbar extends Component {
     
          <div className='head'>
          <ul>
-         <li>  <img src={"https://res.cloudinary.com/spark3313/image/upload/v1595223613/egci82gyuaddnzbaciiv.png"} /> </li>
+       <Link to="/" > <li>  <img src={"https://res.cloudinary.com/spark3313/image/upload/v1595223613/egci82gyuaddnzbaciiv.png"} /> </li></Link> 
         
          </ul>
          

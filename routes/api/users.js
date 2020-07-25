@@ -15,9 +15,8 @@ const user = User.find({});
 // @route POST api/users/register
 // @desc Register user
 // @access Public
-router.post("/register", (req, res) => {
+router.post("/register",  async (req, res) => {
   // Form validation
-
   const { errors, isValid } = validateRegisterInput(req.body);
 
   // Check validation
@@ -47,7 +46,7 @@ router.post("/register", (req, res) => {
             .then(user => res.json(user))
             .catch(err => console.log(err));
         });
-      });
+      });      
     }
   });
 });
@@ -87,10 +86,18 @@ router.post("/Mer-register", (req, res) => {
             .then(user => res.json(user))
             .catch(err => console.log(err));
         });
-      });
+      });      
     }
   });
 });
+
+  
+
+
+
+
+
+
 router.post("/Mer-login", (req, res) => {
   // Form validation
 
@@ -205,6 +212,9 @@ router.post("/login", (req, res) => {
 
 
 
+
+
+
 router.get(
   '/details',
   passport.authenticate('jwt', { session: false }),
@@ -224,6 +234,21 @@ router.get(
 
   }
 );
+router.get(
+  '/locotion',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    
+  
+
+
+    res.json(req.user.locotion)
+
+  }
+);
+
+
+
 
 router.get(
   '/sch',
@@ -247,19 +272,45 @@ router.get('/list',  (req, res) => {
   })
 });
 
+router.post('/setloction', passport.authenticate('jwt', { session: false }), (req, res) =>{
+
+  const {  text } = req.body
+
+
+
+
+
+let user =  User.findOneAndUpdate({  _id: req.user.id },{     locotion:text  },  { new: true, upsert: true },function(err, result) {
+  if (err) {
+     console.log(err)
+      
+  } 
+
+  
+console.log(result)
+
+console.log('upadted')
+res.json(result)
+});
+
+
+
+
+
+})
 
 
 
 
 router.post('/upadted', passport.authenticate('jwt', { session: false }), (req, res) =>{
 
-  const {  category,     Hotel,  Place ,address  , image } = req.body
+  const {  category,  HotelName,   Hotel,  Place ,address  , image } = req.body
 
 
 
 
 
-let user =  User.findOneAndUpdate({  _id: req.user.id },{   category:category,   Hotel:Hotel,  Place:Place ,address:address, image:image   },  { new: true, upsert: true },function(err, result) {
+let user =  User.findOneAndUpdate({  _id: req.user.id },{   category:category,   Hotel:Hotel,  Place:Place ,address:address, image:image , HotelName:HotelName   },  { new: true, upsert: true },function(err, result) {
   if (err) {
      console.log(err)
       
@@ -436,6 +487,97 @@ router.post('/store', function(req, res) {
             res.json(store)
           }
       }); 
+   
+ });
+
+ router.post('/res', function(req, res) {
+   
+  console.log(req.body)
+      
+      User.find({ HotelName:req.body.pkk }, function(err, ress) {
+          if(err) {
+              console.log(err);
+          } else {
+          console.log(ress)
+            res.json(ress)
+          }
+      }); 
+   
+ });
+
+
+ router.post('/cart',passport.authenticate('jwt', { session: false })  , function(req, res) {
+
+console.log(req.body)
+ let Cart = req.user.Cart;
+
+ Cart.forEach(function(entry) {
+  if(entry._id  !== req.body.id ){
+    
+ console.log("matched")
+   
+   console.log(entry._id )
+  console.log(entry.count)
+   User.findOneAndUpdate({_id: req.user.id , "Cart._id": entry._id  } ,{   count: count + 1   } ,{ new: true, upsert: true }, function(err,obj)  {
+    if(err) {
+      console.log(err)
+    }
+      
+    else {
+      
+   
+    
+   
+   console.log(obj.Cart)
+      
+   
+
+    }
+
+  })
+  
+
+
+  }
+  else {
+
+  console.log("not")
+    const applo = {
+      _id:req.body.id,
+      name:req.body.name,
+      count:1,
+    }
+   
+
+    User.findOneAndUpdate({_id: req.user.id} ,{   $push: {"Cart":  applo  }   } ,{ new: true, upsert: true }, function(err,obj)  {
+      if(err) {
+        console.log(err)
+      }
+        
+      else {
+        
+     
+      
+     
+     console.log(obj.Cart)
+        
+     
+  
+      }
+  
+    })
+    
+  }
+});
+
+
+
+
+   
+
+
+      
+    
    
  });
 

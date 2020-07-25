@@ -18,3 +18,8 @@ export const GET_RES = 'GET_RES'
 export const BOOK = 'BOOK'
 export const STORE = "STORE"
 export const SEARCH = 'SEARCH'
+export const  LOCOTION = 'LOCOTION'
+
+export const REMOVE_CART = 'REMOVE_CART'
+export const ADD_CART = 'ADD_CART'
+

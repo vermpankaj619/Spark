@@ -136,6 +136,7 @@ import "@yaireo/tagify/dist/tagify.css" // Tagify CSS
           <div className="input-field col s12">
 
           <select value={this.state.Type} onChange={this.handleChange}>
+          <option>-------Choose One------</option>
           <option value="Veg">Veg</option>
           <option value="Non-Veg">Non-Veg</option>
       

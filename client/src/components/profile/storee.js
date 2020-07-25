@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import {   store  } from '../../actions/profileActions';
+import {   store , getLoction  } from '../../actions/profileActions';
 import { connect } from "react-redux";
 import { Store, Loader, Head, Data} from '../style/profile'
 import Loading from '../style/comman/loading.gif'
@@ -13,17 +13,22 @@ class storee extends Component {
 
     };
   
-    componentDidMount() {
+    async   componentDidMount() {
         const profileData = {
             pkk:this.state.pkk
         }
       
-        this.props.store(profileData);
+       await this.props.store(profileData);
+       await this.props.getLoction();
+    }
+    send = ( name , locotion) => {
+        this.props.history.push(`/${locotion}/${this.props.match.params.id}/${name}`)
+     
     }
     render() {
 
-        const { store } =this.props.profile; 
-         if(store === null) {
+        const { store  , locotion} =this.props.profile; 
+         if(store === null && locotion === null) {
              return (
             <Loader>
             <img src={Loading} ></img>
@@ -78,12 +83,12 @@ class storee extends Component {
           <img  src={'https://res.cloudinary.com/spark3313/image/upload/v1595231097/cl8jnecqotstb2gd9bsl.png'} ></img>  
           <h1 >{this.props.match.params.id}<br></br> <span>  {store.length} outlets </span> </h1>
              </Head>
-             <Data>
+              <Data>
              {store.map((repo) => {
                 
                     return (
                        
-                        <li key ={repo._id}>
+                        <li  onClick={ () => this.send(repo.HotelName, locotion)} key ={repo._id}>
                         <img src={repo.image} ></img>
                         <div class="data1">
                     <h2>{repo.Hotel}</h2>    
@@ -121,4 +126,4 @@ const mapStateToProps = state => ({
   
   });
   
-  export default connect(mapStateToProps,{store})( storee );
+  export default connect(mapStateToProps,{store, getLoction })( storee );

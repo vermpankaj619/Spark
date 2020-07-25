@@ -27,13 +27,18 @@ const UserSchema = new Schema({
     type: String,
   }
   ,
- 
+   locotion: {
+
+   },
     
       category: {
         type: String,
        
       },
       Hotel: {
+        type:String
+      },
+      HotelName: {
         type:String
       }
       ,  Place: {
@@ -144,6 +149,29 @@ default: Date.now
   }
 
   
+]
+,
+Cart:[
+   {
+   
+    
+      name: {
+        type:String
+      },
+      count: {
+        type:String
+
+      },
+      time:{
+        type: Date,
+  default: Date.now
+      }
+     
+      
+  
+    }
+   
+
 ]
   
   
