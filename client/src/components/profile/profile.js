@@ -28,12 +28,12 @@ import Sidebar from './Sidebar'
              
              <div>
              <button onClick={this.logout}>
-             Edit Profile
+            Logout
              </button>
              
              </div>
              </div>
-             <Sidebar/>
+           
              </Section1>
 
 

@@ -85,7 +85,7 @@ class Rest extends Component {
                <div className="count" >
                <div className="one" >
                  
-               <h3>Maet</h3>
+         
                </div>
 
   
@@ -104,7 +104,7 @@ class Rest extends Component {
                 <img src={repo.image} ></img>
                 <ul>
                <li>{repo.Dish}   </li>             
-                <li>${repo.Price}</li> 
+                <li>₹{repo.Price}</li> 
             
                 </ul>
                 </div>

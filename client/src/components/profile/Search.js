@@ -15,6 +15,10 @@ class Search extends Component {
 
    }
 
+   send = ( cat, name ) => {
+    this.props.history.push(`/${this.props.profile.Locotion}/${name}/${cat}`)
+ 
+}
 
      state=
      {
@@ -82,7 +86,7 @@ class Search extends Component {
                   </Searchh>
                
                  
-                  <Search2  search={search}/>
+                  <Search2  search={search} send={this.send}/>
                   
                  
 

@@ -20,7 +20,7 @@ export default function Search2(props) {
                 
     return (
        
-<div>
+<div onClick={ () => props.send(repo.HotelName, repo.category)} key ={repo._id} >
         <img src={repo.image} ></img>
      
     <h2>{repo.Hotel}</h2>    

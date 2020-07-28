@@ -445,6 +445,7 @@ grid-template-columns: 25% 50% 25% ;
              padding-top:1rem;
              li {
                 font-family:Nexa-Bold;
+                padding-top:0.5rem;
              }
          }
         }
