@@ -11,7 +11,11 @@ class Navbar extends Component {
   }
   render() {
     const { user , isAuthenticated} = this.props.auth;
-    
+
+
+
+    if(isAuthenticated == true)
+    {
     
     return (
       
@@ -45,6 +49,41 @@ class Navbar extends Component {
      </Nav>
 
     );
+    }
+    else {
+    return (
+
+      <Nav>
+    
+      <div className='head'>
+      <ul>
+    <Link to="/" > <li>  <img src={"https://res.cloudinary.com/spark3313/image/upload/v1595223613/egci82gyuaddnzbaciiv.png"} /> </li></Link> 
+     
+      </ul>
+      
+      </div>
+
+      <div  className='head2'>
+      <ul>
+      <Link to="/search" > <li> <i className="fa fa-search" aria-hidden="true"></i><span>Search</span></li></Link> 
+      <li><i className="fa fa-gift" aria-hidden="true"></i><span>Offers</span></li>
+      <li><i className="fa fa-question-circle" aria-hidden="true"><span>Help</span></i></li>
+
+
+
+     <Link to="/profile"><li><i className="fa fa-user" aria-hidden="true"><span>Signin</span></i></li></Link> 
+     
+    <Link to="/create-profile" ><li><i className="fa fa-shopping-cart" aria-hidden="true"></i><span>Cart</span></li></Link>  
+  
+      </ul>
+     
+      </div>
+  
+  
+  </Nav>
+    )
+
+    }
   }
 
 

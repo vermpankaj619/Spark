@@ -159,7 +159,7 @@ Cart:[
         type:String
       },
       count: {
-        type:String
+        type:Number,
 
       },
       time:{

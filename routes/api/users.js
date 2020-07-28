@@ -99,6 +99,8 @@ router.post("/Mer-register", (req, res) => {
 
 
 router.post("/Mer-login", (req, res) => {
+
+ 
   // Form validation
 
   const { errors, isValid } = validateLoginInput(req.body);
@@ -156,7 +158,7 @@ router.post("/Mer-login", (req, res) => {
 
 router.post("/login", (req, res) => {
   // Form validation
-
+  console.log(typeof  req.body.password)
   const { errors, isValid } = validateLoginInput(req.body);
 
   // Check validation
@@ -181,10 +183,7 @@ router.post("/login", (req, res) => {
         // Create JWT Payload
         const payload = {
           id: user.id,
-          name: user.name,
-          email:user.email,
-          role:user.role,
-          phone:user.phone
+          name: user.name
         };
 
         // Sign token
@@ -287,10 +286,27 @@ let user =  User.findOneAndUpdate({  _id: req.user.id },{     locotion:text  }, 
   } 
 
   
-console.log(result)
+console.log(result.locotion)
 
 console.log('upadted')
-res.json(result)
+
+const applo = {
+  id: "sddsksdj"
+}
+
+let user =  User.findOneAndUpdate({  _id: req.user.id },{    $push: {"Cart":  applo  }    },  { new: true, upsert: true },function(err, result) {
+  if (err) {
+     console.log(err)
+      
+  } 
+
+  
+console.log(result.cart)
+
+
+
+});
+
 });
 
 
@@ -464,10 +480,11 @@ router.post('/search', function(req, res) {
  console.log(req.body.search)
   if (req.body.search) {
      const regex = new RegExp(escapeRegex(req.body.search), 'gi');
-     User.find({ $or: [{"details[0].Hotel": regex},{email: regex}] }, function(err, foundjobs) {
+     User.find({ $or: [{HotelName: regex},{category: regex}] }, function(err, foundjobs) {
          if(err) {
              console.log(err);
          } else {
+           res.json(foundjobs)
            console.log(foundjobs)
          }
      }); 
@@ -512,13 +529,13 @@ console.log(req.body)
  let Cart = req.user.Cart;
 
  Cart.forEach(function(entry) {
-  if(entry._id  !== req.body.id ){
+  if(entry._id  == req.body.id ){
     
- console.log("matched")
-   
+   console.log('mathced')
    console.log(entry._id )
-  console.log(entry.count)
-   User.findOneAndUpdate({_id: req.user.id , "Cart._id": entry._id  } ,{   count: count + 1   } ,{ new: true, upsert: true }, function(err,obj)  {
+  const tech = entry.count + 1;
+  console.log(tech)
+   User.findOneAndUpdate({_id: req.user.id ,"Cart._id": entry._id   } ,{    "Cart.$.count": tech  } ,{ new: true, upsert: true }, function(err,obj)  {
     if(err) {
       console.log(err)
     }
@@ -539,9 +556,9 @@ console.log(req.body)
 
 
   }
-  else {
+  else if (entry._id  !== req.body.id) {
 
-  console.log("not")
+   console.log("not")
     const applo = {
       _id:req.body.id,
       name:req.body.name,
@@ -557,6 +574,9 @@ console.log(req.body)
       else {
         
      
+
+
+        
       
      
      console.log(obj.Cart)
@@ -567,7 +587,8 @@ console.log(req.body)
   
     })
     
-  }
+
+}
 });
 
 

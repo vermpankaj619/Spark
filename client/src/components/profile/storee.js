@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import {   store , getLoction  } from '../../actions/profileActions';
+import {   store ,getLoction } from '../../actions/profileActions';
 import { connect } from "react-redux";
 import { Store, Loader, Head, Data} from '../style/profile'
 import Loading from '../style/comman/loading.gif'
@@ -13,22 +13,24 @@ class storee extends Component {
 
     };
   
-    async   componentDidMount() {
+    componentDidMount() {
         const profileData = {
             pkk:this.state.pkk
         }
       
-       await this.props.store(profileData);
-       await this.props.getLoction();
+        this.props.store(profileData);
     }
-    send = ( name , locotion) => {
-        this.props.history.push(`/${locotion}/${this.props.match.params.id}/${name}`)
+    componentWillMount() {
+       this.props.getLoction()
+    }
+    send = ( name) => {
+        this.props.history.push(`/${this.props.profile.Locotion}/${this.props.match.params.id}/${name}`)
      
     }
     render() {
 
-        const { store  , locotion} =this.props.profile; 
-         if(store === null && locotion === null) {
+        const { store } =this.props.profile; 
+         if(store === null) {
              return (
             <Loader>
             <img src={Loading} ></img>
@@ -88,7 +90,7 @@ class storee extends Component {
                 
                     return (
                        
-                        <li  onClick={ () => this.send(repo.HotelName, locotion)} key ={repo._id}>
+                        <li  onClick={ () => this.send(repo.HotelName)} key ={repo._id}>
                         <img src={repo.image} ></img>
                         <div class="data1">
                     <h2>{repo.Hotel}</h2>    
@@ -126,4 +128,4 @@ const mapStateToProps = state => ({
   
   });
   
-  export default connect(mapStateToProps,{store, getLoction })( storee );
+  export default connect(mapStateToProps,{store,getLoction})( storee );

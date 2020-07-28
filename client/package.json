@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.11.0",
     "@yaireo/tagify": "^3.15.4",
     "axios": "^0.18.0",
     "classnames": "^2.2.6",
@@ -11,6 +12,7 @@
     "react": "^16.6.3",
     "react-autocomplete": "^1.8.1",
     "react-dom": "^16.6.3",
+    "react-materialize": "^3.9.2",
     "react-places-autocomplete": "^7.3.0",
     "react-redux": "^5.1.1",
     "react-router-dom": "^4.3.1",

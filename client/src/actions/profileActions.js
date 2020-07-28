@@ -11,7 +11,8 @@ import {
   GET_RES,
   BOOK,
   STORE,
-  LOCOTION
+  LOCOTION,
+  SEARCH
 
   
 } from './types';
@@ -131,7 +132,11 @@ export const search = (profileData, history) => dispatch => {
   axios
   .post('/api/users/search', profileData)
     .then(
-   console.log(profileData)
+      res =>
+      dispatch({
+        type: SEARCH,
+        payload: res.data
+      })
 
 
     )

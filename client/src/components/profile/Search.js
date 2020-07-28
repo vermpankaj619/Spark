@@ -3,16 +3,26 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import { Searchh } from '../style/profile'
+import { Loader , Section , Section2 } from '../style/profile'
+import Loading from '../style/comman/loading.gif'
+import Search2 from './Search2'
 import {   getsch , getlist,  search  ,createSchedule  } from '../../actions/profileActions';
 class Search extends Component {
    
-    
+   componentDidMount() {
+     
+     this.props.search()
+
+   }
+
+
      state=
      {
       search:''
     
      }
     
+   
     
     
     
@@ -37,55 +47,19 @@ class Search extends Component {
   
     render() {
         const {user , isAuthenticated } = this.props.auth;
-        const {  profiles, loading } = this.props.profile;
-           if(isAuthenticated == false) {
+        const {  profiles, loading , search} = this.props.profile;
+           if( user == null ) {
         return (
-          <div style={{ height: "75vh" }} className="container valign-wrapper">
-            <div className="row">
-              <div className="col s12 center-align">
-                <h4>
-                  <b>Build</b> a login/auth app with the{" "}
-                  <span style={{ fontFamily: "monospace" }}>MERN</span> stack from
-                  scratch
-                </h4>
-                <p className="flow-text grey-text text-darken-1">
-                  Create a (minimal) full-stack app with user authentication via
-                  passport and JWTs
-                </p>
-                <br />
-                <div className="col s6">
-                  <Link
-                    to="/register"
-                    style={{
-                      width: "140px",
-                      borderRadius: "3px",
-                      letterSpacing: "1.5px"
-                    }}
-                    className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-                  >
-                    Register
-                  </Link>
-                </div>
-                <div className="col s6">
-                  <Link
-                    to="/login"
-                    style={{
-                      width: "140px",
-                      borderRadius: "3px",
-                      letterSpacing: "1.5px"
-                    }}
-                    className="btn btn-large btn-flat waves-effect white black-text"
-                  >
-                    Log In
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
+          <Loader>
+          <img src={Loading} ></img>
+          </Loader>
+
         );
                   }
                   else {
+                 
                 return (
+                <div>
     
                   <Searchh>
       
@@ -103,13 +77,16 @@ class Search extends Component {
            />
           
            <i onClick={this.goBack} id='cut' class="fa fa-times" aria-hidden="true"></i>
-                  
-           
-    
+          
+          
                   </Searchh>
                
                  
-    
+                  <Search2  search={search}/>
+                  
+                 
+
+                  </div>
     
     
     
