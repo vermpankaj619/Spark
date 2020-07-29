@@ -262,11 +262,11 @@ import Loading from '../style/comman/loading.gif'
             <Section>
               
             <div className="head">
-
+			<div className="head2">
             <h1>Many needs, one app</h1>
             <h2>Need groceries, food or pet supplies delivered? Get it Dun!</h2>
             <form  noValidate onSubmit={this.onSubmit}>
-         
+			<i class="fa fa-map-pin" aria-hidden="true"></i>
             <input id="inpp1" value={text} onChange={this.onTextChanged} type="text" placeholder="Enter the Loction"  />
             
            <button>Proceed</button>
@@ -274,7 +274,7 @@ import Loading from '../style/comman/loading.gif'
            
              {this.renderSuggestions()}
             </div>
-            
+            </div>
 
           
            

@@ -93,7 +93,7 @@ class storee extends Component {
                         <li  onClick={ () => this.send(repo.HotelName)} key ={repo._id}>
                         <img src={repo.image} ></img>
                         <div class="data1">
-                    <h2>{repo.Hotel}</h2>    
+                    <h2>{repo.HotelName}</h2>    
                       <h3>{repo.Hotel}</h3> 
                       <hr></hr>
                       <h1>sdjdkdsjds</h1>

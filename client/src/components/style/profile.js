@@ -78,6 +78,10 @@ background-size: cover;
     font-family: Nexa-Bold;
     margin-left:23rem;
     margin-right:20rem;
+  
+}
+.head2 {
+    text-align:center;
 }
 h1 {
     font-size:3rem;
@@ -89,14 +93,25 @@ h2 {
     font-size:1.4rem; 
     line-height: 150%;
 }
+i{
+    position: absolute;
+    padding:1rem;  
+    right:84rem;
+    top:23.05rem;
+    
+    border: 1px solid white;   
+   background:white;
+   border-left-radius: 10px;
+    color:#75daab;
+  }
 #inpp1 {
    
  width:40rem;
       padding:1rem;  
      font-size:1rem;
      font-family: Nexa-Bold;
-     border-radius: 10px;
-     border: 1px solid white;   
+    
+   
 
       }
       button {
@@ -249,8 +264,10 @@ h1 {
 export const Data = styled.div`
 display:grid;
 grid-template-columns: auto auto;
+grid-gap:2rem;
 padding-left:25rem; 
 padding-top:3rem;
+
 margin-right:23rem;
  li {
      display:flex;
@@ -445,7 +462,7 @@ grid-template-columns: 25% 50% 25% ;
              padding-top:1rem;
              li {
                 font-family:Nexa-Bold;
-                padding-top:0.5rem;
+                padding-top:1rem;
              }
          }
         }

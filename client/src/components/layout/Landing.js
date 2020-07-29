@@ -49,18 +49,18 @@ class Landing extends Component {
       <Section>
               
       <div className="head">
-
-      <h1>Many needs, one app</h1>
-      <h2>Need groceries, food or pet supplies delivered? Get it Dun!</h2>
+    	<div className="head2">
+      <h1 >Many needs, one app</h1>
+      <h2 >Need groceries, food or pet supplies delivered? Get it Dun!</h2>
       <form  noValidate onSubmit={this.onSubmit}>
-   
+      <i class="fa fa-map-pin" aria-hidden="true"></i>
       <input id="inpp1" onChange={this.onTextChanged} type="text" placeholder="Enter the Loction"  />
       
      <button>Proceed</button>
        </form>
   
       </div>
-      
+      </div>
 
     
      
@@ -190,12 +190,12 @@ class Landing extends Component {
               <Section>
                 
               <div className="head">
-
+          
               <h1> Welcome to <span>{locotion}</span></h1>
               <h2>Why step out when you can get everything delivered home with the tap of a button? Bangalore’s favourite delivery app gets you Food, Grocery, Medicine, Pet Supplies, Fruits & Vegetables, Meat & Fish, Health & Wellness, Gifts and Send Packages from one end of the city to the other. From your local kirana stores to your favourite brands, grocery shopping to your forgotten charger, we are always on the move for you. Why worry about your chores, when you can get it all Dun!</h2>
               
              
-             
+            
               </div>
               
 
