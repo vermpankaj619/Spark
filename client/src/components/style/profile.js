@@ -455,11 +455,17 @@ grid-template-columns: 25% 50% 25% ;
      li {
         display: flex;
         justify-content: space-between;
+     
+        margin:1rem;
         .list {
             display: flex;
         justify-content: start;
+       
+        img {
+            width:50%
+        }
          ul {
-             padding-top:1rem;
+             padding-top:2rem;
              li {
                 font-family:Nexa-Bold;
                 padding-top:1rem;
@@ -474,9 +480,12 @@ grid-template-columns: 25% 50% 25% ;
             border:none;
             padding:0.8rem;
             font-size: 1rem;
-            margin-top:2rem;
+            margin-top:5rem;
             margin-right:1rem;
             border-radius: 25px;
+        }
+        &:hover {
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
         }
      }
 
@@ -486,9 +495,50 @@ grid-template-columns: 25% 50% 25% ;
     padding:1rem;
     h2 {
     font-family:Nexa-Bold;
+    span {
+        font-size:0.9rem;
+        font-family: Nexa-Light;
+    }
     }
     img {
         width:100%;
+    }
+     li {
+        display:flex;
+        justify-content:space-between;
+        list-style:none;
+       
+        h3 {
+            font-size:0.9rem;
+            font-family: Nexa-Light;
+        }
+         i {
+             padding-top:0.5rem;
+         }
+     }
+    button {
+        width:100%;
+        color:white;
+        font-size:1.3rem;
+        border:none;
+        background:#75daab;
+        font-family:Nexa-Bold;
+      margin-top:1rem;
+        padding-top:0.5rem;
+        padding-bottom:0.5rem;
+    }
+    .sub {
+        display:flex;
+        justify-content:space-between;
+        h4 {
+            font-family:Nexa-Bold;
+
+            span {
+                font-size:0.9rem;
+                font-family: Nexa-Light;
+            }
+        }
+
     }
 }
 

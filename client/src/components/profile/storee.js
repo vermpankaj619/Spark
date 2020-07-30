@@ -24,7 +24,7 @@ class storee extends Component {
        this.props.getLoction()
     }
     send = ( name) => {
-        this.props.history.push(`/${this.props.profile.Locotion}/${this.props.match.params.id}/${name}`)
+        this.props.history.push(`/${this.props.profile.locotion}/${this.props.match.params.id}/${name}`)
      
     }
     render() {

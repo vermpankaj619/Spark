@@ -158,7 +158,7 @@ Cart:[
       name: {
         type:String
       },
-      count: {
+      price: {
         type:Number,
 
       },

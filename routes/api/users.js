@@ -525,46 +525,15 @@ router.post('/store', function(req, res) {
  });
 
 
- router.post('/cart',passport.authenticate('jwt', { session: false })  , function(req, res) {
-
-console.log(req.body)
- let Cart = req.user.Cart;
-
- Cart.forEach(function(entry) {
-  if(entry._id  == req.body.id ){
-    
-   console.log('mathced')
-   console.log(entry._id )
-  const tech = entry.count + 1;
-  console.log(tech)
-   User.findOneAndUpdate({_id: req.user.id ,"Cart._id": entry._id   } ,{    "Cart.$.count": tech  } ,{ new: true, upsert: true }, function(err,obj)  {
-    if(err) {
-      console.log(err)
-    }
-      
-    else {
-      
-   
-    
-   
-   console.log(obj.Cart)
-      
-   
-
-    }
-
-  })
-  
+ router.post('/Addcart',passport.authenticate('jwt', { session: false })  , function(req, res) {
 
 
-  }
-  else if (entry._id  !== req.body.id) {
 
    console.log("not")
     const applo = {
       _id:req.body.id,
       name:req.body.name,
-      count:1,
+      price:req.body.price,
     }
    
 
@@ -580,7 +549,7 @@ console.log(req.body)
 
         
       
-     
+     res.json(obj.Cart)
      console.log(obj.Cart)
         
      
@@ -590,8 +559,7 @@ console.log(req.body)
     })
     
 
-}
-});
+
 
 
 
@@ -603,5 +571,45 @@ console.log(req.body)
     
    
  });
+
+
+
+
+ router.post('/RemoveCart',passport.authenticate('jwt', { session: false })  , function(req, res) {
+
+const { id} = req.body;
+     User.findOneAndUpdate({_id: req.user.id   } ,{   $pull: {"Cart": {_id:id}}  } ,{ new: true, upsert: true }, function(err,obj)  {
+      if(err) {
+        console.log(err)
+      }
+        
+      else {
+        
+     
+      
+     res.json(obj.Cart)
+     console.log(obj.Cart)
+        
+     
+  
+      }
+  
+     })
+    
+  
+  
+    });
+  
+
+ router.get(
+  '/cart',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    
+    res.json(req.user.Cart)
+
+  }
+);
+
 
 module.exports = router;

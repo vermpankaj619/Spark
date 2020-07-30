@@ -3,14 +3,16 @@ import {   res , getLoction } from '../../actions/profileActions';
 import { connect } from "react-redux";
 import { Store, Loader, Head, Data, Top, Midd} from '../style/profile'
 import Loading from '../style/comman/loading.gif'
-import { addcart } from '../../actions/CartActions'
+import { addcart, getcart ,removecart   } from '../../actions/CartActions'
+import Cart from './Cart'
 
 class Rest extends Component {
 
     state = {
         pkk: this.props.match.params.id,
         id:'',
-        name:''
+        name:'',
+        price:''
 
 
     };
@@ -21,27 +23,49 @@ class Rest extends Component {
       
       await  this.props.res(profileData);
         await this.props.getLoction();
+        await this.props.getcart();
     }
  
  
  
-    send = async  (repo , dish) => {
-        await this.setState({id:repo, name:dish})
+    send = async  (repo , dish, price) => {
+        await this.setState({id:repo, name:dish, price:price})
 
         const data = {
             id:this.state.id,
             name:this.state.name,
+            price:this.state.price,
         }
 
        await this.props.addcart(data ,repo._id)
        
     }
+    remove = async  (repo ) => {
+   
+        const data = {
+            id:repo
+            
+        }
 
+       await this.props.removecart(data )
+       
+    }
+    Checkout  = (cart) => {
+      
+     cart.forEach(function (arrayItem) {
+          
+            console.log(arrayItem);
+        });
+      
+
+    }
 
     render() {
 
         const { Schedule ,locotion } = this.props.profile;
-        if(  Schedule===null) {
+        const { cart } = this.props.cart;
+
+        if(  Schedule===null ) {
             return  (
               <Loader>
               <img src={Loading} ></img>
@@ -108,7 +132,7 @@ class Rest extends Component {
             
                 </ul>
                 </div>
-                 <button onClick={() =>this.send(repo._id, repo.Dish)} >+ Add </button>
+                 <button onClick={() =>this.send(repo._id, repo.Dish, repo.Price)} >+ Add </button>
                 </li>
                 
                
@@ -119,10 +143,7 @@ class Rest extends Component {
      </div>
      <div  className="three">
      
-     <h3>Your Cart</h3>
-
-     <img src={'https://res.cloudinary.com/spark3313/image/upload/v1595935770/zsl12lnrqgpncpwxfwft.png'} ></img>
-     
+   <Cart  cart={cart} Checkout={this.Checkout} remove={this.remove}/>
      </div>
      </div>
      </Midd>
@@ -150,4 +171,4 @@ const mapStateToProps = state => ({
   
   });
   
-  export default connect(mapStateToProps,{addcart, getLoction, res})( Rest );
+  export default connect(mapStateToProps,{addcart,getcart, removecart,  getLoction, res})( Rest );
