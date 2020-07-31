@@ -42,7 +42,18 @@ else {
      
    <li key ={repo._id}  >
    <h3>{repo.name}</h3>
-   <i onClick={() => remove(repo._id)}  class="fa fa-trash" aria-hidden="true"></i>
+
+<div className="count">
+
+
+
+<i onClick={() => remove(repo._id)}  class="fa fa-trash" aria-hidden="true"></i>
+</div>
+ 
+ 
+ 
+ 
+
    </li>
   
    

@@ -482,7 +482,7 @@ router.post('/search', function(req, res) {
  console.log(req.body.search)
   if (req.body.search) {
      const regex = new RegExp(escapeRegex(req.body.search), 'gi');
-     User.find({ $or: [{HotelName: regex},{category: regex}] }, function(err, foundjobs) {
+     User.find({ $or: [{HotelName: regex},{"Scehedule.Dish": regex}] }, function(err, foundjobs) {
          if(err) {
              console.log(err);
          } else {

@@ -50,13 +50,14 @@ class Rest extends Component {
        await this.props.removecart(data )
        
     }
-    Checkout  = (cart) => {
+    Checkout  = async (cart) => {
       
-     cart.forEach(function (arrayItem) {
+await     cart.forEach(function (arrayItem) {
           
             console.log(arrayItem);
         });
       
+        await this.props.history.push('/checkout')
 
     }
 

@@ -32,6 +32,8 @@ import Storee from './components/profile/storee'
 import Rest from './components/profile/Rest.js'
 import grocery from './components/profile/grocery-stores'
 import Merchenat from './components/auth/MercentLogin';
+import Address from "./components/profile/Address";
+import Checkout from "./components/checkout/Checkout";
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -95,7 +97,9 @@ class App extends Component {
     <Switch>
     <PrivateRoute exact path="/resturant/:id" component={User}/>
   </Switch>
-  
+  <Switch>
+    <PrivateRoute exact path="/checkout" component={Checkout}/>
+  </Switch>
  
   <Switch>
   <PrivateRoute exact path="/search" component={Search}/>
