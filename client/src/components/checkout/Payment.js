@@ -3,13 +3,13 @@ import styled from "styled-components";
 import { CheckOut} from './style'
 
 
-export default class Step1 extends Component {
+export default class Paymnet extends Component {
     continue = e => {
         e.preventDefault();
         this.props.nextStep();
     }
     render() {
-        const { Email, handleChange } = this.props;
+        const { mode, handleChange } = this.props;
         return (
             <div>
       
@@ -26,27 +26,27 @@ export default class Step1 extends Component {
       <i class="fa fa-check-circle"   aria-hidden="true"></i>
         </div>
 
-
-            <h3>Enter your Register Email address:</h3>
+        <div className='multi' > 
+            <h2>Enter your Register Email address:</h2>
           
                 <input 
                     type="email"
                     name="Email"
-                    value={Email}
-                    placeholder="Email Or Phone Number"
-                    onChange={handleChange('Email')}
+                    value={mode}
+                    placeholder="Payment"
+                    onChange={handleChange('mode')}
                     required
                 /><br/>
          
           
           
             <button className="Next" onClick={this.continue}>
-                SignUp/Login
+                Done
             </button>
       
      
 
-
+</div>
            
             </div>
         )

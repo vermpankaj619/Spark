@@ -18,23 +18,26 @@ class Details extends Component {
     }
 
     render(){
-        const { Name, Last, handleChange } = this.props;
+        const { Name, phone, handleChange } = this.props;
         return(
             <>
             <div className="bar">
          
-            <i class="fa fa-check-circle"  aria-hidden="true">---------------------------------------</i>
+            <i class="fa fa-check-circle" id="one"   aria-hidden="true"> <span>----------------------------------</span> </i>
            
           
              
-            <i class="fa fa-check-circle"  aria-hidden="true">-----------------------------------------</i>
+            <i class="fa fa-check-circle"  aria-hidden="true"> <span>--------------------------------</span> </i>
       
              
-            <i class="fa fa-check-circle" id="one"   aria-hidden="true"></i>
+            <i class="fa fa-check-circle"   aria-hidden="true"></i>
               </div>
+               
+               <div className='multi' > 
+               
+                <h2>Enter Delivery Details:</h2>
+                <p>Enter Name and phone</p><br/>
             
-                <h3>Enter Your name:</h3>
-                <label>
                     <input 
                         type="text"
                         name="First Name"
@@ -42,22 +45,22 @@ class Details extends Component {
                         onChange={handleChange('Name')}
                         placeholder="Fisrt Name"
                     />
-                </label><br/>
-                <label>
+               <br/>
+              
                 <input 
                     type="text"
-                    name="Last Name"
-                    value={Last}
-                    onChange={handleChange('Last')}
-                    placeholder="Last Name"
+                    name="Phone"
+                    value={phone}
+                    onChange={handleChange('phone')}
+                    placeholder="Last Phone"
                 />
-            </label><br/>
+         <br/>
                
             
                 <button className="Next" onClick={this.continue}>
                    Next
                 </button>
-              
+                </div>
             </>
         );
     }

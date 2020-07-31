@@ -1,9 +1,10 @@
 import {   REMOVE_CART,
-  ADD_CART } from "../actions/types";
+  ADD_CART , ADDRESS } from "../actions/types";
 
   const initialState = {
  cart:null,
  loading: false,
+ address:null
   };
 
 export default function(state = initialState, action) {
@@ -19,6 +20,12 @@ export default function(state = initialState, action) {
           ...state,
           loading: true,
           cart: action.payload
+        };
+        case ADDRESS:
+        return {
+          ...state,
+          loading: true,
+          address: action.payload
         };
    
     default:

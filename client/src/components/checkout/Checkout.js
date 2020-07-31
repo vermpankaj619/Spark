@@ -3,34 +3,41 @@ import React, { Component } from 'react'
 
 
 import Details  from './ Details';
-import AllInfo from './ Allinfo'
-import Step1 from './ Step1'
-import Phone from './Phone'
-import Otp from './Otp'
+
+import Payment from './Payment'
+
+
 
 import { CheckOut} from './style'
+import Address from './Address';
+import { connect } from "react-redux";
+import { getAddress , getcart } from '../../actions/CartActions'
 
 
 
 
 
+class Checkout  extends Component {
 
-
-
-export default class Checkout  extends Component {
+  
+    
     state = {
         step: 1,
         // step 1    
-        Email: '',
+        mode: '',
         // step 2
         Name: '',
-        Last:'',
+      
        
         //step 3
         Onetime:'',
         phone:''
     
     }
+    async componentDidMount() {
+       await this.props.getAddress()
+       await this.props.getcart()
+      }
     
     nextStep = () => {
         const { step } = this.state;
@@ -52,33 +59,34 @@ export default class Checkout  extends Component {
     }
     
     showStep = () => {
-        const { step, Email, Name, phone, Last,  Onetime} = this.state;
+        const { step, mode, Name, phone, address} = this.state;
     
         if(step === 1)
-            return (<Step1 
+          
+            return (<Details 
                 nextStep = {this.nextStep} 
+                prevStep = {this.prevStep}
                 handleChange = {this.handleChange} 
-                Email={Email}
-            
+                Name={Name} 
+                phone={phone}
+                
             />);
         if(step === 2)
-        return (<Otp 
+        return (<Address 
             nextStep = {this.nextStep} 
             prevStep = {this.prevStep}
             handleChange = {this.handleChange} 
-            Onetime={Onetime}
+            address={address}
         
         />);
            
             if(step === 3)
-                return (<Details 
-                    nextStep = {this.nextStep} 
-                    prevStep = {this.prevStep}
-                    handleChange = {this.handleChange} 
-                    Name={Name} 
-                    Last={Last}
-                    
-                />);
+            return (<Payment 
+                nextStep = {this.nextStep} 
+                handleChange = {this.handleChange} 
+                mode={mode}
+            
+            />);
               
                
         
@@ -93,8 +101,12 @@ export default class Checkout  extends Component {
           
      <CheckOut>
          
-                
+     <div className="add">
                 {this.showStep()}
+                </div>
+                <div className="cart">
+                 dfjkdf
+                </div>
                 
                 
                 </CheckOut>
@@ -104,4 +116,14 @@ export default class Checkout  extends Component {
         );
     }
     }
-    
+    const mapStateToProps = state => ({
+        auth: state.auth,
+        profile: state.profile,
+        cart:state.cart,
+      
+      });
+
+    export default connect(
+        mapStateToProps,
+        { getAddress , getcart }
+      )((Checkout));

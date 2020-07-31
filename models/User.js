@@ -54,6 +54,16 @@ const UserSchema = new Schema({
     
  
   ,
+  address:[
+    {
+    add:{
+     
+      type:String,
+    }
+  }
+  ]
+
+  ,
 
 
   Scehedule: [

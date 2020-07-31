@@ -612,4 +612,14 @@ const { id} = req.body;
 );
 
 
+router.get(
+  '/address',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    
+    res.json(req.user.address)
+
+  }
+);
+
 module.exports = router;
