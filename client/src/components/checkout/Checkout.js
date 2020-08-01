@@ -6,14 +6,15 @@ import Details  from './ Details';
 
 import Payment from './Payment'
 
-
+import Cart from './Cart'
 
 import { CheckOut} from './style'
 import Address from './Address';
 import { connect } from "react-redux";
 import { getAddress , getcart } from '../../actions/CartActions'
 
-
+import Loading from '../style/comman/loading.gif'
+import {  Loader, Cartt} from '../style/profile'
 
 
 
@@ -59,7 +60,7 @@ class Checkout  extends Component {
     }
     
     showStep = () => {
-        const { step, mode, Name, phone, address} = this.state;
+        const { step, mode, Name, phone, add} = this.state;
     
         if(step === 1)
           
@@ -76,7 +77,7 @@ class Checkout  extends Component {
             nextStep = {this.nextStep} 
             prevStep = {this.prevStep}
             handleChange = {this.handleChange} 
-            address={address}
+            address={add}
         
         />);
            
@@ -94,7 +95,16 @@ class Checkout  extends Component {
     
     render(){
         const { step } = this.state;
-    
+        const { cart , address} = this.props.cart;
+       
+        if(   cart===null && address === null ) {
+            return  (
+              <Loader>
+              <img src={Loading} ></img>
+              </Loader>
+              )
+          }
+          else {
         return(
             <React.Fragment>
        
@@ -104,11 +114,12 @@ class Checkout  extends Component {
      <div className="add">
                 {this.showStep()}
                 </div>
-                <div className="cart">
-                 dfjkdf
+
+           <div className="cart" >     
+                <Cartt>
+               <Cart cart={cart} address={address}/>
+               </Cartt>
                 </div>
-                
-                
                 </CheckOut>
             
                 </React.Fragment>
@@ -116,6 +127,7 @@ class Checkout  extends Component {
         );
     }
     }
+}
     const mapStateToProps = state => ({
         auth: state.auth,
         profile: state.profile,

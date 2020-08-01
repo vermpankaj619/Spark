@@ -490,57 +490,7 @@ grid-template-columns: 25% 50% 25% ;
      }
 
 }
-.three {
-    border-left: 1px solid #e9e9eb;
-    padding:1rem;
-    h2 {
-    font-family:Nexa-Bold;
-    span {
-        font-size:0.9rem;
-        font-family: Nexa-Light;
-    }
-    }
-    img {
-        width:100%;
-    }
-     li {
-        display:flex;
-        justify-content:space-between;
-        list-style:none;
-       
-        h3 {
-            font-size:0.9rem;
-            font-family: Nexa-Light;
-        }
-         i {
-             padding-top:0.5rem;
-         }
-     }
-    button {
-        width:100%;
-        color:white;
-        font-size:1.3rem;
-        border:none;
-        background:#75daab;
-        font-family:Nexa-Bold;
-      margin-top:1rem;
-        padding-top:0.5rem;
-        padding-bottom:0.5rem;
-    }
-    .sub {
-        display:flex;
-        justify-content:space-between;
-        h4 {
-            font-family:Nexa-Bold;
 
-            span {
-                font-size:0.9rem;
-                font-family: Nexa-Light;
-            }
-        }
-
-    }
-}
 
 
 
@@ -549,3 +499,63 @@ grid-template-columns: 25% 50% 25% ;
 
 
 `
+export const Cartt = styled.div`
+
+border-left: 1px solid #e9e9eb;
+padding:1rem;
+background:white;
+h2 {
+font-family:Nexa-Bold;
+span {
+    font-size:0.9rem;
+    font-family: Nexa-Light;
+}
+}
+img {
+    width:100%;
+}
+ li {
+    display:flex;
+    justify-content:space-between;
+    list-style:none;
+   
+    h3 {
+        font-size:0.9rem;
+        font-family: Nexa-Light;
+    }
+     i {
+         padding-top:0.5rem;
+     }
+ }
+button {
+    width:100%;
+    color:white;
+    font-size:1.3rem;
+    border:none;
+    background:#75daab;
+    font-family:Nexa-Bold;
+  margin-top:1rem;
+    padding-top:0.5rem;
+    padding-bottom:0.5rem;
+}
+.sub {
+    display:flex;
+    justify-content:space-between;
+    h4 {
+        font-family:Nexa-Bold;
+
+        span {
+            font-size:0.9rem;
+            font-family: Nexa-Light;
+        }
+    }
+
+}
+
+
+}
+
+
+`
+
+

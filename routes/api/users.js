@@ -622,4 +622,35 @@ router.get(
   }
 );
 
+router.post('/setaddress', passport.authenticate('jwt', { session: false }), (req, res) =>{
+
+  const {  add } = req.body
+
+
+console.log(add)
+
+const profileFields = {
+  add:add
+}
+
+
+let user =  User.findOneAndUpdate({  _id: req.user.id },{  $push: {"address":  profileFields  } },  { new: true, upsert: true },function(err, result) {
+  if (err) {
+     console.log(err)
+      
+  } 
+
+  
+console.log(result)
+
+console.log('upadted')
+res.json(result.address)
+});
+
+
+
+
+
+})
+
 module.exports = router;

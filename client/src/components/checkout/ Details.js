@@ -23,11 +23,11 @@ class Details extends Component {
             <>
             <div className="bar">
          
-            <i class="fa fa-check-circle" id="one"   aria-hidden="true"> <span>----------------------------------</span> </i>
+            <i class="fa fa-check-circle" id="one"   aria-hidden="true"> <span>---------------------------------</span> </i>
            
           
              
-            <i class="fa fa-check-circle"  aria-hidden="true"> <span>--------------------------------</span> </i>
+            <i class="fa fa-check-circle"  aria-hidden="true"> <span>------------------------------</span> </i>
       
              
             <i class="fa fa-check-circle"   aria-hidden="true"></i>
@@ -52,7 +52,7 @@ class Details extends Component {
                     name="Phone"
                     value={phone}
                     onChange={handleChange('phone')}
-                    placeholder="Last Phone"
+                    placeholder=" Phone"
                 />
          <br/>
                

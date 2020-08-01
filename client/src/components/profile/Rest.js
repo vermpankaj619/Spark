@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {   res , getLoction } from '../../actions/profileActions';
 import { connect } from "react-redux";
-import { Store, Loader, Head, Data, Top, Midd} from '../style/profile'
+import { Store, Loader, Head, Data, Top, Midd , Cartt} from '../style/profile'
 import Loading from '../style/comman/loading.gif'
 import { addcart, getcart ,removecart   } from '../../actions/CartActions'
 import Cart from './Cart'
@@ -142,10 +142,10 @@ await     cart.forEach(function (arrayItem) {
       
      )}
      </div>
-     <div  className="three">
      
+     <Cartt>
    <Cart  cart={cart} Checkout={this.Checkout} remove={this.remove}/>
-     </div>
+   </Cartt>
      </div>
      </Midd>
            

@@ -86,3 +86,22 @@ export const getAddress = () => (dispatch) => {
     ); 
 
 };
+
+export const setAddress = (profileData) => (dispatch) => {
+
+  axios
+  .post('/api/users/setaddress', profileData)
+   .then(
+    res =>
+          dispatch({
+            type: ADDRESS,
+            payload: res.data
+          })
+    
+
+    )
+    .catch(err =>
+     console.log(err)
+    ); 
+
+};
