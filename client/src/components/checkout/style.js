@@ -86,6 +86,34 @@ button {
    font-size:1rem;
    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
+li {
+    list-style:none;
+    border: 1px solid #C8C8C8;
+    padding:2rem;
+    margin-left:8rem;
+    margin-right:8rem;
+    margin-top:1rem;
+    margin-bottom:1rem;
+    text-align:left;
+}
+.count {
+    display:inline;
+    text-align:left;
+   
+    i {
+       
+         span {
+           
+        font-family:'Nexa-bold';
+         }
+         
+    }
+    span {
+        font-family:'Nexa-Light';
+
+        color:#C8C8C8;
+    }
+}
   
 }
 

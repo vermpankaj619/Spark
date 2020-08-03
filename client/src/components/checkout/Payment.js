@@ -9,18 +9,18 @@ export default class Paymnet extends Component {
         this.props.nextStep();
     }
     render() {
-        const { mode, handleChange } = this.props;
+        const { mode, handleChange ,  placeorder } = this.props;
         return (
             <div>
       
        
         <div className="bar">
          
-      <i class="fa fa-check-circle"  id="one" aria-hidden="true">---------------------------------------</i>
+      <i class="fa fa-check-circle"  id="one" aria-hidden="true">--------------------------------</i>
      
     
        
-      <i class="fa fa-check-circle"  aria-hidden="true">-----------------------------------------</i>
+      <i class="fa fa-check-circle"  id="one" aria-hidden="true">--------------------------------</i>
 
        
       <i class="fa fa-check-circle"   aria-hidden="true"></i>
@@ -40,8 +40,8 @@ export default class Paymnet extends Component {
          
           
           
-            <button className="Next" onClick={this.continue}>
-                Done
+            <button className="Next" onClick={ placeorder}>
+            Place Order
             </button>
       
      

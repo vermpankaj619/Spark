@@ -11,7 +11,7 @@ import Cart from './Cart'
 import { CheckOut} from './style'
 import Address from './Address';
 import { connect } from "react-redux";
-import { getAddress , getcart } from '../../actions/CartActions'
+import { getAddress , getcart , placeorder } from '../../actions/CartActions'
 
 import Loading from '../style/comman/loading.gif'
 import {  Loader, Cartt} from '../style/profile'
@@ -29,7 +29,7 @@ class Checkout  extends Component {
         // step 2
         Name: '',
       
-       
+       add:'',
         //step 3
         Onetime:'',
         phone:''
@@ -59,6 +59,27 @@ class Checkout  extends Component {
         this.setState({[input]: e.target.value});
     }
     
+    added = (ad) => {
+        this.setState({add:ad})
+    }
+
+
+   placeorder = () => {
+
+        
+    
+    const userData = {
+        name: this.state.Name,
+        phone: this.state.phone,
+        add: this.state.add,
+        mode:this.state.mode
+      };
+  
+      this.props.placeorder(userData , this.props.history);
+
+   }
+
+
     showStep = () => {
         const { step, mode, Name, phone, add} = this.state;
     
@@ -76,8 +97,7 @@ class Checkout  extends Component {
         return (<Address 
             nextStep = {this.nextStep} 
             prevStep = {this.prevStep}
-            handleChange = {this.handleChange} 
-            address={add}
+            added={this.added}
         
         />);
            
@@ -86,6 +106,7 @@ class Checkout  extends Component {
                 nextStep = {this.nextStep} 
                 handleChange = {this.handleChange} 
                 mode={mode}
+                placeorder={this.placeorder}
             
             />);
               
@@ -117,7 +138,7 @@ class Checkout  extends Component {
 
            <div className="cart" >     
                 <Cartt>
-               <Cart cart={cart} address={address}/>
+               <Cart cart={cart} address={address} add={this.state.add} />
                </Cartt>
                 </div>
                 </CheckOut>
@@ -137,5 +158,5 @@ class Checkout  extends Component {
 
     export default connect(
         mapStateToProps,
-        { getAddress , getcart }
+        { getAddress , getcart, placeorder }
       )((Checkout));

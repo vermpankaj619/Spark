@@ -4,6 +4,9 @@ import styled from "styled-components";
 import { setAddress } from '../../actions/CartActions';
 import { connect } from "react-redux";
 
+import Loading from '../style/comman/loading.gif'
+import {  Loader} from '../style/profile'
+
  class Address  extends Component {
     continue = e => {
         e.preventDefault();
@@ -27,20 +30,33 @@ import { connect } from "react-redux";
         this.props.setAddress(userData);
       };
     render() {
-        const { add, handleChange } = this.props;
-        const { address } = this.props;
+       
+        const { address } = this.props.cart;
+
+        if(address === null){
+
+          return  (
+              <Loader>
+              <img src={Loading} ></img>
+              </Loader>
+              )
+  
+  
+  
+      }
+      else {
         return (
             <div>
             <div className="bar">
          
-            <i class="fa fa-check-circle"   id="two"  aria-hidden="true">-------------------------------</i>
+            <i className="fa fa-check-circle"   id="two"  aria-hidden="true">--------------------------------</i>
            
           
              
-            <i class="fa fa-check-circle"  aria-hidden="true">-----------------------------------</i>
+            <i className="fa fa-check-circle"  aria-hidden="true">--------------------------------</i>
       
              
-            <i class="fa fa-check-circle"   aria-hidden="true"></i>
+            <i className="fa fa-check-circle"   aria-hidden="true"></i>
               </div>
               <div className='multi' > 
             <h2>Add delivery address</h2>
@@ -58,6 +74,46 @@ import { connect } from "react-redux";
                 <button  >
                 Enter Address
              </button>
+
+             {address.map((repo) => {
+                
+              return (
+      
+           
+           
+         <li key ={repo._id}  >
+       
+      
+      <div className="count" onClick={this.props.added(repo.add)}>
+      
+      <i className="fa fa-home" aria-hidden="true"> <span> Home</span></i><br></br>
+     <span>{repo.add}</span> 
+     
+      </div>
+       
+       
+       
+       
+      
+         </li>
+        
+         
+            
+                  
+              )
+          }
+          )}
+
+
+
+
+
+
+
+
+
+
+
              </form>
                 <button className="Next" onClick={this.continue}>
                Next
@@ -80,6 +136,7 @@ import { connect } from "react-redux";
         )
     }
 }
+ }
 const mapStateToProps = state => ({
     auth: state.auth,
     profile: state.profile,

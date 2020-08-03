@@ -185,7 +185,8 @@ router.post("/login", (req, res) => {
           id: user.id,
           name: user.name,
           phone: user.phone,
-          role:user.role
+          role:user.role,
+          email:user.email
         };
 
         // Sign token
@@ -527,13 +528,19 @@ router.post('/store', function(req, res) {
 
  router.post('/Addcart',passport.authenticate('jwt', { session: false })  , function(req, res) {
 
-
+  console.log(req.body)
 
    console.log("not")
     const applo = {
       _id:req.body.id,
-      name:req.body.name,
+      id:req.body.id,
+      item:req.body.name,
       price:req.body.price,
+      merEmail:req.body.merEmail,
+      merPhone:req.body.merPhone,
+      phone:req.body.phone,
+      email:req.body.email,
+      merid:req.body.merid,
     }
    
 
@@ -577,7 +584,7 @@ router.post('/store', function(req, res) {
 
  router.post('/RemoveCart',passport.authenticate('jwt', { session: false })  , function(req, res) {
 
-const { id} = req.body;
+const { id } = req.body;
      User.findOneAndUpdate({_id: req.user.id   } ,{   $pull: {"Cart": {_id:id}}  } ,{ new: true, upsert: true }, function(err,obj)  {
       if(err) {
         console.log(err)
@@ -650,6 +657,116 @@ res.json(result.address)
 
 
 
+
+})
+
+
+
+
+router.post('/placeorder', passport.authenticate('jwt', { session: false }), (req, res) =>{
+
+console.log(req.body)
+ 
+const {  item,price ,id ,   name,   merEmail , merPhone ,  add,  payment,   email , phone} = req.body;
+
+ const array1 = req.user.Cart
+
+ array1.forEach(function(item){
+  console.log(item._id)
+  console.log(item.merid)
+
+
+  let user =  User.findOneAndUpdate({  _id: req.user.id , "Cart._id": item._id },{ "Cart.$.phone": req.body.phone , "Cart.$.name": req.body.name ,  "Cart.$.add": req.body.add ,  "Cart.$.payment": req.body.mode ,   },  { new: true, upsert: true },function(err, result) {
+    if (err) {
+       console.log(err)
+        
+    } 
+  
+    
+ 
+    console.log(item._id)
+  console.log('upadted')
+  console.log(result.Cart);
+
+    const profileFields = {
+      _id:item._id,
+      CosName:name,
+      CosEmail:email,
+      phone:phone,
+     Dish:item.item,
+      Price:item.price,
+     add:item.add,
+      payment:item.payment,
+      status:"active",
+   
+      
+
+
+
+    }
+
+  
+  User.findOneAndUpdate({  _id: item.merid  },{  $push: {"booked":   profileFields }  },  { new: true, upsert: true },function(err, result) {
+    if (err) {
+    console.log(err)
+    } 
+
+    console.log(result)
+
+    const applo = {
+       _id:item._id,
+       Dish: item.item,
+       email: item.email,
+       phone: item.phone,
+       Price:item.price,
+       add:item.add,
+       status:"active",
+       merEmail:item.merEmail,
+       merPhone:item.merPhone
+  };
+
+  
+    User.findOneAndUpdate({_id: req.user.id} ,{   $push: {"applo":  applo  }   } ,{ new: true, upsert: true }, function(err,obj)  {
+      if(err) {
+        console.log(err)
+      }
+        
+      else {
+        
+     
+      
+     
+     console.log(obj)
+        
+     User.findOneAndUpdate({_id: req.user.id } ,{   $pull: {"Cart": {_id: item._id}}  } ,{ new: true, upsert: true }, function(err,obj)  {
+      if(err) {
+        console.log(err)
+      }
+        
+      else {
+        
+     
+      
+     
+     console.log(obj)
+        
+     
+
+      }
+
+    })
+
+      }
+
+    })
+  
+  });
+ 
+  });
+
+
+
+})
 
 })
 

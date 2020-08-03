@@ -41,7 +41,7 @@ else {
      
      
    <li key ={repo._id}  >
-   <h3>{repo.name}</h3>
+   <h3>{repo.item}</h3>
 
 <div className="count">
 

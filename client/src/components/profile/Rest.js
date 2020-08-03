@@ -12,7 +12,12 @@ class Rest extends Component {
         pkk: this.props.match.params.id,
         id:'',
         name:'',
-        price:''
+        price:'',
+        merEmail:'',
+        merPhone:'',
+        email:this.props.auth.user.email,
+        phone:this.props.auth.user.phone,
+        merid:""
 
 
     };
@@ -28,13 +33,18 @@ class Rest extends Component {
  
  
  
-    send = async  (repo , dish, price) => {
-        await this.setState({id:repo, name:dish, price:price})
+    send = async  (repo , dish, price , email, phone , merid) => {
+        await this.setState({id:repo, name:dish, price:price , merEmail:email, merPhone:phone, merid:merid })
 
         const data = {
             id:this.state.id,
             name:this.state.name,
             price:this.state.price,
+            merPhone:this.state.merPhone,
+            merEmail:this.state.merEmail,
+            email:this.state.email,
+            phone:this.state.phone,
+            merid:this.state.merid
         }
 
        await this.props.addcart(data ,repo._id)
@@ -133,7 +143,7 @@ await     cart.forEach(function (arrayItem) {
             
                 </ul>
                 </div>
-                 <button onClick={() =>this.send(repo._id, repo.Dish, repo.Price)} >+ Add </button>
+                 <button onClick={() =>this.send(repo._id, repo.Dish, repo.Price ,Schedule[0].email , Schedule[0].phone , Schedule[0]._id)} >+ Add </button>
                 </li>
                 
                

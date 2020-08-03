@@ -4,7 +4,8 @@ import axios from "axios";
 import {
     REMOVE_CART,
     ADD_CART,
-    ADDRESS
+    ADDRESS,
+    GET_ERRORS,
   
     
   } from './types';
@@ -104,4 +105,17 @@ export const setAddress = (profileData) => (dispatch) => {
      console.log(err)
     ); 
 
+};
+
+export const placeorder = (profileData ,  history) => (dispatch) => {
+
+  axios
+  .post('/api/users/placeorder', profileData)
+  .then(res => history.push('/'))
+  .catch(err =>
+    dispatch({
+      type: GET_ERRORS,
+      payload: err.response.data
+    })
+  );
 };

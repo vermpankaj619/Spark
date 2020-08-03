@@ -3,7 +3,7 @@ import { Store, Loader, Head, Data, Top, Midd} from '../style/profile'
 import Loading from '../style/comman/loading.gif'
 
 export default function Cart(props) {
-    const { cart, remove,Checkout } = props;
+    const { cart, remove,Checkout , add } = props;
     
     if(cart === null){
 
@@ -41,13 +41,13 @@ else {
      
      
    <li key ={repo._id}  >
-   <h3>{repo.name}</h3>
+   <h3>{repo.item}</h3>
 
 <div className="count">
 
 
 
-<i onClick={() => remove(repo._id)}  class="fa fa-trash" aria-hidden="true"></i>
+<i onClick={() => remove(repo._id)}  className="fa fa-trash" aria-hidden="true"></i>
 </div>
  
  
@@ -81,8 +81,9 @@ else {
    <h4> ₹ {cart.reduce((a, b) => (a + b.price + 135), 0)}</h4>
 
    </div>
+ 
 
-  
+   {add}
 
   
 </div>

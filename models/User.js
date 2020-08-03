@@ -98,24 +98,9 @@ const UserSchema = new Schema({
         booked: [
 
           {
-            CosName: {
-            type:String
-          },
-          CosEmail: {
-            type:String
-          },
-          phone: {
-            type:String
-          },
-          Dish: {
-            type:String
-          },
-          Price: {
-            type:String
-          },
-          Type:{
-            type:String
-          },
+            Total: {
+              type:String
+            },
          
           
 
@@ -125,15 +110,50 @@ const UserSchema = new Schema({
       }
        
   ]
-    
+    ,
+    booked: [
+
+      {
+        CosName: {
+        type:String
+      },
+      CosEmail: {
+        type:String
+      },
+      phone: {
+        type:String
+      },
+      Dish: {
+        type:String
+      },
+      Price: {
+        type:String
+      },
+      Type:{
+        type:String
+      },
+     status:{
+       type:String
+     },
+     payment:{
+      type:String
+    },
+     time:{
+      type: Date,
+default: Date.now
+    },
+
+      
+
+    }
+
+    ],
    
-  ,
+  
   applo: [
 
     {
-    name: {
-      type:String
-    },
+   
     email: {
       type:String
     },
@@ -149,11 +169,24 @@ const UserSchema = new Schema({
     Type:{
       type:String
     },
+  
     time:{
       type: Date,
-default: Date.now
+     default: Date.now
     }
-   
+   ,
+    add:{
+      type:String
+    },
+    status:{
+      type:String
+    },
+    merEmail:{
+      type:String
+    },
+    merPhone:{
+      type:String
+    }
     
 
   }
@@ -163,9 +196,11 @@ default: Date.now
 ,
 Cart:[
    {
-   
-    
-      name: {
+    id:{
+      type:String
+    }
+    ,
+      item: {
         type:String
       },
       price: {
@@ -174,10 +209,30 @@ Cart:[
       },
       time:{
         type: Date,
-  default: Date.now
+      default: Date.now
       }
-     
-      
+     ,
+      add:{
+        type:String
+      },
+      email:{
+        type:String
+      },
+      phone: {
+        type:String
+      },
+      payment:{
+        type:String
+      },
+      merEmail:{
+        type:String
+      },
+      merPhone:{
+        type:String
+      }
+      , merid:{
+        type:String
+      }
   
     }
    

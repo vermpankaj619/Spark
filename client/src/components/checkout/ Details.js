@@ -23,14 +23,14 @@ class Details extends Component {
             <>
             <div className="bar">
          
-            <i class="fa fa-check-circle" id="one"   aria-hidden="true"> <span>---------------------------------</span> </i>
+            <i className="fa fa-check-circle" id="one"   aria-hidden="true"> <span>---------------------------------</span> </i>
            
           
              
-            <i class="fa fa-check-circle"  aria-hidden="true"> <span>------------------------------</span> </i>
+            <i className="fa fa-check-circle"  aria-hidden="true"> <span>------------------------------</span> </i>
       
              
-            <i class="fa fa-check-circle"   aria-hidden="true"></i>
+            <i className="fa fa-check-circle"   aria-hidden="true"></i>
               </div>
                
                <div className='multi' > 
