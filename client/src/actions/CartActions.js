@@ -6,6 +6,7 @@ import {
     ADD_CART,
     ADDRESS,
     GET_ERRORS,
+    ORDERS,
   
     
   } from './types';
@@ -112,6 +113,23 @@ export const placeorder = (profileData ,  history) => (dispatch) => {
   axios
   .post('/api/users/placeorder', profileData)
   .then(res => history.push('/'))
+  .catch(err =>
+    dispatch({
+      type: GET_ERRORS,
+      payload: err.response.data
+    })
+  );
+};
+
+export const orders = () => (dispatch) => {
+
+  axios
+  .get('/api/users/orders', )
+  .then(res => 
+    dispatch({
+      type: ORDERS,
+      payload: res.data
+    }))
   .catch(err =>
     dispatch({
       type: GET_ERRORS,

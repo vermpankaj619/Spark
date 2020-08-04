@@ -5,16 +5,26 @@ import logo from '../style/comman/freeLogo (1).jpeg'
 import { logoutUser } from "../../actions/authActions";
 import { connect } from "react-redux";
 import GlobalFonts from '../style/Navbar';
+import {  getcart } from '../../actions/CartActions'
 class Navbar extends Component {
+  async componentWillMount  () {
+   
+
+    await   this.props.getcart();
+ 
+   
+ 
+         
+   }
   logout = () => {
     this.props.logoutUser()
   }
   render() {
     const { user , isAuthenticated} = this.props.auth;
 
+    const { cart } = this.props.cart;
 
-
-    if(isAuthenticated == true)
+    if(isAuthenticated == true && cart !== null ) 
     {
     
     return (
@@ -39,12 +49,17 @@ class Navbar extends Component {
 
         <Link to="/profile"><li><i className="fa fa-user" aria-hidden="true"><span>   {user.name}</span></i></li></Link> 
         
-       <Link to="/create-profile" ><li><i className="fa fa-shopping-cart" aria-hidden="true"></i><span>Cart</span></li></Link>  
+       <Link to="/checkout" ><li><i className="fa fa-shopping-cart" aria-hidden="true"></i><span>Cart</span></li></Link>  
      
          </ul>
         
+        
+
          </div>
-     
+         <div className="cart" >
+         
+         {cart.length}
+        </div>
      
      </Nav>
 
@@ -93,7 +108,8 @@ class Navbar extends Component {
 const mapStateToProps = state => ({
   auth: state.auth,
   profile: state.profile,
+  cart:state.cart
 
 });
 
-export default connect(mapStateToProps,{logoutUser })(Navbar);
+export default connect(mapStateToProps,{logoutUser , getcart})(Navbar);

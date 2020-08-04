@@ -2,20 +2,43 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { Link , Redirect} from 'react-router-dom';
-import { createProfile } from '../../actions/profileActions'
-import {  logoutUser} from '../../actions/authActions'
-import { Section1} from '../style/profile'
-import Sidebar from './Sidebar'
 
+import {  logoutUser} from '../../actions/authActions'
+import {  orders } from '../../actions/CartActions'
+import { Section1} from '../style/profile'
+
+import Loading from '../style/comman/loading.gif'
    
+import {  Loader} from '../style/profile'
 
  class profile extends Component {
+
+  async componentWillMount  () {
+   
+
+    await   this.props.orders();
+ 
+   
+ 
+         
+   }
+   
+
   logout = () => {
     this.props.logoutUser()
       }
     render() {
         const { user} = this.props.auth;
+        const { orders } = this.props.cart;
+
+        if( orders  ==  null  ) {
+          return  (
+            <Loader>
+            <img src={Loading} ></img>
+            </Loader>
+            )
+        }
+        else {
         return (
            
              <Section1>
@@ -44,16 +67,13 @@ import Sidebar from './Sidebar'
           
         )
     }
+  }
 }
-profile.propTypes = {
-    profile: PropTypes.object.isRequired,
-    errors: PropTypes.object.isRequired
-  };
-  
+
   const mapStateToProps = state => ({
-    profile: state.profile,
-    errors: state.errors,
+    
     auth:state.auth,
+    cart:state.cart
   });
   
-  export default  connect(mapStateToProps, { logoutUser,createProfile})(withRouter(profile));
+  export default  connect(mapStateToProps, { logoutUser ,orders})(withRouter(profile));

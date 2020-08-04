@@ -770,4 +770,18 @@ const {  item,price ,id ,   name,   merEmail , merPhone ,  add,  payment,   emai
 
 })
 
+
+
+router.get(
+  '/orders',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    
+    res.json(req.user.applo)
+
+  }
+);
+
+
+
 module.exports = router;

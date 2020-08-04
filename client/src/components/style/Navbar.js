@@ -41,7 +41,18 @@ background-color:white;
   justify-content:center;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 
- 
+    .cart {
+      position: absolute;
+      top: 1.6rem;
+      right: 28.5rem;
+      color: white;
+      background: #75daab;
+ padding-left:0.1rem;
+ padding-right:0.1rem;
+      border: 2px solid #75daab;
+  border-radius: 25px;
+  font-size:0.8rem;
+    }
   
   .head {
      padding-right:20rem;

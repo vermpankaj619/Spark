@@ -64,9 +64,9 @@ class Checkout  extends Component {
     }
 
 
-   placeorder = () => {
+   placeorder = async () => {
 
-        
+         await this.props.history.push('/profile')
     
     const userData = {
         name: this.state.Name,
@@ -75,7 +75,7 @@ class Checkout  extends Component {
         mode:this.state.mode
       };
   
-      this.props.placeorder(userData , this.props.history);
+  await    this.props.placeorder(userData , this.props.history);
 
    }
 

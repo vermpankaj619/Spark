@@ -1,10 +1,11 @@
 import {   REMOVE_CART,
-  ADD_CART , ADDRESS } from "../actions/types";
+  ADD_CART , ADDRESS , ORDERS } from "../actions/types";
 
   const initialState = {
  cart:null,
  loading: false,
- address:null
+ address:null,
+ orders:null
   };
 
 export default function(state = initialState, action) {
@@ -27,6 +28,12 @@ export default function(state = initialState, action) {
           loading: true,
           address: action.payload
         };
+        case ORDERS:
+          return {
+            ...state,
+            loading: true,
+            orders: action.payload
+          };
    
     default:
       return state;
