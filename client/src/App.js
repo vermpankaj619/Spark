@@ -21,19 +21,21 @@ import Adddata  from './components/Schedule/Adddata'
 import Home from "./components/layout/Home";
 import { Wrapper} from './components/style/Navbar'
 import GlobalFonts from './components/style/Navbar';
-import Profile from './components/profile/profile';
+
 import Search from './components/profile/Search'
-import profile from "./components/profile/profile";
+import profile from "./components/profiles/profile";
 import Loction from "./components/profile/Loction";
-import About from "./components/profile/About";
-import NoMatch from "./components/profile/NoMatch";
-import Sidebar from './components/profile/Sidebar'
+import About from "./components/profiles/About";
+import NoMatch from "./components/profiles/NoMatch";
+
 import Storee from './components/profile/storee'
 import Rest from './components/profile/Rest.js'
 import grocery from './components/profile/grocery-stores'
 import Merchenat from './components/auth/MercentLogin';
-import Address from "./components/profile/Address";
+import Address from "./components/profiles/Address";
 import Checkout from "./components/checkout/Checkout";
+import NavigationBar from './components/profiles/NavigationBar'
+
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -105,14 +107,27 @@ class App extends Component {
   <PrivateRoute exact path="/search" component={Search}/>
 </Switch>
 <Switch>
-<PrivateRoute exact path="/profile" component={Profile}/>
+
 </Switch>
 <Switch>
           <PrivateRoute exact path="/grocery-stores" component={grocery} />
      
         </Switch>
+        <Switch>
+     
+        <PrivateRoute exact path="/profile" component={profile}/>
+          <PrivateRoute exact path="/about" component={About} />
+          <PrivateRoute exact path="/Address" component={Address} />
+        </Switch>
           </div>
         </Router>
+    
+     
+
+      
+
+       
+  
         </Wrapper>
       </Provider>
     );

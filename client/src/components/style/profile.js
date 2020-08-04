@@ -47,8 +47,18 @@ export const Section1 = styled.nav`
 
 }
 
+.order {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    background:white;
+    margin-top:2rem;
+    padding-top:2rem;
+}
 
-}`
+
+
+
+`
 
 export const Loader = styled.div`
  

@@ -10,8 +10,10 @@ import { Section1} from '../style/profile'
 import Loading from '../style/comman/loading.gif'
    
 import {  Loader} from '../style/profile'
+import Sidebar from './Sidebar';
 
- class profile extends Component {
+
+ class Address extends Component {
 
   async componentWillMount  () {
    
@@ -42,6 +44,7 @@ import {  Loader} from '../style/profile'
         return (
            
              <Section1>
+             <Sidebar/>
              <div class="one">
              <div>
            <h1>{user.name.toUpperCase()}<br/></h1>  
@@ -76,4 +79,4 @@ import {  Loader} from '../style/profile'
     cart:state.cart
   });
   
-  export default  connect(mapStateToProps, { logoutUser ,orders})(withRouter(profile));
+  export default  connect(mapStateToProps, { logoutUser ,orders})(withRouter(Address));
