@@ -666,7 +666,8 @@ res.json(result.address)
 router.post('/placeorder', passport.authenticate('jwt', { session: false }), (req, res) =>{
 
 console.log(req.body)
- 
+
+const uniqueNumber = (new Date()).getTime() + Math.trunc(365 * Math.random());
 const {  item,price ,id ,   name,   merEmail , merPhone ,  add,  payment,   email , phone} = req.body;
 
  const array1 = req.user.Cart
@@ -698,6 +699,7 @@ const {  item,price ,id ,   name,   merEmail , merPhone ,  add,  payment,   emai
      add:item.add,
       payment:item.payment,
       status:"active",
+      orderNumber:uniqueNumber
    
       
 
@@ -722,7 +724,8 @@ const {  item,price ,id ,   name,   merEmail , merPhone ,  add,  payment,   emai
        add:item.add,
        status:"active",
        merEmail:item.merEmail,
-       merPhone:item.merPhone
+       merPhone:item.merPhone,
+       orderNumber:uniqueNumber
   };
 
   

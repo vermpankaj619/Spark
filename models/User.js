@@ -142,7 +142,9 @@ const UserSchema = new Schema({
       type: Date,
 default: Date.now
     },
-
+    orderNumber:{
+      type:String
+    },
       
 
     }
@@ -176,6 +178,9 @@ default: Date.now
     }
    ,
     add:{
+      type:String
+    },
+    orderNumber:{
       type:String
     },
     status:{

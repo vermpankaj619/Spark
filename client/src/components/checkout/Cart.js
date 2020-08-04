@@ -69,7 +69,7 @@ else {
     <span>Extra charges </span> </h4>
  
     
-    <h4> ₹ 135</h4>
+    <h4> ₹20</h4>
  
     </div> 
     <div className="sub">
@@ -78,7 +78,7 @@ else {
     </h4>
 
    
-   <h4> ₹ {cart.reduce((a, b) => (a + b.price + 135), 0)}</h4>
+   <h4> ₹ {cart.reduce((a, b) => (a + b.price + 20), 0)}</h4>
 
    </div>
  
