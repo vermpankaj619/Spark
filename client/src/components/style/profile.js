@@ -49,10 +49,43 @@ export const Section1 = styled.nav`
 
 .order {
     display: grid;
-    grid-template-columns: 30% 70%;
+    grid-template-columns: 20% 80%;
     background:white;
     margin-top:2rem;
     padding-top:2rem;
+  
+    .order2 {
+  
+     .ok { 
+        border: 1px solid #ccc;
+        margin-right:2rem;
+        padding:1rem;
+        li {
+            list-style:none;
+            .list {
+                border-bottom: 1px dotted blue;
+                display:flex;
+                justify-content: space-between;
+                .type {
+                    display:flex;
+                    justify-content: start;
+                }
+            }
+            .list2 {
+                display:flex;
+                justify-content: space-between;
+                .btn {
+                    button {
+                        border:none;
+                        color:white;
+             
+              background:  #75daab;
+                    }
+                }
+            }
+        }
+     }
+    }
 }
 
 

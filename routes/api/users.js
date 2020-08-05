@@ -541,6 +541,10 @@ router.post('/store', function(req, res) {
       phone:req.body.phone,
       email:req.body.email,
       merid:req.body.merid,
+      image:req.body.image,
+      HotelName:req.body.HotelName,
+      HotelPlace:req.body.place
+  
     }
    
 
@@ -699,7 +703,11 @@ const {  item,price ,id ,   name,   merEmail , merPhone ,  add,  payment,   emai
      add:item.add,
       payment:item.payment,
       status:"active",
-      orderNumber:uniqueNumber
+      orderNumber:uniqueNumber,
+      image:item.image,
+      HotelName:item.HotelName,
+      HotelPlace:item.HotelPlace
+  
    
       
 
@@ -725,7 +733,11 @@ const {  item,price ,id ,   name,   merEmail , merPhone ,  add,  payment,   emai
        status:"active",
        merEmail:item.merEmail,
        merPhone:item.merPhone,
-       orderNumber:uniqueNumber
+       orderNumber:uniqueNumber,
+       image:item.image,
+       HotelPlace:item.HotelPlace,
+      HotelName:item.HotelName,
+
   };
 
   

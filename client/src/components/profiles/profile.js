@@ -83,18 +83,35 @@ import Sidebar from './Sidebar';
   
              
   
-                  
+                  <div class="ok">
                   <li  key ={repo._id}>
                   <div className="list" >
-                  <img src={repo} ></img>
+                  <div className="type">
+                  <img src={repo.image} ></img>
                   <ul>
-                 <li>{repo.Dish}   </li>             
-                  <li>₹{repo.Price}</li> 
-              
+                 <li>{repo.HotelName}   </li>             
+                  <li>{repo.HotelPlace}</li> 
+              <li>  {repo.orderNumber} {repo.Time} </li>
                   </ul>
+                  </div>
+                  <div className="type2" >
+                  {repo.time}
+                  </div>
+                 
+                  </div>
+                  <div className="list2" >
+
+                  <div className="btn">
+                  <button>REORDER</button>
+                  <button>HELP</button>
+                  </div>
+                  <div  className="btn2">
+                  Total:
+                  </div>
                   </div>
                   
                   </li>
+                  </div>
                   
                  
               )

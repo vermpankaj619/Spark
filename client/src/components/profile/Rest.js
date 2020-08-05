@@ -17,7 +17,10 @@ class Rest extends Component {
         merPhone:'',
         email:this.props.auth.user.email,
         phone:this.props.auth.user.phone,
-        merid:""
+        merid:"",
+        image:'',
+        HotelName:'',
+        place:''
 
 
     };
@@ -33,8 +36,8 @@ class Rest extends Component {
  
  
  
-    send = async  (repo , dish, price , email, phone , merid) => {
-        await this.setState({id:repo, name:dish, price:price , merEmail:email, merPhone:phone, merid:merid })
+    send = async  (repo , dish, price , email, phone , merid , image, HotelName , place) => {
+        await this.setState({id:repo, name:dish, price:price , merEmail:email, merPhone:phone, merid:merid  , image:image, HotelName:HotelName ,place:place})
 
         const data = {
             id:this.state.id,
@@ -44,7 +47,10 @@ class Rest extends Component {
             merEmail:this.state.merEmail,
             email:this.state.email,
             phone:this.state.phone,
-            merid:this.state.merid
+            merid:this.state.merid,
+            image:this.state.image,
+            HotelName:this.state.HotelName,
+            place:this.state.place
         }
 
        await this.props.addcart(data ,repo._id)
@@ -143,7 +149,7 @@ await     cart.forEach(function (arrayItem) {
             
                 </ul>
                 </div>
-                 <button onClick={() =>this.send(repo._id, repo.Dish, repo.Price ,Schedule[0].email , Schedule[0].phone , Schedule[0]._id)} >+ Add </button>
+                 <button onClick={() =>this.send(repo._id, repo.Dish, repo.Price ,Schedule[0].email , Schedule[0].phone , Schedule[0]._id , repo.image, Schedule[0].HotelName, Schedule[0].Place)} >+ Add </button>
                 </li>
                 
                

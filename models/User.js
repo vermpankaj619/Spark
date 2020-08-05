@@ -145,7 +145,18 @@ default: Date.now
     orderNumber:{
       type:String
     },
-      
+    image:{
+      type:String
+    },
+    HotelName:{
+      type:String
+    },
+    HotelPlace:{
+      type:String
+    },
+
+
+    
 
     }
 
@@ -191,8 +202,19 @@ default: Date.now
     },
     merPhone:{
       type:String
+    },
+    HotelName:{
+      type:String
+    },
+
+    image:{
+      type:String
     }
-    
+    ,
+    HotelPlace:{
+      type:String
+    },
+
 
   }
 
@@ -237,7 +259,18 @@ Cart:[
       }
       , merid:{
         type:String
-      }
+      },
+      image:{
+        type:String
+      },
+      HotelName:{
+        type:String
+      },
+      HotelPlace:{
+        type:String
+      },
+  
+      
   
     }
    
