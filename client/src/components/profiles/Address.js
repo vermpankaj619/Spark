@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import {  logoutUser} from '../../actions/authActions'
-import {  orders } from '../../actions/CartActions'
+import {  orders  , getAddress} from '../../actions/CartActions'
 import { Section1} from '../style/profile'
 
 import Loading from '../style/comman/loading.gif'
@@ -20,7 +20,7 @@ import Sidebar from './Sidebar';
 
     await   this.props.orders();
  
-   
+    await   this.props.getAddress();
  
          
    }
@@ -31,9 +31,9 @@ import Sidebar from './Sidebar';
       }
     render() {
         const { user} = this.props.auth;
-        const { orders } = this.props.cart;
+        const { orders  , address} = this.props.cart;
 
-        if( orders  ==  null  ) {
+        if( address  ==  null  ) {
           return  (
             <Loader>
             <img src={Loading} ></img>
@@ -41,6 +41,47 @@ import Sidebar from './Sidebar';
             )
         }
         else {
+      if( address.length == 0 ){
+        return (
+           
+          <Section1>
+          <Sidebar/>
+          <div class="one">
+          <div>
+        <h1>{user.name.toUpperCase()}<br/></h1>  
+          <h3>{user.email}  <span> {user.phone}</span> </h3>
+         
+          </div>
+          
+          <div>
+          <button onClick={this.logout}>
+         Logout
+          </button>
+          
+          </div>
+          </div>
+
+         
+          <div className='order' >
+           
+          <div className="order1" >
+          
+          
+          </div>
+          
+          
+          
+          
+          </div>
+        
+          </Section1>
+        )
+      }
+
+
+
+  else {
+
         return (
            
              <Section1>
@@ -59,16 +100,30 @@ import Sidebar from './Sidebar';
              
              </div>
              </div>
+
+            
+             <div className='order' >
+              
+             <div className="order1" >
+
+             
+             </div>
+             
+             
+             
+             
+             </div>
            
              </Section1>
 
 
-
+        
 
 
              
           
         )
+  }
     }
   }
 }
@@ -79,4 +134,4 @@ import Sidebar from './Sidebar';
     cart:state.cart
   });
   
-  export default  connect(mapStateToProps, { logoutUser ,orders})(withRouter(Address));
+  export default  connect(mapStateToProps, { logoutUser, getAddress ,orders})(withRouter(Address));

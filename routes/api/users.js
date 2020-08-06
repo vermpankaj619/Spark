@@ -4,6 +4,9 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const keys = require("../../config/keys");
 const passport = require("passport");
+var nodemailer = require("nodemailer");
+var where = require('node-where');
+const DeviceDetector = require('node-device-detector');
 
 // Load input validation
 const validateRegisterInput = require("../../validation/register");
@@ -203,6 +206,44 @@ router.post("/login", (req, res) => {
             });
           }
         );
+        const userAgent = 'Mozilla/5.0 (Linux; Android 5.0; NX505J Build/KVT49L) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.78 Mobile Safari/537.36';
+        const detector = new DeviceDetector;
+        const result = detector.parseOs(userAgent);
+        console.log('Result parse os', result);  
+        const AliasDevice = require('node-device-detector/parser/device/alias-device');
+    const uuserAgent = 'Mozilla/5.0 (Linux; Android 5.0; NX505J Build/KVT49L) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.78 Mobile Safari/537.36';
+    const aliasDevice = new AliasDevice;
+    const reesult = aliasDevice.parse(uuserAgent);
+      const rest = result.name;
+      const resst = reesult.name
+   
+      var datetime = new Date();
+      
+    console.log(rest);
+    console.log(resst)
+        var transporter = nodemailer.createTransport({
+          service: 'gmail',
+          auth: {
+            user: 'vermapankaj3313@gmail.com',
+            pass:  'Pankaj619'
+                  }
+        });
+        
+        var mailOptions = {
+          from: 'Eatwell ',
+          to: user.email,
+          subject: 'EatWell security alert: Sign-in from new device detected',
+          text: "We detected a sign-in to your account from a new device When:" + datetime + "Device" + resst + rest  
+        };
+        
+        transporter.sendMail(mailOptions, function(error, info){
+          if (error) {
+            console.log(error);
+          } else {
+            console.log('Email sent: ' + info.response);
+          }
+        });
+
       } else {
         return res
           .status(400)
@@ -293,22 +334,10 @@ console.log(result.locotion)
 
 console.log('upadted')
 
-const applo = {
-  id: "sddsksdj"
-}
-
-let user =  User.findOneAndUpdate({  _id: req.user.id },{    $push: {"Cart":  applo  }    },  { new: true, upsert: true },function(err, result) {
-  if (err) {
-     console.log(err)
-      
-  } 
-
-  
-console.log(result.cart)
 
 
 
-});
+
 
 });
 
@@ -761,6 +790,31 @@ const {  item,price ,id ,   name,   merEmail , merPhone ,  add,  payment,   emai
       else {
         
      
+        var transporter = nodemailer.createTransport({
+          service: 'gmail',
+          auth: {
+            user: 'vermapankaj3313@gmail.com',
+            pass:  'Pankaj619'
+                  }
+        });
+        
+        var mailOptions = {
+          from: 'Eatwell ',
+          to: item.email,
+          subject: 'Order Placed',
+          text: "hello" + name + "Order Placed: Your order for" +  item.item +  "with order ID" + uniqueNumber + 'worth Rs'  + item.price +  " has been received. You can expect delivery in 20 min from  "  + item.HotelName +   item.HotelPlace   
+        };
+        
+        transporter.sendMail(mailOptions, function(error, info){
+          if (error) {
+            console.log(error);
+          } else {
+            console.log('Email sent: ' + info.response);
+          }
+        });
+    
+        
+        
       
      
      console.log(obj)
@@ -793,7 +847,7 @@ router.get(
   (req, res) => {
     
     res.json(req.user.applo)
-
+    
   }
 );
 

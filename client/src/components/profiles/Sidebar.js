@@ -4,14 +4,15 @@ import { BrowserRouter as Router, Route, Link, withRouter } from "react-router-d
 
 const StyledSideNav = styled.div`   
     position: fixed;     /* Fixed Sidebar (stay in place on scroll and position relative to viewport) */
-    height: 100%;
-    width: 10rem;   /* Set the width of the sidebar */
+  
+    width: 14rem;   /* Set the width of the sidebar */
     z-index: 1;      /* Stay on top of everything */
     top: 3.4em;      /* Stay at the top */
-  
+    height:80%;
     overflow-x: hidden;     /* Disable horizontal scroll */
-    padding-top: 21rem;
+    padding-top: 24.5rem;
     padding-left:2rem;
+    
 `;
 
 class SideNav extends React.Component {
@@ -23,16 +24,27 @@ class SideNav extends React.Component {
                 {
                   path: '/profile', /* path is used as id to check which NavItem is active basically */
                   name: 'Profile',
-                  css: 'fa fa-fw fa-home',
+                  css: "fa fa-pie-chart" ,
                   key: 1 /* Key is required, else console throws error. Does this please you Mr. Browser?! */
                 },
                 {
-                  path: '/Address',
-                  name: 'Address',
-                  css: 'fa fa-fw fa-home',
+                  path: '/Favourites',
+                  name: 'Favourites',
+                  css: 'fa fa-gratipay',
                   key: 2
                 },
-               
+                {
+                    path: '/payment',
+                    name: 'Payment',
+                    css: 'fa fa-credit-card-alt',
+                    key: 3
+                  },
+                  {
+                    path: '/Address',
+                    name: 'Address',
+                    css: 'fa fa-address-card',
+                    key: 4
+                  },
               ]
         }
     }
@@ -68,13 +80,27 @@ const RouterSideNav = withRouter(SideNav);
 
 const StyledNavItem = styled.div`
     height: 70px;
-    width: 10rem; /* width must be same size as NavBar to center */
-    text-align: center; /* Aligns <a> inside of NavIcon div */
-    margin-bottom: 0;   /* Puts space between NavItems */
+    width: 100%; /* width must be same size as NavBar to center */
+  
+  
    background: #edf1f7;
    padding-top:1rem;
-  
-   
+  text-align:left;
+  padding-left:1rem;
+  color: black;
+   i {
+       padding-right:1rem;
+       color: black;
+       font-size: 1.3rem;
+   }
+   i:active {
+   color: yellow;
+  }
+   span {
+    color: black;
+    font-size: 1.3rem;
+    font-family:'Nexa-bold';
+   }
 `;
 
 class NavItem extends React.Component {
@@ -87,8 +113,9 @@ class NavItem extends React.Component {
         const { active } = this.props;
         return(
             <StyledNavItem active={active}>
-                <Link to={this.props.path} className={this.props.css} onClick={this.handleClick}>
-                    {this.props.name}
+                <Link to={this.props.path}  onClick={this.handleClick}>
+                <i class={this.props.css}  aria-hidden="true"></i>
+                   <span> {this.props.name}</span>
                 </Link>
             </StyledNavItem>
         );

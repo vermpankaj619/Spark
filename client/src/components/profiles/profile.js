@@ -73,7 +73,7 @@ import Sidebar from './Sidebar';
              </div>
              <div className="order2">
              
-            <h1>Orders</h1>
+            <h1  >Orders</h1>
 
 
             { orders.map((repo) => {
@@ -89,24 +89,30 @@ import Sidebar from './Sidebar';
                   <div className="type">
                   <img src={repo.image} ></img>
                   <ul>
-                 <li>{repo.HotelName}   </li>             
-                  <li>{repo.HotelPlace}</li> 
-              <li>  {repo.orderNumber} {repo.Time} </li>
-                  </ul>
+                 <li className="hotel" >  {repo.HotelName}  </li>             
+                  <li id="lace" >{repo.HotelPlace}</li> 
+              <li id="lace"  > ORDER   #{repo.orderNumber} | {repo.time} </li>
+                  </ul> 
                   </div>
                   <div className="type2" >
-                  {repo.time}
+                  Delivered on {repo.time}
+                  <i class="fa fa-check-circle" aria-hidden="true"></i>
                   </div>
                  
                   </div>
                   <div className="list2" >
 
+                
+
                   <div className="btn">
+                    
+                  <span  >{repo.Dish} x 1 </span> <br></br>
+
                   <button>REORDER</button>
                   <button>HELP</button>
                   </div>
                   <div  className="btn2">
-                  Total:
+                  Total Paid:  {repo.Price}
                   </div>
                   </div>
                   

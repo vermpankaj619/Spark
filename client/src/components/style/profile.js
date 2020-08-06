@@ -55,32 +55,77 @@ export const Section1 = styled.nav`
     padding-top:2rem;
   
     .order2 {
-  
+      h1 {
+        font-family:'Nexa-bold'; 
+      }
      .ok { 
         border: 1px solid #ccc;
         margin-right:2rem;
         padding:1rem;
+        margin-bottom:4rem;
         li {
             list-style:none;
             .list {
                 border-bottom: 1px dotted blue;
                 display:flex;
                 justify-content: space-between;
+              
                 .type {
                     display:flex;
                     justify-content: start;
+                    margin:1rem;
+                    img {
+                        border: 1px solid #888b95;
+                        padding:0.3rem;
+                    }
+                     ul {
+                         #lace {
+                            color:#888b95;
+                            font-family:'Nexa-Light';
+                            padding-top:0.3rem;
+                            font-size:1rem;
+                         }
+                         .hotel {
+                             font-family:'Nexa-bold';
+                             font-size:1.3rem;
+                         }
+                     }
+                }
+                .type2 {
+                    color:#888b95;
+                    font-family:'Nexa-Light';
+                    margin:1rem;
+                    margin-top:2rem;
+                    i {
+                       color: #60b246;
+                       font-size:1.3rem;
+                       padding-left:0.3rem;
+                    }
+
                 }
             }
             .list2 {
                 display:flex;
                 justify-content: space-between;
+                margin-top:1rem;
                 .btn {
+                    span {
+                        font-family:'Nexa-Light';
+                        margin-left:1rem;
+                    }
                     button {
                         border:none;
                         color:white;
-             
+                    padding:1rem;
               background:  #75daab;
+              margin:1rem;
+              font-family:'Nexa-bold';
                     }
+                }
+                .btn2 {
+                    color:#888b95;
+                    font-family:'Nexa-Light';
+                    margin:1rem;
                 }
             }
         }
