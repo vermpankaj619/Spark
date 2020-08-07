@@ -1,11 +1,10 @@
 
 import styled from 'styled-components'
-import React from 'react';
+
 import pala from './comman/Nexa-Bold.otf';
 import pala2 from './comman/Nexa-Light.otf';
 import { createGlobalStyle } from 'styled-components';
 
-import { green1 } from './color'
 
 
 

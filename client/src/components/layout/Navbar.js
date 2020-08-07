@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Nav   } from '../style/Navbar'
-import logo from '../style/comman/freeLogo (1).jpeg'
 import { logoutUser } from "../../actions/authActions";
 import { connect } from "react-redux";
-import GlobalFonts from '../style/Navbar';
 import {  getcart } from '../../actions/CartActions'
 class Navbar extends Component {
   async componentWillMount  () {
@@ -24,7 +22,7 @@ class Navbar extends Component {
 
     const { cart } = this.props.cart;
 
-    if(isAuthenticated == true && cart !== null ) 
+    if(isAuthenticated === true && cart !== null ) 
     {
     
     return (
@@ -33,7 +31,7 @@ class Navbar extends Component {
     
          <div className='head'>
          <ul>
-       <Link to="/" > <li>  <img src={"https://res.cloudinary.com/spark3313/image/upload/v1595223613/egci82gyuaddnzbaciiv.png"} /> </li></Link> 
+       <Link to="/" > <li>  <img alt="pl" src={"https://res.cloudinary.com/spark3313/image/upload/v1595223613/egci82gyuaddnzbaciiv.png"} /> </li></Link> 
         
          </ul>
          
@@ -72,7 +70,7 @@ class Navbar extends Component {
     
       <div className='head'>
       <ul>
-    <Link to="/" > <li>  <img src={"https://res.cloudinary.com/spark3313/image/upload/v1595223613/egci82gyuaddnzbaciiv.png"} /> </li></Link> 
+    <Link to="/" > <li>  <img alt="pl" src={"https://res.cloudinary.com/spark3313/image/upload/v1595223613/egci82gyuaddnzbaciiv.png"} /> </li></Link> 
      
       </ul>
       

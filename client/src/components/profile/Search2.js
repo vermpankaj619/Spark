@@ -1,5 +1,5 @@
 import React from 'react'
-import Loading from '../style/comman/loading.gif'
+
 import { Searchh } from '../style/profile'
 
 export default function Search2(props) {
@@ -21,7 +21,7 @@ export default function Search2(props) {
     return (
        
 <div onClick={ () => props.send(repo.HotelName, repo.category)} key ={repo._id} >
-        <img src={repo.image} ></img>
+        <img alt="sd" src={repo.image} ></img>
      
     <h2>{repo.Hotel}</h2>    
    

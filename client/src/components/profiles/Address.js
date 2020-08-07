@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import PropTypes from 'prop-types';
+
 
 import {  logoutUser} from '../../actions/authActions'
 import {  orders  , getAddress} from '../../actions/CartActions'
@@ -31,17 +31,17 @@ import Sidebar from './Sidebar';
       }
     render() {
         const { user} = this.props.auth;
-        const { orders  , address} = this.props.cart;
+        const {    address} = this.props.cart;
 
-        if( address  ==  null  ) {
+        if( address  ===  null  ) {
           return  (
             <Loader>
-            <img src={Loading} ></img>
+            <img alt="jkkj" src={Loading} ></img>
             </Loader>
             )
         }
         else {
-      if( address.length == 0 ){
+      if( address.length === 0 ){
         return (
            
           <Section1>

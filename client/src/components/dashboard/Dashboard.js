@@ -4,9 +4,9 @@ import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import { getCurrentProfile , getlist  } from '../../actions/profileActions';
 import { Link , Redirect} from 'react-router-dom';
-import { Loader , Section , Section2 } from '../style/profile'
+import { Loader } from '../style/profile'
 import Loading from '../style/comman/loading.gif'
-import axios from "axios";
+
 class Dashboard extends Component {
 
   componentDidMount() {
@@ -43,7 +43,7 @@ render() {
   if( profile===null || loading) {
     return  (
       <Loader>
-      <img src={Loading} ></img>
+      <img alt="sdjdsk" src={Loading} ></img>
       </Loader>
       )
   }else {

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { browserHistory } from 'react-router'
+
 import { loginUser } from "../../actions/authActions";
 import classnames from "classnames";
 import { Loginn} from '../style/profile'
@@ -66,7 +66,7 @@ class Login extends Component {
 
     return (
       <Loginn>
-      <img  src={'https://res.cloudinary.com/spark3313/image/upload/v1595223613/egci82gyuaddnzbaciiv.png'} ></img>
+      <img  alt="sd" src={'https://res.cloudinary.com/spark3313/image/upload/v1595223613/egci82gyuaddnzbaciiv.png'} ></img>
             
               
           

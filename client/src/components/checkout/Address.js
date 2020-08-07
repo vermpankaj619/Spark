@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import styled from "styled-components";
+
 
 import { setAddress } from '../../actions/CartActions';
 import { connect } from "react-redux";
@@ -37,7 +37,7 @@ import {  Loader} from '../style/profile'
 
           return  (
               <Loader>
-              <img src={Loading} ></img>
+              <img alt="jkkj" src={Loading} ></img>
               </Loader>
               )
   

@@ -1,15 +1,6 @@
 
 import styled from 'styled-components'
-import React from 'react';
-import pala from './comman/Nexa-Bold.otf';
-import pala2 from './comman/Nexa-Light.otf';
-import { createGlobalStyle } from 'styled-components';
 
-import { green1 } from './color'
-
-
-import logo from '../style/comman/download.png'
-import logo2 from '../style/comman/gps.png'
 
 
 
@@ -84,6 +75,11 @@ export const Section1 = styled.nav`
                             font-family:'Nexa-Light';
                             padding-top:0.3rem;
                             font-size:1rem;
+                         }
+                         h4 {
+                             color:#75daab;
+                             font-family:'Nexa-bold';
+
                          }
                          .hotel {
                              font-family:'Nexa-bold';
@@ -647,3 +643,21 @@ button {
 `
 
 
+
+
+export const Side = styled.div`
+ 
+
+position: fixed; /* Stay in place */
+z-index: 1; /* Sit on top */
+padding-top: 100px; /* Location of the box */
+right: 0;
+top: 0;
+width: 100%; /* Full width */
+height: 100%; /* Full height */
+overflow: auto; /* Enable scroll if needed */
+background-color: rgb(0,0,0); /* Fallback color */
+background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+}`

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Store, Loader, Head, Data, Top, Midd} from '../style/profile'
+import { Loader, } from '../style/profile'
 import Loading from '../style/comman/loading.gif'
 
 export default function Cart(props) {
@@ -9,7 +9,7 @@ export default function Cart(props) {
 
         return  (
             <Loader>
-            <img src={Loading} ></img>
+            <img  alt="pl" src={Loading} ></img>
             </Loader>
             )
 
@@ -20,12 +20,12 @@ else {
 
 
 
-    if(cart == '')
+    if(cart === '')
     return (
         <div>
         <h3>Your Cart</h3>
 
-        <img src={'https://res.cloudinary.com/spark3313/image/upload/v1595935770/zsl12lnrqgpncpwxfwft.png'} ></img>
+        <img alt="pl" src={'https://res.cloudinary.com/spark3313/image/upload/v1595935770/zsl12lnrqgpncpwxfwft.png'} ></img>
         
         </div>
     )

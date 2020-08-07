@@ -26,7 +26,7 @@ import Search from './components/profile/Search'
 import profile from "./components/profiles/profile";
 import Loction from "./components/profile/Loction";
 import About from "./components/profiles/About";
-import NoMatch from "./components/profiles/NoMatch";
+
 
 import Storee from './components/profile/storee'
 import Rest from './components/profile/Rest.js'
@@ -34,7 +34,7 @@ import grocery from './components/profile/grocery-stores'
 import Merchenat from './components/auth/MercentLogin';
 import Address from "./components/profiles/Address";
 import Checkout from "./components/checkout/Checkout";
-import NavigationBar from './components/profiles/NavigationBar'
+
 
 
 // Check for token to keep user logged in

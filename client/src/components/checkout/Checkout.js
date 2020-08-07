@@ -81,7 +81,7 @@ class Checkout  extends Component {
 
 
     showStep = () => {
-        const { step, mode, Name, phone, add} = this.state;
+        const { step, mode, Name, phone} = this.state;
     
         if(step === 1)
           
@@ -115,13 +115,13 @@ class Checkout  extends Component {
     }
     
     render(){
-        const { step } = this.state;
+        
         const { cart , address} = this.props.cart;
        
         if(   cart===null && address === null ) {
             return  (
               <Loader>
-              <img src={Loading} ></img>
+              <img alt="sd" src={Loading} ></img>
               </Loader>
               )
           }

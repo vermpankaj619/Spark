@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
 import classnames from "classnames";
-import 'materialize-css';
+
 import { Loginn} from '../style/profile'
 
 class Register extends Component {
@@ -60,7 +60,7 @@ class Register extends Component {
 
     return (
      <Loginn>
-           <img  src={'https://res.cloudinary.com/spark3313/image/upload/v1595223613/egci82gyuaddnzbaciiv.png'} ></img>
+           <img  alt="sd" src={'https://res.cloudinary.com/spark3313/image/upload/v1595223613/egci82gyuaddnzbaciiv.png'} ></img>
             <form noValidate onSubmit={this.onSubmit}>
            
                 <input

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { logoutUser } from "../../actions/authActions";
+
 import {   booking , getlist , getId  } from '../../actions/profileActions';
 import { connect } from "react-redux";
  class User extends Component {

@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import styled from "styled-components";
-import { CheckOut} from './style'
+
 
 
 export default class Paymnet extends Component {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { connect } from "react-redux";
-import { Link, Redirect } from "react-router-dom";
+import {  Redirect } from "react-router-dom";
 
 import {    setLoction ,getLoction } from '../../actions/profileActions';
 
@@ -239,7 +239,7 @@ import Loading from '../style/comman/loading.gif'
                 return (
                  
                  <Loader>
-                 <img src={Loading} ></img>
+                 <img alt="pl" src={Loading} ></img>
                  </Loader>
 
 
@@ -293,14 +293,14 @@ import Loading from '../style/comman/loading.gif'
         
       
       <div className="inner" >
-       <img src={'https://res.cloudinary.com/spark3313/image/upload/v1595231097/cl8jnecqotstb2gd9bsl.png'} ></img>
+       <img alt="pl" src={'https://res.cloudinary.com/spark3313/image/upload/v1595231097/cl8jnecqotstb2gd9bsl.png'} ></img>
       <h3>Groceries & Essentials</h3>
       
       </div>
       
      
       <div className="inner" >
-      <img src={'https://res.cloudinary.com/spark3313/image/upload/v1595231089/lmu4q61wm0bqwphmknat.png'} ></img>
+      <img alt="pl" src={'https://res.cloudinary.com/spark3313/image/upload/v1595231089/lmu4q61wm0bqwphmknat.png'} ></img>
      <h3>Fruits & Vegetables
 
      </h3>
@@ -308,43 +308,43 @@ import Loading from '../style/comman/loading.gif'
      </div>
     
      <div className="inner" >
-     <img src={'https://res.cloudinary.com/spark3313/image/upload/v1595231101/yec4xxqti0kdw92cum0e.png'} ></img>
+     <img alt="pl" src={'https://res.cloudinary.com/spark3313/image/upload/v1595231101/yec4xxqti0kdw92cum0e.png'} ></img>
     <h3>Meet & Fish</h3>
     
     </div>
 
     <div className="inner" >
-    <img src={'https://res.cloudinary.com/spark3313/image/upload/v1595231147/vbfh3iwugtczpvk8r2wm.png'} ></img>
+    <img alt="pl" src={'https://res.cloudinary.com/spark3313/image/upload/v1595231147/vbfh3iwugtczpvk8r2wm.png'} ></img>
    <h3>Food Delivery</h3>
    
    </div>
   
    <div className="inner" >
-   <img src={'https://res.cloudinary.com/spark3313/image/upload/v1595231238/luogk08nyw2efyt8usbs.svg'} ></img>
+   <img alt="pl" src={'https://res.cloudinary.com/spark3313/image/upload/v1595231238/luogk08nyw2efyt8usbs.svg'} ></img>
   <h3>Medicines</h3>
   
   </div>
 
   <div className="inner" >
-  <img src={'https://res.cloudinary.com/spark3313/image/upload/v1595231281/m3ixjlibakzmjywidskd.png'} ></img>
+  <img alt="pl" src={'https://res.cloudinary.com/spark3313/image/upload/v1595231281/m3ixjlibakzmjywidskd.png'} ></img>
  <h3>Gifts & Lifestyle</h3>
  
  </div>
 
  <div className="inner" >
- <img src={'https://res.cloudinary.com/spark3313/image/upload/v1595231117/pnaqabm8ks9gyi7dkdfx.png'} ></img>
+ <img alt="pl" src={'https://res.cloudinary.com/spark3313/image/upload/v1595231117/pnaqabm8ks9gyi7dkdfx.png'} ></img>
 <h3>Pet Supplies</h3>
 
 </div>
 
 <div className="inner" >
-<img src={'https://res.cloudinary.com/spark3313/image/upload/v1595231376/auboimtmovzmz7fzqrje.png'} ></img>
+<img alt="pl" src={'https://res.cloudinary.com/spark3313/image/upload/v1595231376/auboimtmovzmz7fzqrje.png'} ></img>
 <h3>Natural Drink</h3>
 
 </div>
 
 <div className="inner" >
-<img src={'https://res.cloudinary.com/spark3313/image/upload/v1595231109/q1odayyhtf8xva5ll31a.png'} ></img>
+<img alt="pl" src={'https://res.cloudinary.com/spark3313/image/upload/v1595231109/q1odayyhtf8xva5ll31a.png'} ></img>
 <h3>Whey Protien and Supplments</h3>
 
 </div>

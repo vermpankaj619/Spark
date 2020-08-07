@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import PropTypes from 'prop-types';
+
 
 import {  logoutUser} from '../../actions/authActions'
 import {  orders } from '../../actions/CartActions'
-import { Section1} from '../style/profile'
+import { Section1, Side} from '../style/profile'
 
 import Loading from '../style/comman/loading.gif'
    
@@ -23,7 +23,13 @@ import Sidebar from './Sidebar';
  
          
    }
+   state= {
+    active: true
+   }
+   toggleClass = (id)  =>{
    
+    this.setState({ active: id });
+};
 
   logout = () => {
     this.props.logoutUser()
@@ -35,7 +41,7 @@ import Sidebar from './Sidebar';
         if( orders  ==  null  ) {
           return  (
             <Loader>
-            <img src={Loading} ></img>
+            <img alt="sd" src={Loading} ></img>
             </Loader>
             )
         }
@@ -75,6 +81,8 @@ import Sidebar from './Sidebar';
              
             <h1  >Orders</h1>
 
+       
+
 
             { orders.map((repo) => {
                 
@@ -87,12 +95,14 @@ import Sidebar from './Sidebar';
                   <li  key ={repo._id}>
                   <div className="list" >
                   <div className="type">
-                  <img src={repo.image} ></img>
+                  <img  alt="sd" src={repo.image} ></img>
                   <ul>
                  <li className="hotel" >  {repo.HotelName}  </li>             
                   <li id="lace" >{repo.HotelPlace}</li> 
               <li id="lace"  > ORDER   #{repo.orderNumber} | {repo.time} </li>
+              <h4 onClick={() => this.toggleClass(repo._id)} >VIEW DETAILS</h4>
                   </ul> 
+               
                   </div>
                   <div className="type2" >
                   Delivered on {repo.time}
@@ -115,9 +125,16 @@ import Sidebar from './Sidebar';
                   Total Paid:  {repo.Price}
                   </div>
                   </div>
+
+                  {this.state.active === repo._id && <Side>
+               {repo._id}
+        
+        </Side> }
+
                   
                   </li>
                   </div>
+
                   
                  
               )

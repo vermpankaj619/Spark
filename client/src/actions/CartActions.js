@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 import {
-    REMOVE_CART,
+
     ADD_CART,
     ADDRESS,
     GET_ERRORS,

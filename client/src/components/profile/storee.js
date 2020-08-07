@@ -33,7 +33,7 @@ class storee extends Component {
          if(store === null) {
              return (
             <Loader>
-            <img src={Loading} ></img>
+            <img alt="pl" src={Loading} ></img>
             </Loader>
 
              )
@@ -55,18 +55,18 @@ class storee extends Component {
              <div className="sec" >
              <div className="sec1" >
              <ul>
-             <li> <img src={'https://res.cloudinary.com/spark3313/image/upload/v1595348037/samples/crchmgwzd5kakw87ytho.png'} ></img>  <h3>List the items to purchase</h3></li>
+             <li> <img alt="pl" src={'https://res.cloudinary.com/spark3313/image/upload/v1595348037/samples/crchmgwzd5kakw87ytho.png'} ></img>  <h3>List the items to purchase</h3></li>
              
-             <li><img src={'https://res.cloudinary.com/spark3313/image/upload/v1595348237/samples/jzq7yq2ke82duqlgtflf.svg'} ></img> <h3>Search for the store or enter the location</h3></li>
+             <li><img alt="pl" src={'https://res.cloudinary.com/spark3313/image/upload/v1595348237/samples/jzq7yq2ke82duqlgtflf.svg'} ></img> <h3>Search for the store or enter the location</h3></li>
              
-             <li><img src={'https://res.cloudinary.com/spark3313/image/upload/v1595348195/samples/ellloawcwim8lzui7dvp.svg'} ></img> <h3>Chat with the partner and track the order</h3></li>
+             <li><img alt="pl" src={'https://res.cloudinary.com/spark3313/image/upload/v1595348195/samples/ellloawcwim8lzui7dvp.svg'} ></img> <h3>Chat with the partner and track the order</h3></li>
              
              </ul>
              
              </div>
              <div className="sec2" >
              
-             <img src={
+             <img alt="pl" src={
                 'https://res.cloudinary.com/spark3313/image/upload/v1595352284/samples/jrgy1411sxnxwtlnfkuu.gif'
              } ></img>
              </div>
@@ -82,7 +82,7 @@ class storee extends Component {
         return (
             <div>
             <Head>
-          <img  src={'https://res.cloudinary.com/spark3313/image/upload/v1595231097/cl8jnecqotstb2gd9bsl.png'} ></img>  
+          <img  alt="pll" src={'https://res.cloudinary.com/spark3313/image/upload/v1595231097/cl8jnecqotstb2gd9bsl.png'} ></img>  
           <h1 >{this.props.match.params.id}<br></br> <span>  {store.length} outlets </span> </h1>
              </Head>
               <Data>
@@ -91,7 +91,7 @@ class storee extends Component {
                     return (
                        
                         <li  onClick={ () => this.send(repo.HotelName)} key ={repo._id}>
-                        <img src={repo.image} ></img>
+                        <img alt="pl" src={repo.image} ></img>
                         <div class="data1">
                     <h2>{repo.HotelName}</h2>    
                       <h3>{repo.Hotel}</h3> 

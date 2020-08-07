@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {   res , getLoction } from '../../actions/profileActions';
 import { connect } from "react-redux";
-import { Store, Loader, Head, Data, Top, Midd , Cartt} from '../style/profile'
+import {  Loader,  Top, Midd , Cartt} from '../style/profile'
 import Loading from '../style/comman/loading.gif'
 import { addcart, getcart ,removecart   } from '../../actions/CartActions'
 import Cart from './Cart'
@@ -85,7 +85,7 @@ await     cart.forEach(function (arrayItem) {
         if(  Schedule===null ) {
             return  (
               <Loader>
-              <img src={Loading} ></img>
+              <img  src={Loading}  alt="sd" />
               </Loader>
               )
           }
@@ -104,7 +104,7 @@ await     cart.forEach(function (arrayItem) {
 
             <div className="head2">
               
-            <img src={Schedule[0].image} >
+            <img alt="sd" src={Schedule[0].image} >
             </img>
              <ul>
              <li><h1>{Schedule[0].HotelName}</h1></li>
@@ -142,7 +142,7 @@ await     cart.forEach(function (arrayItem) {
                 
                 <li  key ={repo._id}>
                 <div className="list" >
-                <img src={repo.image} ></img>
+                <img alt="sd" src={repo.image} ></img>
                 <ul>
                <li>{repo.Dish}   </li>             
                 <li>₹{repo.Price}</li> 

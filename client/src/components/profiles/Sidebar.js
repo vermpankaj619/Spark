@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { BrowserRouter as Router, Route, Link, withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 const StyledSideNav = styled.div`   
     position: fixed;     /* Fixed Sidebar (stay in place on scroll and position relative to viewport) */
@@ -122,8 +122,7 @@ class NavItem extends React.Component {
     }
 }
 
-const NavIcon = styled.div`
-`;
+
 
 class Sidebar extends React.Component {
     render() {

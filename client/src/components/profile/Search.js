@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import { Link } from "react-router-dom";
+
 import { connect } from "react-redux";
-import { logoutUser } from "../../actions/authActions";
+
 import { Searchh } from '../style/profile'
-import { Loader , Section , Section2 } from '../style/profile'
+import { Loader } from '../style/profile'
 import Loading from '../style/comman/loading.gif'
 import Search2 from './Search2'
 import {   getsch , getlist,  search  ,createSchedule  } from '../../actions/profileActions';
@@ -50,12 +50,12 @@ class Search extends Component {
     
   
     render() {
-        const {user , isAuthenticated } = this.props.auth;
-        const {  profiles, loading , search} = this.props.profile;
+        const {user , } = this.props.auth;
+        const {  search} = this.props.profile;
            if( user == null ) {
         return (
           <Loader>
-          <img src={Loading} ></img>
+          <img alt="sd" src={Loading} ></img>
           </Loader>
 
         );

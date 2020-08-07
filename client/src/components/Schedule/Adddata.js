@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import PropTypes from "prop-types";
+
 import { connect } from "react-redux";
-import { logoutUser } from "../../actions/authActions";
+
 import { Loader } from '../style/profile'
 import Loading from '../style/comman/loading.gif'
 import {   getsch , createSchedule  } from '../../actions/profileActions';
@@ -76,13 +76,13 @@ import "@yaireo/tagify/dist/tagify.css" // Tagify CSS
     
      
     render() {
-        const {user} = this.props.auth;
+     
         const { Schedule } = this.props.profile;
         if( Schedule===null ) {
            
             return (
                 <Loader>
-                <img src={Loading} ></img>
+                <img alt="pl"  src={Loading} ></img>
                 </Loader>
             )
         } else {  
@@ -96,7 +96,7 @@ import "@yaireo/tagify/dist/tagify.css" // Tagify CSS
    
                 
                  // dynamic props such as "loading", "showDropdown:'abc'", "value"
-                onChange={e => (e.persist(), this.setState({categories:e.target.value}))}
+                onChange={e => (this.setState({categories:e.target.value}))}
               />
                 <label htmlFor="name">categories</label>
                 <span className="red-text">
@@ -164,51 +164,8 @@ import "@yaireo/tagify/dist/tagify.css" // Tagify CSS
 
                
 
-            {Schedule.map((repo) => {
-                if(repo.categories == "indian") {
-                    return (
-                        <li key ={repo._id}>
-                        {(() => {
-                            if ( repo.Type=='non-veg') {
-                              return (
-                                <div>red</div>
-                              )
-                           
-                            } else {
-                              return (
-                                <div>catch all</div>
-                              )
-                            }
-                          })()}
-                             
-                        {repo.Dish}
-                        {repo.categories}
-                        
-                        <img  src={repo.image} ></img>
-                        </li>
-                    )
-                }
-              
-               
-             
-              
-              })}
-              {Schedule.map((repo) => {
-                if(repo.categories == "am") {
-                    return (
-                        <li key ={repo._id}>
-                        {repo.Dish}
-                        {repo.categories}
-                        
-                        </li>
-                    )
-                }
-              
-               
-             
-              
-              })}
-
+           
+           
 
 
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
-import { logoutUser } from "../../actions/authActions";
-import {   getsch , upload ,search , getlist , getId  } from '../../actions/profileActions';
+
+import {   upload ,search , getlist , getId  } from '../../actions/profileActions';
 import { Link} from 'react-router-dom';
  class Home extends Component {
 
@@ -34,7 +34,7 @@ import { Link} from 'react-router-dom';
     
     render() {
      
-        const {  profiles, loading } = this.props.profile;
+        const {  profiles } = this.props.profile;
    
         if( profiles===null ) {
            
