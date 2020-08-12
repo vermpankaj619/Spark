@@ -12,12 +12,12 @@ import Landing from "./components/layout/Landing";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
-import Dashboard from "./components/dashboard/Dashboard";
-import User from "./components/dashboard/User";
+import Dashboard from "./components/merchant/Dashboard";
+
 import Det from './components/detilal/Det';
-import Create from './components/dashboard/Create'
+
 import "./App.css";
-import Adddata  from './components/Schedule/Adddata'
+import Adddata  from './components/merchant/Adddata'
 import Home from "./components/layout/Home";
 import { Wrapper} from './components/style/Navbar'
 import GlobalFonts from './components/style/Navbar';
@@ -34,8 +34,9 @@ import grocery from './components/profile/grocery-stores'
 import Merchenat from './components/auth/MercentLogin';
 import Address from "./components/profiles/Address";
 import Checkout from "./components/checkout/Checkout";
-
-
+import Create from './components/merchant/Create'
+import Out from './components/merchant/Menu/Outofstock'
+import Full from './components/merchant/Menu/Fullcatalog'
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -96,9 +97,7 @@ class App extends Component {
       <Switch>
       <PrivateRoute exact path="/Home" component={Home} />
     </Switch>
-    <Switch>
-    <PrivateRoute exact path="/resturant/:id" component={User}/>
-  </Switch>
+  
   <Switch>
     <PrivateRoute exact path="/checkout" component={Checkout}/>
   </Switch>
@@ -118,6 +117,12 @@ class App extends Component {
         <PrivateRoute exact path="/profile" component={profile}/>
           <PrivateRoute exact path="/about" component={About} />
           <PrivateRoute exact path="/Address" component={Address} />
+        </Switch>
+        <Switch>
+     
+        <PrivateRoute exact path="/fullcatelog" component={Full}/>
+          <PrivateRoute exact path="/outofstock" component={Out} />
+         
         </Switch>
           </div>
         </Router>

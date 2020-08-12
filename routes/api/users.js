@@ -49,7 +49,29 @@ router.post("/register",  async (req, res) => {
             .then(user => res.json(user))
             .catch(err => console.log(err));
         });
-      });      
+      });   
+      var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: 'vermapankaj3313@gmail.com',
+          pass:  'Pankaj619'
+                }
+      });
+      
+      var mailOptions = {
+        from: 'Eatwell ',
+        to: req.body.email,
+        subject: 'Welcome',
+        text: req.body.name  + "Welcome to" + "EatWell"    
+      };
+      
+      transporter.sendMail(mailOptions, function(error, info){
+        if (error) {
+          console.log(error);
+        } else {
+          console.log('Email sent: ' + info.response);
+        }
+      });   
     }
   });
 });
@@ -850,6 +872,24 @@ router.get(
     
   }
 );
+
+
+
+// merchant
+
+
+
+router.get(
+  '/catlog',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    
+    res.json(req.user.Scehedule)
+    
+  }
+);
+
+
 
 
 

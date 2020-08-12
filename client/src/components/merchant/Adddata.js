@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { connect } from "react-redux";
-
+import { Loginn} from '../style/profile'
 import { Loader } from '../style/profile'
 import Loading from '../style/comman/loading.gif'
 import {   getsch , createSchedule  } from '../../actions/profileActions';
@@ -88,55 +88,47 @@ import "@yaireo/tagify/dist/tagify.css" // Tagify CSS
         } else {  
            
                 return (
+                  <Loginn>
               <div>
                 <form  onSubmit={this.onSubmit}>
                 <div className="input-field col s12">
              
                 <Tags
-   
+          placeholder="Category"
                 
                  // dynamic props such as "loading", "showDropdown:'abc'", "value"
                 onChange={e => (this.setState({categories:e.target.value}))}
               />
-                <label htmlFor="name">categories</label>
-                <span className="red-text">
-                
-                </span>
+              
               </div>
               
               <div className="input-field col s12">
               <input
                 onChange={this.onChange}
                 value={this.state.Dish}
-              
+              placeholder="Dish"
                 id="Dish"
                 type="name"
               
               />
-              <label htmlFor="name">Dish</label>
-              <span className="red-text">
               
-              </span>
             </div>
             <div className="input-field col s12">
             <input
               onChange={this.onChange}
               value={this.state.Price}
-            
+            placeholder="Price"
               id="Price"
               type="name"
             
             />
-            <label htmlFor="name">Price</label>
-            <span className="red-text">
-            
-            </span>
+          
           </div>
      
           <div className="input-field col s12">
 
           <select value={this.state.Type} onChange={this.handleChange}>
-          <option>-------Choose One------</option>
+          <option>-------Type------</option>
           <option value="Veg">Veg</option>
           <option value="Non-Veg">Non-Veg</option>
       
@@ -173,7 +165,7 @@ import "@yaireo/tagify/dist/tagify.css" // Tagify CSS
 
    
 
-
+            </Loginn>
 
 
 

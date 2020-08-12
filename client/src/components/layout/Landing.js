@@ -2,26 +2,27 @@ import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
-import {   upload , getlist , getLoction } from '../../actions/profileActions';
+import {   upload , getlist , getLoction} from '../../actions/profileActions';
 
 import { Loader , Section , Section2 } from '../style/profile'
 import Loading from '../style/comman/loading.gif'
 
 
 
-class Landing extends Component {
-  componentDidMount() {
-      
-  
-  }
 
- async componentWillMount  () {
+class Landing extends Component {
+ 
+ async componentDidMount  () {
    
 
  await   this.props.getlist();
  await   this.props.getLoction();
 
  await   console.log(this.props.profile.locotion)
+
+ if(this.props.auth.user.role === "mer"){
+  this.props.history.push('/dashboard')
+ }
       
 }
 
@@ -325,6 +326,7 @@ class Landing extends Component {
 const mapStateToProps = state => ({
   auth: state.auth,
   profile: state.profile,
+  user:state.user,
 
 });
 

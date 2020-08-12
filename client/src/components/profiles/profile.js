@@ -30,7 +30,10 @@ import Sidebar from './Sidebar';
    
     this.setState({ active: id });
 };
-
+close = ()  =>{
+   
+  this.setState({ active: true });
+};
   logout = () => {
     this.props.logoutUser()
       }
@@ -127,7 +130,39 @@ import Sidebar from './Sidebar';
                   </div>
 
                   {this.state.active === repo._id && <Side>
-               {repo._id}
+               <div  className="active" >
+                 
+             
+            
+                <div className="order" >
+                <span onClick={this.close} >X</span>
+                <div className="listt" >
+               
+                 <h3>Order</h3>
+                <h3>#{repo.orderNumber}     </h3><br/>
+
+                <div className="loco" >
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                  <span></span>
+                </div>
+
+                <div className="loco" >
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                  <span></span>
+                </div>
+                
+                </div>
+
+
+
+
+
+                
+               
+                </div>
+               <div></div>
+                             
+               </div>
         
         </Side> }
 

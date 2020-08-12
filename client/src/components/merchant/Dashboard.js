@@ -5,7 +5,8 @@ import { logoutUser } from "../../actions/authActions";
 import { getCurrentProfile , getlist  } from '../../actions/profileActions';
 import { Link , Redirect} from 'react-router-dom';
 import { Loader } from '../style/profile'
-import Loading from '../style/comman/loading.gif'
+import Loading from '../style/comman/loading.gif';
+
 
 class Dashboard extends Component {
 

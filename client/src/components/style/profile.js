@@ -426,6 +426,28 @@ background-color:white;
           font-size:1rem;
           box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
       }
+      Tags {
+        background-color:#e9e9eb;
+        width:27rem;
+        margin-bottom:1rem;
+        padding:1rem;
+        border:none;
+        font-family:Nexa-Bold;
+        font-size:1rem;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+      }
+      select {
+        background-color:#e9e9eb;
+        width:29rem;
+        margin-bottom:1rem;
+        padding:1rem;
+        border:none;
+        font-family:Nexa-Bold;
+        font-size:1rem;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+      }
       .red-text {
           color:red;
           font-family:Nexa-Bold;
@@ -651,13 +673,42 @@ export const Side = styled.div`
 position: fixed; /* Stay in place */
 z-index: 1; /* Sit on top */
 padding-top: 100px; /* Location of the box */
-right: 0;
+right: 0px;
 top: 0;
 width: 100%; /* Full width */
 height: 100%; /* Full height */
 overflow: auto; /* Enable scroll if needed */
 background-color: rgb(0,0,0); /* Fallback color */
 background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
 
-}`
+.active{
+    position: fixed; 
+    width: 40%;
+    height: 100%; 
+    background-color: white;
+    right: 0;
+    top: 0;
+   .order {
+       padding-left:3rem;
+       top: 0;
+       position: fixed; 
+       span {
+           padding-top:1.2rem;
+           font-size:1.2rem;
+           font-family: Nexa-Light;
+       }
+       .listt {
+           display:flex;
+           h3 {
+           padding-left:0.5rem;
+           font-family:Nexa-Bold;
+           }
+          
+       }
+       
+   }
+ 
+
+} 
+
+`

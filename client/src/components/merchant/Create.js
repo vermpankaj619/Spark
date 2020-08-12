@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {  Redirect} from 'react-router-dom';
 import { createProfile} from '../../actions/profileActions'
-
+import { Loginn} from '../style/profile'
 
 
 class CreateProfile extends Component {
@@ -79,6 +79,7 @@ state = {
 
    if(user.role === "mer"){
      return (
+      <Loginn>
       <form noValidate onSubmit={this.onSubmit}>
       <div className="input-field col s12">
 
@@ -102,21 +103,19 @@ state = {
     <input
       onChange={this.onChange}
       value={this.state.HotelName}
-   
+     placeholder="HotelName"
       id="HotelName"
       type="HotelName"
       
     />
-    <label htmlFor="Place">HotelName</label>
-    <span className="red-text">
-      </span>
+   
       </div>
 
       <div className="input-field col s12">
       <div className="input-field col s12">
 
       <select value={this.state.Hotel} onChange={this.onType}>
-      <option>-------Choose One------</option>
+      <option>-------Hotel------</option>
       <option value="Shop">Shop</option>
       <option value="Resturant">Resturant</option>
     
@@ -125,38 +124,29 @@ state = {
     
 
     </div>
-        <label htmlFor=" Hotel"> Hotel</label>
-        <span className="red-text">
-          
-        </span>
+        
       </div>
       <div className="input-field col s12">
       <input
         onChange={this.onChange}
         value={this.state.Place}
-     
+        placeholder="Place"
         id="Place"
         type="Place"
         
       />
-      <label htmlFor="Place">Place</label>
-      <span className="red-text">
-        
-      </span>
+      
     </div>
     <div className="input-field col s12">
     <input
       onChange={this.onChange}
       value={this.state.address}
-  
+     placeholder="Address"
       id="address"
       type="address"
       
     />
-    <label htmlFor="address">address</label>
-    <span className="red-text">
-      
-    </span>
+  
   </div>
   <input type="file" onChange={this.onUpload}/>
  
@@ -175,6 +165,7 @@ state = {
         </button>
       </div>
     </form>
+    </Loginn>
         )
 
    }
