@@ -30,6 +30,8 @@ const UserSchema = new Schema({
    locotion: {
 
    },
+
+  
     
       category: {
         type: String,
@@ -50,6 +52,10 @@ const UserSchema = new Schema({
   ,
   image: {
     type:String
+  },
+  online : {
+   type: Boolean,
+        default: false
   }
     
  
@@ -93,6 +99,10 @@ const UserSchema = new Schema({
         Type: {
           type: String,
           required: true
+        },
+        stock: {
+          type:String,
+          
         }
         , 
         booked: [

@@ -211,7 +211,8 @@ router.post("/login", (req, res) => {
           name: user.name,
           phone: user.phone,
           role:user.role,
-          email:user.email
+          email:user.email,
+          status:user.online
         };
 
         // Sign token
@@ -418,7 +419,7 @@ router.post('/AddSchedule', passport.authenticate('jwt', { session: false })   ,
 
 
   categories:JSON.parse(categories),
-  image , Dish , Price , Type 
+  image , Dish , Price , Type , stock:"on"
   
  };
  
@@ -890,7 +891,121 @@ router.get(
 );
 
 
+router.post('/editPrice',passport.authenticate('jwt', { session: false }),(req, res) => {
+    
+   const { id, price } = req.body;
+
+   console.log(req.body)
 
 
+   User.findOneAndUpdate({  _id: req.user.id  , "Scehedule._id" : id},{  "Scehedule.$.Price" : price  },  { new: true, upsert: true },function(err, result) {
+    if (err) {
+       console.log(err)
+        
+    } 
+  
+    
+
+  
+  console.log('upadted')
+  res.json(result.Scehedule)
+  });
+   
+    
+  }
+);
+
+router.post('/stock',passport.authenticate('jwt', { session: false }),(req, res) => {
+    
+  const { on , id } = req.body;
+
+  console.log(req.body)
+
+
+  User.findOneAndUpdate({  _id: req.user.id  , "Scehedule._id" : id},{  "Scehedule.$.stock" : on  },  { new: true, upsert: true },function(err, result) {
+   if (err) {
+      console.log(err)
+       
+   } 
+ 
+   
+
+ 
+ console.log('upadted')
+ res.json(result.Scehedule)
+ });
+  
+   
+ }
+);
+
+router.post('/backstock',passport.authenticate('jwt', { session: false }),(req, res) => {
+    
+  const { on , id } = req.body;
+
+  console.log(req.body)
+
+
+  User.findOneAndUpdate({  _id: req.user.id  , "Scehedule._id" : id},{  "Scehedule.$.stock" : on  },  { new: true, upsert: true },function(err, result) {
+   if (err) {
+      console.log(err)
+       
+   } 
+ 
+   
+
+ 
+ console.log('upadted')
+ res.json(result.Scehedule)
+ });
+  
+   
+ }
+);
+
+
+
+
+router.get(
+  '/getonline',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    
+    res.json(req.user.online)
+    
+  }
+);
+
+
+router.post('/setonline', passport.authenticate('jwt', { session: false }), (req, res) =>{
+
+ 
+
+  console.log(req.body)
+
+
+
+
+
+let user =  User.findOneAndUpdate({  _id: req.user.id },{     online:!req.user.online  },  { new: true, upsert: true },function(err, result) {
+  if (err) {
+     console.log(err)
+      
+  } 
+
+  
+res.json(result.online)
+
+console.log(result.online)
+
+
+
+
+
+
+});
+
+});
 
 module.exports = router;
+

@@ -12,7 +12,7 @@ import {
   } from './types';
 
 
-export const addcart = (profileData) => (dispatch) => {
+export const addcart = (profileData ) => (dispatch) => {
 
   axios
   .post('/api/users/Addcart', profileData)

@@ -1,8 +1,10 @@
-import {  GET_CAT , STOCK } from "../actions/types";
+import {  GET_CAT , STOCK  , ONLINE} from "../actions/types";
+import { Online } from "../components/merchant/Menu/style/style";
   
     const initialState = {
    catlog:null,
-   outofStock:null
+   outofStock:null,
+   online:null
     };
   
   export default function(state = initialState, action) {
@@ -19,6 +21,12 @@ import {  GET_CAT , STOCK } from "../actions/types";
           loading: true,
           outofStock: action.payload
         };
+        case ONLINE:
+          return {
+            ...state,
+            loading: true,
+            online: action.payload
+          };
      
       default:
         return state;

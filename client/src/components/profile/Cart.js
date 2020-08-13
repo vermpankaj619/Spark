@@ -20,7 +20,7 @@ else {
 
 
 
-    if(cart === '')
+    if(cart.length === 0)
     return (
         <div>
         <h3>Your Cart</h3>

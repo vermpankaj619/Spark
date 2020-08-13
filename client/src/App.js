@@ -6,7 +6,7 @@ import setAuthToken from "./utils/setAuthToken";
 import { setCurrentUser, logoutUser } from "./actions/authActions";
 import { Provider } from "react-redux";
 import store from "./store";
-
+import proofile from './components/merchant/profile/profile'
 import Navbar from "./components/layout/Navbar";
 import Landing from "./components/layout/Landing";
 import Register from "./components/auth/Register";
@@ -19,8 +19,8 @@ import Det from './components/detilal/Det';
 import "./App.css";
 import Adddata  from './components/merchant/Adddata'
 import Home from "./components/layout/Home";
-import { Wrapper} from './components/style/Navbar'
-import GlobalFonts from './components/style/Navbar';
+import { Wrapper} from './components/style/theme'
+import GlobalFonts from './components/style/theme';
 
 import Search from './components/profile/Search'
 import profile from "./components/profiles/profile";
@@ -37,7 +37,7 @@ import Checkout from "./components/checkout/Checkout";
 import Create from './components/merchant/Create'
 import Out from './components/merchant/Menu/Outofstock'
 import Full from './components/merchant/Menu/Fullcatalog'
-
+import orders from './components/merchant/orders/orders'
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
   // Set auth token header auth
@@ -122,7 +122,8 @@ class App extends Component {
      
         <PrivateRoute exact path="/fullcatelog" component={Full}/>
           <PrivateRoute exact path="/outofstock" component={Out} />
-         
+          <PrivateRoute exact path="/merprofile" component={proofile} />
+          <PrivateRoute exact path="/orders" component={orders} />
         </Switch>
           </div>
         </Router>

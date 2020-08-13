@@ -79,14 +79,15 @@ export const Navv = styled.nav`
 background-color:white;
   display:flex;
  
-
-  background:${navbar};
+  background-color:white;
+ 
   border-bottom: 1px solid ${bottom};
  
 
    .head {
     display:flex;
     justify-content:space-evenly;
+    background-color:white;
     {
         ul  {
        
@@ -137,7 +138,7 @@ background-color:white;
        ul  {
 
         .navbar__link {
-           
+          background-color:white;
             font-size: 1.2em;
             font-family: 'Roboto', sans-serif;
             cursor: pointer;
@@ -209,8 +210,11 @@ display: flex;
 justify-content: start;
 align-items: center;
 border-radius: 4px;
-background-color: #eceff1;
+background-color: ${navbar};
 padding-left:16rem;
+img {
+  padding-right:3rem;
+}
 h1 {
     font-family: 'Roboto', sans-serif;
     padding-right:4rem;

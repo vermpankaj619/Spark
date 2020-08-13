@@ -5,16 +5,42 @@ import { logoutUser } from "../../actions/authActions";
 import { connect } from "react-redux";
 import {  getcart } from '../../actions/CartActions';
 import { NavLink } from 'react-router-dom';
+import {getonline, setonline} from '../../actions/merActions'
+
+import  { Online } from '../style/theme'
 class Navbar extends Component {
-  async componentWillMount  () {
+  async componentDidMount  () {
    
 
     await   this.props.getcart();
+    await this.props.getonline();
  
    
  
          
    }
+    
+   state = {
+     online:""
+   }
+
+
+     online = () => {
+      this.setState({online: !this.props.auth.user.status})
+      
+    const profile = {
+          
+ online:this.state.online
+   
+    
+
+    }
+           
+    this.props.setonline(profile)
+  
+
+     }
+
   logout = () => {
     this.props.logoutUser()
   }
@@ -22,11 +48,13 @@ class Navbar extends Component {
     const { user , isAuthenticated} = this.props.auth;
 
     const { cart } = this.props.cart;
+    
+    const {online} = this.props.mer;
 
      if(user.role === "cos")
 
      {
-      if(isAuthenticated === true && cart !== null ) 
+      if(isAuthenticated === true && cart !== null   ) 
       {
       
       return (
@@ -122,7 +150,7 @@ class Navbar extends Component {
             exact
             activeClassName="navbar__link--active"
             className="navbar__link"
-            to="/fgggx"
+            to="/orders"
           >
           <i className="fa fa-th-list" aria-hidden="true"></i>
           ORDERS
@@ -130,7 +158,7 @@ class Navbar extends Component {
           <NavLink
             activeClassName="navbar__link--active"
             className="navbar__link"
-            to="/ffxg"
+            to="/report"
           >
           <i className="fa fa-bar-chart" aria-hidden="true"></i>
           REPORT
@@ -138,7 +166,7 @@ class Navbar extends Component {
           <NavLink
           activeClassName="navbar__link--active"
           className="navbar__link"
-          to="/outofstock"
+          to="/fullcatelog"
         >
         <i className="fa fa-bars" aria-hidden="true"></i>
         MENU
@@ -146,7 +174,7 @@ class Navbar extends Component {
         <NavLink
         activeClassName="navbar__link--active"
         className="navbar__link"
-        to="/f"
+        to="/merprofile"
       >
       <i class="fa fa-user" aria-hidden="true"></i>
       PROFILE
@@ -166,10 +194,35 @@ class Navbar extends Component {
                <div  className='head2'>
               
                <ul>
+             <Online >
+             {(() => {
+              if (online=== true) {
+                return (
+                  <div>Online</div>
+                )
+              } else if (online=== false) {
+                return (
+              <div> Offline</div>   
+                )
+              } else {
+                return (
+                  <div>Offline</div>
+                )
+              }
+            })()}
+             <label class="switch"><input type="checkbox" id="togBtn"/>
+             <div  onClick={this.online}  class="slider round">
+           
+                 
+            
+       </div>
+             </label>
+             </Online>
               
              <li><span className="help" >{user.name}</span></li>
            
-
+               
+  
         
           
         
@@ -238,8 +291,9 @@ class Navbar extends Component {
 const mapStateToProps = state => ({
   auth: state.auth,
   profile: state.profile,
-  cart:state.cart
+  cart:state.cart,
+  mer:state.mer
 
 });
 
-export default connect(mapStateToProps,{logoutUser , getcart})(Navbar);
+export default connect(mapStateToProps,{setonline,logoutUser, getonline, getcart})(Navbar);

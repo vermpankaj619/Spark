@@ -23,4 +23,5 @@ export const ORDERS = 'ORDERS'
 
 // MERCHANT
 export const GET_CAT = 'GET_CAT'
-export const STOCK = 'STOCK'
+export const STOCK = 'STOCK';
+export const ONLINE = 'ONLINE'
