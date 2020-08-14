@@ -1026,6 +1026,159 @@ router.get(
 );
 
 
+router.post('/accept', passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    
+  const array1 = req.body 
+
+    array1.forEach(function(item){
+      console.log(item._id)
+      console.log(item.orderNumber)
+
+       
+      let user =  User.findOneAndUpdate({  _id: req.user.id ,"booked._id" : item._id },{  "booked.$.status" : "preper"    },  { new: true, upsert: true },function(err, result) {
+        if (err) {
+           console.log(err)
+            
+        } 
+      
+        
+   
+      
+        let user =  User.findOneAndUpdate({  _id: item.cosid ,"applo._id" : item._id },{  "applo.$.status" : "preper"    },  { new: true, upsert: true },function(err, result) {
+          if (err) {
+             console.log(err)
+              
+          } 
+        
+          
+     
+        
+        console.log(result.online)
+        
+        
+        
+        
+        
+        
+        });
+      
+      
+      
+      
+      
+      
+      });
+
+
+
+    })    
+    
+  }
+);
+
+
+router.post('/accept', passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    
+  const array1 = req.body 
+
+    array1.forEach(function(item){
+      console.log(item._id)
+      console.log(item.orderNumber)
+
+       
+      let user =  User.findOneAndUpdate({  _id: req.user.id ,"booked._id" : item._id },{  "booked.$.status" : "Cancel"    },  { new: true, upsert: true },function(err, result) {
+        if (err) {
+           console.log(err)
+            
+        } 
+      
+        
+   
+      
+        let user =  User.findOneAndUpdate({  _id: item.cosid ,"applo._id" : item._id },{  "applo.$.status" : "Cancel"    },  { new: true, upsert: true },function(err, result) {
+          if (err) {
+             console.log(err)
+              
+          } 
+        
+          
+     
+        
+        console.log(result.online)
+        
+        
+        
+        
+        
+        
+        });
+      
+      
+      
+      
+      
+      
+      });
+
+
+
+    })    
+    
+  }
+);
+
+router.post('/prepare', passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    
+  const array1 = req.body 
+
+    array1.forEach(function(item){
+      console.log(item._id)
+      console.log(item.orderNumber)
+
+       
+      let user =  User.findOneAndUpdate({  _id: req.user.id ,"booked._id" : item._id },{  "booked.$.status" : "Ready"    },  { new: true, upsert: true },function(err, result) {
+        if (err) {
+           console.log(err)
+            
+        } 
+      
+        
+   
+      
+        let user =  User.findOneAndUpdate({  _id: item.cosid ,"applo._id" : item._id },{  "applo.$.status" : "Ready"    },  { new: true, upsert: true },function(err, result) {
+          if (err) {
+             console.log(err)
+              
+          } 
+        
+          
+     
+        
+        console.log(result.online)
+        
+        
+        
+        
+        
+        
+        });
+      
+      
+      
+      
+      
+      
+      });
+
+
+
+    })    
+    
+  }
+);
 
 module.exports = router;
 

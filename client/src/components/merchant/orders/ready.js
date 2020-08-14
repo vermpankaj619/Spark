@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import  Orderbar from './orderbar'
 import {New} from './style/style'
-import {getorders , filteritem , accept } from '../../../actions/merActions';
+import {getorders , filteritem , prepare } from '../../../actions/merActions';
 import { connect } from "react-redux";
 import { Loader } from '../../style/profile'
 import Loading from '../../style/comman/loading.gif'
-import { ORDERS } from '../../../actions/types';
-class orders extends Component {
+
+class  ready extends Component {
 
     state = {
         order:''
@@ -23,7 +23,7 @@ class orders extends Component {
     }
     Senddata = (acc) => {
        
-      this.props.accept(acc, this.props.history)
+      this.props.prepare(acc, this.props.history)
     
 
     }
@@ -52,28 +52,27 @@ class orders extends Component {
          
          
          <div className="left">
+    
          
-
-         <input placeholder="Search order" ></input>
          
          {orders.map((repo) => {
 
-          if(repo.status ==="active")
+          if(repo.status ==="Ready")
                 {
           return (
-             <div className="repo" >
+             
               <li  onClick={ () => this.send(repo.orderNumber, orders)} key ={repo._id}>
               
-            
-        OrderID:  <span>{repo.orderNumber}</span>    
+              <div class="data1">
+          <h2>{repo.orderNumber}</h2>    
             
           
-              
+              </div>
                  
 
             
               </li>
-            </div>
+            
               
           )
       }
@@ -96,15 +95,19 @@ class orders extends Component {
             return (
               <div className="right">
               <div className="bar">
+         
               <i className="fa fa-check-circle"   id="two"  aria-hidden="true">--------------------------------</i>
+             
+            
+               
               <i className="fa fa-check-circle"  aria-hidden="true">--------------------------------</i>
- 
+        
+               
               <i className="fa fa-check-circle"   aria-hidden="true"></i>
                 </div>
   
-                <button onClick={() =>  this.Senddata(data)} >Accept</button>
-                <button onClick={() =>  this.Senddata(data)} >Cancel</button>
-  
+                <button onClick={() =>  this.Senddata(data)} >Send</button>
+               
            {data.map((repo) => {
                   
             return (
@@ -160,4 +163,4 @@ const mapStateToProps = state => ({
     mer:state.mer
   });
 
-export default connect(mapStateToProps,{getorders ,accept, filteritem })(orders)
+export default connect(mapStateToProps,{getorders ,prepare, filteritem })(ready)

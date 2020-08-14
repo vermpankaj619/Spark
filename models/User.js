@@ -124,8 +124,6 @@ const UserSchema = new Schema({
     booked: [
 
       {
-
-    
         cosid:{
           type:String
         },
@@ -170,10 +168,6 @@ default: Date.now
     HotelPlace:{
       type:String
     },
-
-
-    
-
     }
 
     ],

@@ -165,3 +165,39 @@ dispatch({
 })
 
 };
+
+export const  accept= (data  , history) => (dispatch) => {
+
+  axios
+  .post('/api/users/accept', data)
+   .then(
+    res =>
+   
+  history.push('/preper')
+     
+
+    )
+   
+    .catch(err =>
+     console.log(err)
+    ); 
+  
+  };
+
+  export const  prepare= (data  , history) => (dispatch) => {
+
+    axios
+    .post('/api/users/prepare', data)
+     .then(
+      res =>
+     
+  console.log('sd')
+       
+  
+      )
+     
+      .catch(err =>
+       console.log(err)
+      ); 
+    
+    };

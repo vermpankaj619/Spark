@@ -37,7 +37,9 @@ import Checkout from "./components/checkout/Checkout";
 import Create from './components/merchant/Create'
 import Out from './components/merchant/Menu/Outofstock'
 import Full from './components/merchant/Menu/Fullcatalog'
-import orders from './components/merchant/orders/orders'
+import orders from './components/merchant/orders/orders';
+import perper from './components/merchant/orders/perper';
+import ready from './components/merchant/orders/ready'
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
   // Set auth token header auth
@@ -124,6 +126,8 @@ class App extends Component {
           <PrivateRoute exact path="/outofstock" component={Out} />
           <PrivateRoute exact path="/merprofile" component={proofile} />
           <PrivateRoute exact path="/orders" component={orders} />
+          <PrivateRoute exact path="/prepar" component={perper} />
+          <PrivateRoute exact path="/ready" component={ready} />
         </Switch>
           </div>
         </Router>
