@@ -195,24 +195,24 @@ class Navbar extends Component {
               
                <ul>
              <Online >
+            
+             <label class="switch"><input  type="checkbox" id="togBtn"/>
+             <div  onClick={this.online}  class="slider round">
              {(() => {
               if (online=== true) {
                 return (
-                  <div>Online</div>
+                  <div class="one">Online</div>
                 )
               } else if (online=== false) {
                 return (
-              <div> Offline</div>   
+                  <div class="one">Offline</div>
                 )
               } else {
                 return (
-                  <div>Offline</div>
+                  <div class="one">Offline</div>
                 )
               }
             })()}
-             <label class="switch"><input type="checkbox" id="togBtn"/>
-             <div  onClick={this.online}  class="slider round">
-           
                  
             
        </div>

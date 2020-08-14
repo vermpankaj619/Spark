@@ -20,7 +20,12 @@ class Rest extends Component {
         merid:"",
         image:'',
         HotelName:'',
-        place:''
+        place:'',
+        userid:'',
+        username:'',
+        useremail:'',
+        userphone:'',
+        
 
 
     };
@@ -36,8 +41,8 @@ class Rest extends Component {
  
  
  
-    send = async  (repo , dish, price , email, phone , merid , image, HotelName , place) => {
-        await this.setState({id:repo, name:dish, price:price , merEmail:email, merPhone:phone, merid:merid  , image:image, HotelName:HotelName ,place:place})
+    send = async  (repo , dish, price , email, phone , merid , image, HotelName , place , userid , username, useremail, userphone) => {
+        await this.setState({id:repo, name:dish, price:price , merEmail:email, merPhone:phone, merid:merid  , image:image, HotelName:HotelName ,place:place ,userid,username:username, useremail:useremail, userphone:userphone})
 
         const data = {
             id:this.state.id,
@@ -50,7 +55,12 @@ class Rest extends Component {
             merid:this.state.merid,
             image:this.state.image,
             HotelName:this.state.HotelName,
-            place:this.state.place
+            place:this.state.place,
+            userid:this.state.userid,
+            username:this.state.username,
+            useremail:this.state.useremail,
+            userphone:this.state.userphone,
+            
         }
 
        await this.props.addcart(data ,repo._id)
@@ -78,7 +88,7 @@ await     cart.forEach(function (arrayItem) {
     }
 
     render() {
-
+         const { user} = this.props.auth;
         const { Schedule ,locotion } = this.props.profile;
         const { cart } = this.props.cart;
 
@@ -246,7 +256,7 @@ else {
                     
                         </ul>
                         </div>
-                         <button onClick={() =>this.send(repo._id, repo.Dish, repo.Price ,Schedule[0].email , Schedule[0].phone , Schedule[0]._id , repo.image, Schedule[0].HotelName, Schedule[0].Place)} >+ Add </button>
+                         <button onClick={() =>this.send(repo._id, repo.Dish, repo.Price ,Schedule[0].email , Schedule[0].phone , Schedule[0]._id , repo.image, Schedule[0].HotelName, Schedule[0].Place , user.id, user.name, user.email, user.phone)} >+ Add </button>
                         </li>
                       )
                     } else {

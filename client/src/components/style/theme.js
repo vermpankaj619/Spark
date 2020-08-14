@@ -85,6 +85,15 @@ export const Online = styled.div`
   transition: .4s;
 }
 
+.one {
+
+  font-family:Nexa-bold;
+  padding-left:3.5rem;
+  padding-top:0.5rem;
+  color:white;
+
+}
+
 .slider:before {
   position: absolute;
   content: "";

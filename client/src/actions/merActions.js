@@ -3,7 +3,7 @@ import axios from "axios";
 
 import {
 
-    GET_CAT , STOCK , ONLINE
+    GET_CAT , DATA , ONLINE , ORDERS
     
   } from './types';
 
@@ -127,5 +127,41 @@ export const setonline= (profileData ) => (dispatch) => {
     .catch(err =>
      console.log(err)
     ); 
+
+};
+
+export const getorders= () => (dispatch) => {
+
+  axios
+  .get('/api/users/merorder')
+   .then(
+    res =>
+    dispatch({
+      type: ORDERS,
+      payload: res.data
+    })
+
+    
+
+    )
+   
+    .catch(err =>
+     console.log(err)
+    ); 
+
+};
+
+export const  filteritem = (data , order) => (dispatch) => {
+
+console.log(data)
+
+
+const car = data.filter(element => element.orderNumber === order);
+console.log(car)
+
+dispatch({
+  type: DATA,
+  payload: car
+})
 
 };

@@ -124,6 +124,12 @@ const UserSchema = new Schema({
     booked: [
 
       {
+
+    
+        cosid:{
+          type:String
+        },
+
         CosName: {
         type:String
       },
@@ -233,6 +239,9 @@ default: Date.now
 ,
 Cart:[
    {
+    cosid:{
+      type:String
+    },
     id:{
       type:String
     }

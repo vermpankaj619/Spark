@@ -10,34 +10,34 @@ const Orderbar = () => (
       exact
       activeClassName="navbar__link--active"
       className="navbar__link"
-      to="/fullcatelog"
+      to="/orders"
     >
-    <i class="fa fa-list-ul" aria-hidden="true"></i>
+    <i class="fa fa-list-alt" aria-hidden="true"></i>
       NEW
     </NavLink>
     <NavLink
       activeClassName="navbar__link--active"
       className="navbar__link"
-      to="/outofstock"
+      to="/prepar"
     >
-    <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+    <i class="fa fa-clock-o" aria-hidden="true"></i>
      PREPARING
     </NavLink>
     <NavLink
     activeClassName="navbar__link--active"
     className="navbar__link"
-    to="/outofstock"
+    to="/raedy"
   >
-  <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+  <i class="fa fa-truck" aria-hidden="true"></i>
   READY
   </NavLink>
   <NavLink
   activeClassName="navbar__link--active"
   className="navbar__link"
-  to="/outofstock"
+  to="/today"
 >
-<i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
-TODAY ORDERS
+<i class="fa fa-refresh" aria-hidden="true"></i>
+TODAY'S ORDERS
 </NavLink>
   
   </Bar>

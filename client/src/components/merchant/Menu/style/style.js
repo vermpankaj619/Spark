@@ -55,6 +55,7 @@ border-top:1px solid ${bottom};
   background:${navbar};
   border-top:none;
   margin-bottom:2rem;
+  height: 100vh;
  
   .other {
     border-bottom:1px solid ${bottom};

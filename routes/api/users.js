@@ -595,7 +595,8 @@ router.post('/store', function(req, res) {
       merid:req.body.merid,
       image:req.body.image,
       HotelName:req.body.HotelName,
-      HotelPlace:req.body.place
+      HotelPlace:req.body.place,
+      cosid:req.body.userid
   
     }
    
@@ -717,6 +718,9 @@ res.json(result.address)
 })
 
 
+           
+
+
 
 
 router.post('/placeorder', passport.authenticate('jwt', { session: false }), (req, res) =>{
@@ -744,6 +748,7 @@ const {  item,price ,id ,   name,   merEmail , merPhone ,  add,  payment,   emai
     console.log(item._id)
   console.log('upadted')
   console.log(result.Cart);
+ 
 
     const profileFields = {
       _id:item._id,
@@ -758,7 +763,8 @@ const {  item,price ,id ,   name,   merEmail , merPhone ,  add,  payment,   emai
       orderNumber:uniqueNumber,
       image:item.image,
       HotelName:item.HotelName,
-      HotelPlace:item.HotelPlace
+      HotelPlace:item.HotelPlace,
+      cosid:item.cosid
   
    
       
@@ -1006,6 +1012,20 @@ console.log(result.online)
 });
 
 });
+
+router.get(
+  '/merorder',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    
+    res.json(req.user.
+      booked
+      )
+    
+  }
+);
+
+
 
 module.exports = router;
 
